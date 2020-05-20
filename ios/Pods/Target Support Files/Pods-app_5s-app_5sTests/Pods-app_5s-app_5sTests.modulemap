@@ -1,0 +1,6 @@
+module Pods_app_5s_app_5sTests {
+  umbrella header "Pods-app_5s-app_5sTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
