@@ -38,6 +38,7 @@ const App: () => React$Node = () => {
               <Text style={styles.footer}>Engine: Hermes</Text>
               <Text> Marina Naomi</Text>
               <Text> Thiago Doria</Text>
+              <Text> Igor Rosmaninho</Text>
             </View>
           )}
           <View style={styles.body}>
