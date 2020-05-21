@@ -41,6 +41,7 @@ const App: () => React$Node = () => {
               <Text> Igor Rosmaninho</Text>
               <Text> Murilo Marchioni</Text>
               <Text> teste</Text>
+              <Text> teste igor</Text>
             </View>
           )}
           <View style={styles.body}>
