@@ -37,6 +37,7 @@ const App: () => React$Node = () => {
             <View style={styles.engine}>
               <Text style={styles.footer}>Engine: Hermes</Text>
               <Text> Marina Naomi</Text>
+              <Text> Thiago Doria</Text>
             </View>
           )}
           <View style={styles.body}>
