@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/taqtile/Desktop/FAU/5s_mercedes/app_5s/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-in/values-in.xml",
+            "outputFile": "/Users/taqtile/Desktop/FAU/5s_mercedes/mercedes_5s/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-in/values-in.xml",
             "map": [
                 {
                     "source": "/Users/taqtile/.gradle/caches/transforms-2/files-2.1/2b7e6ebaa515cd43f42fb356f0d1941c/appcompat-1.1.0/res/values-in/values-in.xml",
