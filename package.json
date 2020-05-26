@@ -10,9 +10,12 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "4.17.1",
+    "mysql2": "2.1.0",
     "react": "16.11.0",
-    "react-native": "0.62.2"
+    "react-native": "0.62.2",
+    "react-native-navigation": "6.6.2",
+    "sequelize": "5.21.11"
   },
   "devDependencies": {
     "@babel/core": "7.9.6",
