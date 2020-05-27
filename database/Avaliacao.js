@@ -1,14 +1,25 @@
 const Sequelize = require("sequelize");
 const connection = require("./database");
 
-/*Criação da Tabela Avaliação, com nota (inteiro) e descrição(text)*/
+/*Criação da Tabela Avaliação, com Form_id(text), Cost_center_id(text), Question_id_answer(array(int), Answer_average(array(float))*/
 const Avaliacao = connection.define('avaliacoe',{
-    nota:{
-        type: Sequelize.INTEGER,
-        allowfull: false
-    },
-    descrição:{
+    Form_id:{
         type: Sequelize.TEXT,
+        allowfull: false
+    }
+
+    Cost_center_id:{
+        type: Sequelize.TEXT,
+        allowfull: false
+    }
+
+    Question_id_answer:{
+        type: Sequelize.ARRAY,
+        allowfull: false
+    }
+    
+    Answer_average:{
+        type: Sequelize.ARRAY,
         allowfull: false
     }
 });
