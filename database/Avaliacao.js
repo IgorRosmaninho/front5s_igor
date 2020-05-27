@@ -5,22 +5,22 @@ const connection = require("./database");
 const Avaliacao = connection.define('avaliacoe',{
     Form_id:{
         type: Sequelize.TEXT,
-        allowfull: false
+        allownull: false
     }
 
     Cost_center_id:{
         type: Sequelize.TEXT,
-        allowfull: false
+        allownull: false
     }
 
     Question_id_answer:{
         type: Sequelize.ARRAY,
-        allowfull: false
+        allownull: false
     }
     
     Answer_average:{
         type: Sequelize.ARRAY,
-        allowfull: false
+        allownull: false
     }
 });
 /*Sincroniza com banco de dados e cria só se não houver uma tabela avaliaçoe*/
