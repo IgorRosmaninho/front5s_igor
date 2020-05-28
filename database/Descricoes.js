@@ -185,7 +185,7 @@ const Descricoes = connection.define('avaliacoe',{
     },
 });
 /*Sincroniza com banco de dados e cria só se não houver uma tabela avaliaçoe*/
-Descricao.sync({force: false}).then(() => {
+Descricoes.sync({force: false}).then(() => {
     console.log("Tabela Descricao Criada")
 });
 
