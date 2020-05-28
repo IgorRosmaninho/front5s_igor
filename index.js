@@ -60,14 +60,26 @@ app.get("/login", (req, res) => {
     Login.findOne({
         where: {User_email: email}
     }).then(logins => {
-        if(password == logins.User_password){
-            true;
+        if (logins != undefined){
+            if(password == logins.User_password){
+                true;
+            }else{
+                false; 
+            }
         }else{
-            false; 
+            res.json({ status: "Email não encontrado." });
         }
     })
 });
 
+<<<<<<< HEAD
+=======
+/*
+//Descricoes
+app.post("/descricoes", (req, res) => {        //Usando body-parser ou query?
+    var Descricao_id = req.body.Descricao_id
+    var Descricao = req.body.Descricao;
+>>>>>>> 5dd7733b87283857a97cc56520b9b98509340d91
 
 
 app.get("/avaliacao",(req,res) =>{  //app.post
@@ -202,14 +214,25 @@ app.get("/resultado",(req,res) => {
         ['id','DESC'] //DESC = decrescente || ASC = crescente
     ]}).then(avaliacao => {
 
+<<<<<<< HEAD
     res.json({             //Manda todas as notas da avaliação para o front, em ordem (mais recente primeiro).No front, iremos Usar fetch aqui?*/
         avaliacao: avaliacao
+=======
+    res.json({             /*Manda todas as notas da avaliação para o front,
+                            em ordem (mais recente primeiro).
+                            No front, iremos Usar fetch aqui?*/
+/*        avaliacao: avaliacao
+>>>>>>> 5dd7733b87283857a97cc56520b9b98509340d91
         });
     
     }); 
 });
+<<<<<<< HEAD
 
 
+=======
+*/
+>>>>>>> 5dd7733b87283857a97cc56520b9b98509340d91
 //Servidor
 app.listen(4000,function(erro){
     if(erro){
