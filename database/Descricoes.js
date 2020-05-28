@@ -1,44 +1,54 @@
 const Sequelize = require("sequelize");
 const connection = require("./database");
 
+
+Descricoes.sync({force: false}).then(() => {
+  console.log("Tabela Descricao Criada")
+});
+
+module.exports = Descricoes;
 /*Criação da Tabela Descricao, com Descricao_id(text), Descricao(array)*/
-const Descricoes = connection.define('descricoe',{
-    Descricao:{
-        "Seiri": [
+const Descricoes = connection.define('descricoes',{
+  descricao:{
+  type: Sequelize.JSON,
+  }
+});
+Descricoes.create({
+  "Seiri":[
             {
-                "Tipo": "4.1. Padronizações",
-                "1": "A grande maioria das identificações ou sinalizações não obedece aos padrões da empresa ou não estão uniformes, ou não foram consensados padrões dos 3 primeiros \"S\"",
-                "2": "Algumas identificações ou sinalizações não obedecem aos padrões da empresa ou não estão uniformes, ou não foram consensados padrões dos 3 primeiros \"S\"",
-                "3": "Uma ou outra identificação ou sinalização não obedece aos padrões da empresa ou não está uniforme, ou não foram consensados alguns padrões dos 3 primeiros \"S\"",
-                "4": "Uma ou outra identificação ou sinalização não obedece aos padrões da empresa ou não está uniforme. Um ou outro padrão dos 3 primeiros \"S\" ainda não foi consensado ",
-                "5": "Todas as identificações e sinalizações obedecem aos padrões da empresa ou estão uniformes. Foram consensados todos os padrões dos 3 primeiros \"S\". Pode existir uma ou outra irregularidade insignificante para as características do ambiente.",
-              },
-              {
-                "Tipo": "4.2. Higiene e Saúde",
-                "1": "Não foi feito nenhum estudo sobre problemas que afetam a saúde no ambiente de trabalho e/ou são encontrados alguns problemas de higiene no local de trabalho.",
-                "2": "Há um ou outro problema que afeta a saúde no ambiente de trabalho, mas não há nenhum estudo para solucioná-lo e/ou há um ou outro problema de higiene no local de trabalho.",
-                "3": "Há um ou outro problema que afeta a saúde no ambiente de trabalho e há estudo para solucioná-lo e/ou há um ou outro problema de higiene no local de trabalho.",
-                "4": "Há um ou outro problema que afeta a saúde no ambiente de trabalho e há ações concretas para solucioná-lo e/ou há um ou outro problema de higiene no local de trabalho.",
-                "5": "Não há nenhum problema que afeta a saúde ou de higiene no local de trabalho. Pode existir uma ou outra irregularidade insignificante para as características do ambiente.",
-              },
-              {
-                "Tipo": "4.3. Rotinas e Sistemática para manutenção do 5S",
-                "1": "Não há sistemática para a manutenção do 5S. A prática é aleatória.",
-                "2": "Há uma ou outra sistemática para a manutenção do 5S, mas não garante a melhoria contínua (faltam avaliações numéricas, planos de ação, divisão de responsabilidade, estabelecimento e divulgação de regras, reuniões, divulgação de resultados, participação com sugestões, etc.)",
-                "3": "Há uma sistemática para a melhoria contínua do 5S, mas há deficiência em alguns aspectos (faltam avaliações numéricas, planos de ação, divisão de responsabilidade, estabelecimento e divulgação de regras, reuniões, divulgação de resultados, participação com sugestões, etc.)",
-                "4": "Há uma sistemática para a melhoria contínua do 5S, mas há deficiência em um ou outro aspecto (faltam avaliações numéricas, planos de ação, divisão de responsabilidade, estabelecimento e divulgação de regras, reuniões, divulgação de resultados, participação com sugestões, etc.)",
-                "5": "Há uma sistemática eficiente para a melhoria contínua do 5S (avaliações numéricas, planos de ação, divisão de responsabilidade, estabelecimento e divulgação de regras, reuniões, divulgação de resultados, participação com sugestões, etc.). Pode existir uma ou outra irregularidade insignificante para as características do ambiente.",
-              },
-              {
-                "Tipo": "4.4. Estruturação dos arquivos e correios eletrônicos (quando houver)",
-                "1": "Não há uma estruturação definida para a utilização e guarda da maioria dos documentos e e-mails eletrônicos e não há uma freqüência definida e adequada para a limpeza de arquivos obsoletos.",
-                "2": "Não há uma estruturação definida para a utilização e guarda da maioria dos documentos e e-mails eletrônicos ou não há uma freqüência definida e adequada para a limpeza de arquivos obsoletos.",
-                "3": "Não há uma estruturação definida para a utilização e guarda de um ou outro documento ou e-mails eletrônicos. Não há uma freqüência definida e adequada para a limpeza de todos os tipos de arquivos obsoletos.",
-                "4": "Não há uma estruturação definida para a utilização e guarda de um ou outro documento ou e-mails eletrônicos. Há uma freqüência definida e adequada para a limpeza de todos os tipos de arquivos obsoletos.",
-                "5": "Há uma estruturação definida para a utilização e guarda de todos os documentos eletrônicos e e-mails. Há uma freqüência definida e adequada para a limpeza de todos os arquivos obsoletos. Pode existir uma ou outra irregularidade insignificante para as características do ambiente.",
-              }
-        ],
-        "Seiton": [
+              "Tipo": "1.1. Utilização dos recursos existentes nos locais abertos",
+               "1": "Em vários locais foram encontradas diversas anormalidades no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente, falta ou desperdício).",
+               "2": "Em vários locais foi encontrada uma ou outra anormalidade no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente, falta ou desperdício).",
+               "3": "Em um ou outro local foram encontradas diversas anormalidades no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente, falta ou desperdício).",
+               "4": "Em um ou outro local foi encontrado uma ou outra anormalidade no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente, falta ou desperdício).",
+               "5": "Todos os recursos existentes nos pisos, mesas e outros locais abertos são compartilhados e usados adequadamente (não há excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente, falta ou desperdício). Pode existir uma ou outra irregularidade insignificante para as características do ambiente.",
+            },
+            {
+               "Tipo": "1.2. Utilização dos recursos existentes nos locais fechados",
+               "1": "Em vários locais foram encontradas diversas anormalidades no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente ou falta).",
+               "2": "Em vários locais foi encontrada uma ou outra anormalidade no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente ou falta).",
+               "3": "Em um ou outro local foram encontradas diversas anormalidades no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente ou falta).",
+               "4": "Em um ou outro local foi encontrado uma ou outra anormalidade no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente ou falta).",
+               "5": "Todos os recursos existentes nos armários, arquivos, gavetas e outros compartimentos fechados são compartilhados e usados adequadamente (não há excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente ou falta). Pode existir uma ou outra irregularidade insignificante para as características do ambiente.",
+            },
+            {
+               "Tipo": "1.3. Estado de conservação de instalações e recursos",
+               "1": "Há problemas de conservação generalizados e um ou outro compromete a segurança ou a funcionalidade das instalações e recursos, levando-se em consideração as características do ambiente.",
+               "2": "Há problemas de conservação generalizados, mas nenhum compromete a segurança ou a funcionalidade das instalações e recursos, levando-se em consideração as características do ambiente.",
+               "3": "Há problemas de conservação em uma ou outra instalação ou recurso. Um ou outro compromete a segurança e/ou funcionalidade, levando-se em consideração as características do ambiente.",
+               "4": "Há problemas de conservação em uma ou outra instalação ou recurso, mas nenhum compromete a segurança e/ou funcionalidade, levando-se em consideração as características do ambiente.",
+               "5": "Todas as instalações e recursos estão em bom estado de conservação. Pode existir uma ou outra irregularidade insignificante para as características do ambiente.",
+            },
+            {
+               "Tipo": "1.4. Controle dos problemas de conservação",
+                "1": "Não há justificativa formal para a maioria dos problemas de conservação encontrados (quando há problemas generalizados).",
+                "2": "Não há justificativa formal para alguns problemas de conservação, inclusive para um ou outro que compromete a segurança e/ou a funcionalidade das instalações e recursos, levando-se em consideração as características do ambiente.",
+                "3": "Não há justificativa formal para alguns problemas de conservação, mas nenhum compromete a segurança e/ou a funcionalidade das instalações e recursos, levando-se em consideração as características do ambiente.",
+                "4": "Não há justificativa formal para um ou outro problema de conservação, mas nenhum compromete a segurança e/ou a funcionalidade das instalações e recursos, levando-se em consideração as características do ambiente.",
+                "5": "Há justificativa formal para todos os problemas de conservação e nenhum compromete a segurança e/ou a funcionalidade das instalações e recursos, levando-se em consideração as características do ambiente. Pode existir uma ou outra irregularidade insignificante para as características do ambiente.",
+            }
+          ],
+  "Seiton":[
             {
                 "Tipo": "2.1. Identificações e Sinalizações",
                 "1": "Em vários locais há deficiências de identificação e sinalização. Não há providências concretas para a correção da maioria.",
@@ -72,8 +82,8 @@ const Descricoes = connection.define('descricoe',{
                 "5": "A disposição de todos os recursos produtivos e de apoio está adequada, facilita a circulação e o acesso, evitando riscos, desgaste e desperdício de tempo. Pode existir uma ou outra irregularidade insignificante para as características do ambiente.",
               }
 
-        ],
-        "Seiso": [
+          ],
+  "Seiso":[
             {
                 "Tipo": "3.1. Nível de limpeza (sujeira provocada por falha das pessoas)",
                 "1": "Em vários locais há sujeira, inclusive provocadas pelas pessoas do próprio ambiente.",
@@ -107,7 +117,7 @@ const Descricoes = connection.define('descricoe',{
                 "5": "Todas as lixeiras, cinzeiros e outros coletores de recursos descartados são adequados (quantidade, localização, conservação, higiene, tipo e tamanho, freqüência de retirada, identificação, sinalização, prática da coleta seletiva, etc.). Pode existir uma ou outra irregularidade insignificante para as características do ambiente.",
               } 
         ],
-        "Seiketsu": [
+  "Seiketsu": [
             {
                 "Tipo": "4.1. Padronizações",
                 "1": "A grande maioria das identificações ou sinalizações não obedece aos padrões da empresa ou não estão uniformes, ou não foram consensados padrões dos 3 primeiros \"S\"",
@@ -141,7 +151,7 @@ const Descricoes = connection.define('descricoe',{
                 "5": "Há uma estruturação definida para a utilização e guarda de todos os documentos eletrônicos e e-mails. Há uma freqüência definida e adequada para a limpeza de todos os arquivos obsoletos. Pode existir uma ou outra irregularidade insignificante para as características do ambiente.",
               }
         ],
-        "Shitsuke":[
+  "Shitsuke":[
             {
                 "Tipo": "5.1. Autodisciplina na prática do 5S",
                 "1": "Menos da metade das pessoas praticam os 3S no dia-a-dia sem necessidade de monitoramento ou cobrança ou o 5S de algumas outras áreas é prejudicado com freqüência.",
@@ -175,13 +185,6 @@ const Descricoes = connection.define('descricoe',{
                 "5": "Todos os documentos e mensagens eletrônicas são utilizadas e estão guardadas de acordo com a estruturação definida. São feitas limpezas de arquivos obsoletos de acordo com a freqüência definida.",
               }
         ],
-        type: Sequelize.JSON,
-        allownull: false
-    },
-});
-/*Sincroniza com banco de dados e cria só se não houver uma tabela avaliaçoe*/
-Descricoes.sync({force: false}).then(() => {
-    console.log("Tabela Descricao Criada")
 });
 
 module.exports = Descricoes;
