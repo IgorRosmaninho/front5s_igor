@@ -53,6 +53,18 @@ app.post("/login", (req, res) => {        //Usando body-parser ou query?
     });                                           //.then para dar um redirect do back para o front
 }); 
 
+//Descricoes
+app.post("/descricoes", (req, res) => {        //Usando body-parser ou query?
+    var Descricao_id = req.body.Descricao_id
+    var Descricao = req.body.Descricao;
+
+    //Colocando os dados na tabela de login
+    Descricoes.create({             
+        Descricao: Descricao,
+        Descricao_id: Descricao_id
+    });                                           //.then para dar um redirect do back para o front
+}); 
+
 
 //Recebe dados do Front?? GENÉRICO Alterado para testar sem as respostas do front
 app.get("/salvaravaliacao",(req,res) =>{  //app.post
