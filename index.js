@@ -13,6 +13,7 @@ const app = express();
 const connection = require("./database/database");
 const bodyParser = require("body-parser");
 const Avaliacao = require("./database/Avaliacao");
+const Login = require("./database/Login")
 
 //Body Parser
 app.use(bodyParser.urlencoded({extended:false}));
@@ -28,20 +29,29 @@ connection.authenticate()
     })
     .done();
 
-//Servidor
-app.listen(4000,function(erro){
-    if(erro){
-        console.log("Ocorreu um erro!");
-    }else{
-        console.log("Servidor iniciado com sucesso!");
-    }
-})
-
 //Teste de resposta no Servidor
 app.get("/",function(req,res){
     res.send("Página Principal");
 });
 
+
+//Login5
+app.post("/login", (req, res) => {        //Usando body-parser ou query?
+    var User_name = req.body.User_name;    //Na requisição deve ser buscado o nome que consta no formulário
+    var User_password = req.body.User_password;
+    var User_email = req.body.User_email;
+    var User_profile_photo = req.body.User_profile_photo;
+    var User_role = req.body.User_role;
+
+    //Colocando os dados na tabela de login
+    Login.create({             
+        User_name: User_name,
+        User_password: User_password,
+        User_email: User_email,
+        User_profile_photo: User_profile_photo,
+        User_role: User_role
+    });                                           //.then para dar um redirect do back para o front
+}); 
 
 
 //Recebe dados do Front?? GENÉRICO Alterado para testar sem as respostas do front
@@ -73,3 +83,12 @@ app.get("/resultado",(req,res) => {
     
     }); 
 });
+
+//Servidor
+app.listen(4000,function(erro){
+    if(erro){
+        console.log("Ocorreu um erro!");
+    }else{
+        console.log("Servidor iniciado com sucesso!");
+    }
+})
