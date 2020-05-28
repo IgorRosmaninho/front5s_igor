@@ -13,6 +13,7 @@ const Descricoes = connection.define('descricoes',{
   type: Sequelize.JSON,
   }
 });
+
 Descricoes.create({
   "Seiri":[
             {

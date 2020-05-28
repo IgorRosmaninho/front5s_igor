@@ -68,17 +68,29 @@ app.get("/login", (req, res) => {
     })
 });
 
-//Descricoes
-app.post("/descricoes", (req, res) => {        //Usando body-parser ou query?
-    var Descricao_id = req.body.Descricao_id
-    var Descricao = req.body.Descricao;
 
-    //Colocando os dados na tabela de login
-    Descricoes.create({             
-        Descricao: Descricao,
-        Descricao_id: Descricao_id
-    });                                           //.then para dar um redirect do back para o front
-}); 
+
+app.get("/avaliacao",(req,res) =>{  //app.post
+    var Form_id = "Avaliador1"; //req.body.Form_id;
+    var Cost_center_id = "CC1"; //req.body.Cost_center_id;
+    var Question_id_answer_ = {
+        Question_id_answer_u: 1,
+        Question_id_answer_o: 3,
+        Question_id_answer_l: 4,
+        Question_id_answer_p: 2,
+        Question_id_answer_d: 5}; //req.body.Question_id_answer;
+
+    res.send("Nota recebida! Form_id:" + Form_id + " Centro de Custo: " + Cost_center_id + "notas: " + Question_id_answer);
+    //Envia a nota e descrição para o banco de dados
+    Avaliacao.create({
+        Form_id: Form_id,
+        Cost_center_id: Cost_center_id,
+        Question_id_answer: Question_id_answer_u,
+    });
+});
+
+
+
 
 
 //Recebe dados do Front?? GENÉRICO Alterado para testar sem as respostas do front
@@ -138,19 +150,14 @@ app.get("/avaliacao/padronizacao",(req,res) =>{  //app.post
     });
 });
 
+
 app.get("/avaliacao/disciplina",(req,res) =>{  //app.post
     var Form_id = "Avaliador"; //req.body.Form_id;
     var Cost_center_id = "CC1"; //req.body.Cost_center_id;
     var Question_id_answer_d = {disciplina: 5}; //req.body.Question_id_answer;
-
     res.send("Nota recebida! Form_id:" + Form_id + " Centro de Custo: " + Cost_center_id + "notas: " + Question_id_answer);
-    //Envia a nota e descrição para o banco de dados
-    Avaliacao.create({
-        Form_id: Form_id,
-        Cost_center_id: Cost_center_id,
-        Question_id_answer: Question_id_answer_d,
-    });
 });
+
 
 var Answer_average_u = 1;
 var Answer_average_o = 2;
@@ -181,6 +188,13 @@ var Answer_average = {
 
 console.log(Answer_average_5s+" "+ Answer_average_3s);
 
+Avaliacao.create({
+    Form_id: Form_id,
+    Cost_center_id: Cost_center_id,
+    Question_id_answer: Question_id_answer,
+    Answer_average: Answer_average
+});
+
 
 //Envia dados pro Front?? GENÉRICO
 app.get("/resultado",(req,res) => {
@@ -188,14 +202,13 @@ app.get("/resultado",(req,res) => {
         ['id','DESC'] //DESC = decrescente || ASC = crescente
     ]}).then(avaliacao => {
 
-    res.json({             /*Manda todas as notas da avaliação para o front,
-                            em ordem (mais recente primeiro).
-                            No front, iremos Usar fetch aqui?*/
+    res.json({             //Manda todas as notas da avaliação para o front, em ordem (mais recente primeiro).No front, iremos Usar fetch aqui?*/
         avaliacao: avaliacao
         });
     
     }); 
 });
+
 
 //Servidor
 app.listen(4000,function(erro){
