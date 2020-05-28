@@ -35,7 +35,7 @@ app.get("/",function(req,res){
 });
 
 
-//Login5
+//Login
 app.post("/login", (req, res) => {        //Usando body-parser ou query?
     var User_name = req.body.User_name;    //Na requisição deve ser buscado o nome que consta no formulário
     var User_password = req.body.User_password;
