@@ -13,8 +13,9 @@ const app = express();
 const connection = require("./database/database");
 const bodyParser = require("body-parser");
 const Avaliacao = require("./database/Avaliacao");
-const Login = require("./database/Login")
-const Descricoes = require("./database/Descricoes")
+const Login = require("./database/Login");
+const Descricoes = require("./database/Descricoes");
+const Pergunta = require("./database/Perguntas");
 
 //Body Parser
 app.use(bodyParser.urlencoded({extended:false}));

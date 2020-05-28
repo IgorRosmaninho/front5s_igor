@@ -4,13 +4,14 @@ const connection = require("./database")
 const Pergunta = connection.define('pergunta',{
     titulo:{
         type: Sequelize.STRING
-    }
+    },
     descricao:{
         type: Sequelize.TEXT
-}};
+    }
+});
 
 Pergunta.sync({force: false}).then(() => {
-    console.log('Tabela criada')
+    console.log('Tabela Pergunta criada')
 });
 
 Pergunta.create({
@@ -112,3 +113,5 @@ Pergunta.create({
     titulo: "5.4",
     descricao: "Autodisciplina na manutenção da estrutura de arquivos e correios eletrônicos"
 });
+
+module.exports = Pergunta;
