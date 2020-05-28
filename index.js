@@ -14,6 +14,7 @@ const connection = require("./database/database");
 const bodyParser = require("body-parser");
 const Avaliacao = require("./database/Avaliacao");
 const Login = require("./database/Login")
+const Descricoes = require("./database/Descricoes")
 
 //Body Parser
 app.use(bodyParser.urlencoded({extended:false}));

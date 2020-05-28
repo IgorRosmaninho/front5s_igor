@@ -2,12 +2,7 @@ const Sequelize = require("sequelize");
 const connection = require("./database");
 
 /*Criação da Tabela Descricao, com Descricao_id(text), Descricao(array)*/
-const Descricoes = connection.define('avaliacoe',{
-    Descricao_id:{
-        type: Sequelize.TEXT,
-        allownull: false
-    },
-
+const Descricoes = connection.define('descricoe',{
     Descricao:{
         "Seiri": [
             {
@@ -189,4 +184,4 @@ Descricoes.sync({force: false}).then(() => {
     console.log("Tabela Descricao Criada")
 });
 
-module.exports = Descricao;
+module.exports = Descricoes;
