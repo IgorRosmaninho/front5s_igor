@@ -60,14 +60,19 @@ app.get("/login", (req, res) => {
     Login.findOne({
         where: {User_email: email}
     }).then(logins => {
-        if(password == logins.User_password){
-            true;
+        if (logins != undefined){
+            if(password == logins.User_password){
+                true;
+            }else{
+                false; 
+            }
         }else{
-            false; 
+            res.json({ status: "Email não encontrado." });
         }
     })
 });
 
+/*
 //Descricoes
 app.post("/descricoes", (req, res) => {        //Usando body-parser ou query?
     var Descricao_id = req.body.Descricao_id
@@ -191,12 +196,12 @@ app.get("/resultado",(req,res) => {
     res.json({             /*Manda todas as notas da avaliação para o front,
                             em ordem (mais recente primeiro).
                             No front, iremos Usar fetch aqui?*/
-        avaliacao: avaliacao
+/*        avaliacao: avaliacao
         });
     
     }); 
 });
-
+*/
 //Servidor
 app.listen(4000,function(erro){
     if(erro){
