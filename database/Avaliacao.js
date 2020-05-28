@@ -6,20 +6,20 @@ const Avaliacao = connection.define('avaliacoe',{
     Form_id:{
         type: Sequelize.TEXT,
         allownull: false
-    }
+    },
 
     Cost_center_id:{
         type: Sequelize.TEXT,
         allownull: false
-    }
+    },
 
     Question_id_answer:{
-        type: Sequelize.ARRAY,
+        type: Sequelize.JSON, //colocar .ARRAY estava dando erro mysql não aceita
         allownull: false
-    }
+    },
     
     Answer_average:{
-        type: Sequelize.ARRAY,
+        type: Sequelize.JSON, //colocar .ARRAY estava dando erro mysql não aceita
         allownull: false
     }
 });

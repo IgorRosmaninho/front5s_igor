@@ -39,20 +39,23 @@ app.listen(4000,function(erro){
 
 //Teste de resposta no Servidor
 app.get("/",function(req,res){
-    res.send("TESTE");
+    res.send("Página Principal");
 });
 
 
 
-//Recebe dados do Front?? GENÉRICO
-app.post("/salvaravaliacao",(req,res) =>{  //app.post
-    var nota = req.body.nota;
-    var descricao = req.body.descricao;
-    res.send("Nota recebida! nota " + nota + " descricao " + descricao);
+//Recebe dados do Front?? GENÉRICO Alterado para testar sem as respostas do front
+app.get("/salvaravaliacao",(req,res) =>{  //app.post
+    var Form_id = "Avaliador"; //req.body.Form_id;
+    var Cost_center_id = "CC1"; //req.body.Cost_center_id;
+    var Question_id_answer = {utilização: 1, limpeza: 2}; //req.body.Question_id_answer;
+
+    res.send("Nota recebida! Form_id:" + Form_id + " Centro de Custo: " + Cost_center_id + "notas: " + Question_id_answer);
     //Envia a nota e descrição para o banco de dados
     Avaliacao.create({
-        nota: nota,
-        descricao: descricao
+        Form_id: Form_id,
+        Cost_center_id: Cost_center_id,
+        Question_id_answer: Question_id_answer,
     });
 });
 
