@@ -34,9 +34,8 @@ app.get("/",function(req,res){
     res.send("Página Principal");
 });
 
-
-//Login
-app.post("/login", (req, res) => {        //Usando body-parser ou query?
+//Recebendo dados do login e salvando no BD   
+app.post("/cadastro", (req, res) => {   
     var User_name = req.body.User_name;    //Na requisição deve ser buscado o nome que consta no formulário
     var User_password = req.body.User_password;
     var User_email = req.body.User_email;
@@ -50,8 +49,24 @@ app.post("/login", (req, res) => {        //Usando body-parser ou query?
         User_email: User_email,
         User_profile_photo: User_profile_photo,
         User_role: User_role
-    });                                           //.then para dar um redirect do back para o front
+    }); //.then para dar um redirect do back para o front
+    res.json({ status: 'Usuário cadastrado!'})
 }); 
+
+//Verificando login
+app.get("/login", (req, res) => {
+    var email = req.body.User_email
+    var password = req.body.User_password
+    Login.findOne({
+        where: {User_email: email}
+    }).then(logins => {
+        if(password == logins.User_password){
+            true;
+        }else{
+            false; 
+        }
+    })
+});
 
 //Descricoes
 app.post("/descricoes", (req, res) => {        //Usando body-parser ou query?

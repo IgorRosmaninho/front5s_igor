@@ -6,4 +6,6 @@ const connection = new Sequelize('bd5s','root','123456',{
     dialect: 'mysql'
 }); 
 
+
+
 module.exports = connection;
