@@ -73,7 +73,10 @@ app.get("/login", (req, res) => {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 5dd7733b87283857a97cc56520b9b98509340d91
 /*
 //Descricoes
 app.post("/descricoes", (req, res) => {        //Usando body-parser ou query?
@@ -222,14 +225,21 @@ app.get("/resultado",(req,res) => {
                             em ordem (mais recente primeiro).
                             No front, iremos Usar fetch aqui?*/
 /*        avaliacao: avaliacao
+<<<<<<< HEAD
+>>>>>>> 5dd7733b87283857a97cc56520b9b98509340d91
+=======
 >>>>>>> 5dd7733b87283857a97cc56520b9b98509340d91
         });
     
     }); 
 });
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
+=======
+*/
+>>>>>>> 5dd7733b87283857a97cc56520b9b98509340d91
 =======
 */
 >>>>>>> 5dd7733b87283857a97cc56520b9b98509340d91
