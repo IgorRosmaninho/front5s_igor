@@ -72,18 +72,12 @@ app.get("/login", (req, res) => {
     })
 });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 5dd7733b87283857a97cc56520b9b98509340d91
-/*
+
 //Descricoes
 app.post("/descricoes", (req, res) => {        //Usando body-parser ou query?
     var Descricao_id = req.body.Descricao_id
     var Descricao = req.body.Descricao;
->>>>>>> 5dd7733b87283857a97cc56520b9b98509340d91
-
+});
 
 app.get("/avaliacao",(req,res) =>{  //app.post
     var Form_id = "Avaliador1"; //req.body.Form_id;
@@ -103,9 +97,6 @@ app.get("/avaliacao",(req,res) =>{  //app.post
         Question_id_answer: Question_id_answer_u,
     });
 });
-
-
-
 
 
 //Recebe dados do Front?? GENÉRICO Alterado para testar sem as respostas do front
@@ -170,10 +161,10 @@ app.get("/avaliacao/disciplina",(req,res) =>{  //app.post
     var Form_id = "Avaliador"; //req.body.Form_id;
     var Cost_center_id = "CC1"; //req.body.Cost_center_id;
     var Question_id_answer_d = {disciplina: 5}; //req.body.Question_id_answer;
-    res.send("Nota recebida! Form_id:" + Form_id + " Centro de Custo: " + Cost_center_id + "notas: " + Question_id_answer);
+    res.send("Nota recebida! Form_id:" + Form_id + " Centro de Custo: " + Cost_center_id + "notas: " + Question_id_answer_d);
 });
 
-
+/*
 var Answer_average_u = 1;
 var Answer_average_o = 2;
 var Answer_average_l = 3;
@@ -201,7 +192,10 @@ var Answer_average = {
     Answer_average_5s : Answer_average_5s
 };
 
+
 console.log(Answer_average_5s+" "+ Answer_average_3s);
+
+
 
 Avaliacao.create({
     Form_id: Form_id,
@@ -210,6 +204,7 @@ Avaliacao.create({
     Answer_average: Answer_average
 });
 
+*/
 
 //Envia dados pro Front?? GENÉRICO
 app.get("/resultado",(req,res) => {
@@ -217,32 +212,15 @@ app.get("/resultado",(req,res) => {
         ['id','DESC'] //DESC = decrescente || ASC = crescente
     ]}).then(avaliacao => {
 
-<<<<<<< HEAD
     res.json({             //Manda todas as notas da avaliação para o front, em ordem (mais recente primeiro).No front, iremos Usar fetch aqui?*/
         avaliacao: avaliacao
-=======
-    res.json({             /*Manda todas as notas da avaliação para o front,
-                            em ordem (mais recente primeiro).
-                            No front, iremos Usar fetch aqui?*/
-/*        avaliacao: avaliacao
-<<<<<<< HEAD
->>>>>>> 5dd7733b87283857a97cc56520b9b98509340d91
-=======
->>>>>>> 5dd7733b87283857a97cc56520b9b98509340d91
+
         });
     
     }); 
 });
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 
-=======
-*/
->>>>>>> 5dd7733b87283857a97cc56520b9b98509340d91
-=======
-*/
->>>>>>> 5dd7733b87283857a97cc56520b9b98509340d91
 //Servidor
 app.listen(4000,function(erro){
     if(erro){
