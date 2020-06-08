@@ -1,13 +1,17 @@
-/**
- * @format
- */
+// /**
+//  * @format
+//  */
 
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
+// import {AppRegistry} from 'react-native';
+// import App from './App';
+// import {name as appName} from './app.json';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 AppRegistry.registerComponent(appName, () => App);
+=======
+// AppRegistry.registerComponent(appName, () => App);
+>>>>>>> front-test
 
 // const express = require("express");
 // const app = express();
