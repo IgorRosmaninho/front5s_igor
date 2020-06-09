@@ -29,10 +29,7 @@ connection.authenticate()
     })
     .done();
 
-//Teste de resposta no Servidor
-app.get("/",function(req,res){
-    res.send("Página Principal");
-});
+ 
 
 //Recebendo dados do login e salvando no BD   
 app.post("/cadastro", (req, res) => {   
