@@ -2,23 +2,33 @@ const express = require("express");
 const app = express();
 const connection = require("./database/database");
 const bodyParser = require("body-parser");
+const avaliacao = require("./Modules/Avaliacao/mAvaliacao")
 
-var Question_id_answer_d
 
-var rota = "/avaliacao/disciplina"
+const Avaliacao = require("./database/Avaliacao");
+const Login = require("./database/Login");
 
-function recebeDadosFront(rota){
-app.get(rota,(req,res) =>{  //app.post
-    var Form_id = "Avaliador"; //req.body.Form_id;
-    var Cost_center_id = "CC1"; //req.body.Cost_center_id;
-    var Question_id_answer_d = "as" ;//{disciplina: 5}; //req.body.Question_id_answer;
-    //res.send("Nota recebida! Form_id:" + Form_id + " Centro de Custo: " + Cost_center_id + "notas: " + Question_id_answer_d)  
-});
-    return Question_id_answer_d
-}
+//match.js
+const { create, all } = require('mathjs')
+const config = { }
+const math = create(all, config)
 
-console.log(recebeDadosFront(rota))
+//Body Parser
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
+//Conexão com Banco de Dados mysql
+connection.authenticate()
+    .then(function() {
+        console.log("Conectado com o BD")
+    })
+    .catch(function(err) {
+        console.log("msgErro");
+    })
+    .done();
+
+
+avaliacao()
 
 
 app.listen(4000,function(erro){
