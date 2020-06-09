@@ -34,6 +34,7 @@ connection.authenticate()
     })
     .done();
 
+function recebeDadosFront (){
 app.get("/avaliacao",(req,res) =>{  //app.post
     var Form_id = "Avaliador1"; //req.body.Form_id;
     var Cost_center_id = "CC1"; //req.body.Cost_center_id;
@@ -58,20 +59,26 @@ app.get("/avaliacao",(req,res) =>{  //app.post
 
     });
 });
+return Question_id_answer;
+}
+
+var xxx = recebeDadosFront
+console.log(xxx)
 
 //Envia dados pro Front?? GENÉRICO
-app.get("/resultado",(req,res) => {
-    Avaliacao.findAll( {raw: true, order:[
-        ['id','DESC'] //DESC = decrescente || ASC = crescente
-    ]}).then(avaliacao => {
+function enviaDadosFront (){
+    app.get("/resultado",(req,res) => {
+        Avaliacao.findAll( {raw: true, order:[
+            ['id','DESC'] //DESC = decrescente || ASC = crescente
+        ]}).then(avaliacao => {
 
-    res.json({             //Manda todas as notas da avaliação para o front, em ordem (mais recente primeiro).No front, iremos Usar fetch aqui?*/
-        avaliacao: avaliacao
-        });
+        res.json({             //Manda todas as notas da avaliação para o front, em ordem (mais recente primeiro).No front, iremos Usar fetch aqui?*/
+            avaliacao: avaliacao
+            });
+        }); 
+    });
     
-    }); 
-});
-
+}
 
 //Servidor
 app.listen(4000,function(erro){
