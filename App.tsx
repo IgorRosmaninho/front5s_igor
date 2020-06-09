@@ -2,9 +2,9 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Assessment from './pages/Assessment'
+import Assessment from './pages/Assessment/assessment'
 import NewAssessment from './pages/Assessment/NewAssessment/Config'
-import Login from './pages/Login'
+import Login from './pages/Login/login'
 import Limpeza from './pages/Assessment/NewAssessment/limpeza'
 import Organizacao from './pages/Assessment/NewAssessment/organizacao';
 import Utilizacao from './pages/Assessment/NewAssessment/utilizacao';
