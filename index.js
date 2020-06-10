@@ -73,12 +73,17 @@ app.post("/login", (req, res) => {
     })
 });
 
+//define Form_id 
+var Form_id = 0
 
-//define Form_id, Cost_center_id ,Question_id_answer (separar em 3 variáveis)
+//User_id 
+var User_id = 0 
 
+//Cost_center_id 
+var Cost_center_id = 0
+
+//Question_id_answer 
 var Question_id_answer = {
-    Form_id: 0 ,
-    Cost_center_id: 0 ,
     Question_id_answer_u: 0,
     Question_id_answer_o: 0,
     Question_id_answer_l: 0,
@@ -86,71 +91,51 @@ var Question_id_answer = {
     Question_id_answer_d: 0 
 }
 
+//Recebe dados do front de Form_id User_id e Cost_center_id
+app.post("/avaliacao/id",(req,res) =>{  
+    Form_id = req.body.Form_id;
+    User_id = req.body.User_id;
+    Cost_center_id = req.body.Cost_center_id;
+    
+    res.send("Form_id: " + Form_id + " User_id: " + User_id + " Cost_center_id: " + Cost_center_id)
+});
 
 //Recebe dados do Front (utilização) e armazena no Json (Question_id_answer)
-app.post("/avaliacao/utilizacao",(req,res) =>{  //app.post
-    var Form_id = req.body.Form_id;
-    var Cost_center_id = req.body.Cost_center_id;
+app.post("/avaliacao/utilizacao",(req,res) =>{  
     var Question_id_answer_u = req.body.Question_id_answer_u;
-
-    Question_id_answer.Form_id = Form_id;
-    Question_id_answer.Cost_center_id = Cost_center_id;
     Question_id_answer.Question_id_answer_u = Question_id_answer_u
-
     res.send(Question_id_answer)
-    //res.send("Nota recebida! Form_id:" + Form_id + " Centro de Custo: " + Cost_center_id + " notas: " + Question_id_answer_u);
 });
 
 //Recebe dados do Front (organização) e armazena no Json (Question_id_answer)
 app.post("/avaliacao/organizacao",(req,res) =>{  //app.post
-    var Form_id = req.body.Form_id;
-    var Cost_center_id = req.body.Cost_center_id;
     var Question_id_answer_o = req.body.Question_id_answer_o;
-
     Question_id_answer.Question_id_answer_o = Question_id_answer_o
-
     res.send(Question_id_answer)
-    //res.send("Nota recebida! Form_id:" + Form_id + " Centro de Custo: " + Cost_center_id + "notas: " + Question_id_answer_o);
 });
 
 //Recebe dados do Front (limpeza) e armazena no Json (Question_id_answer)
 app.post("/avaliacao/limpeza",(req,res) =>{  //app.post
-    var Form_id = req.body.Form_id;
-    var Cost_center_id = req.body.Cost_center_id;
     var Question_id_answer_l = req.body.Question_id_answer_l;
-
     Question_id_answer.Question_id_answer_l = Question_id_answer_l
-
     res.send(Question_id_answer)
-    //res.send("Nota recebida! Form_id:" + Form_id + " Centro de Custo: " + Cost_center_id + "notas: " + Question_id_answer_l);
-
 });
 
 //Recebe dados do Front (padronização) e armazena no Json (Question_id_answer)
 app.post("/avaliacao/padronizacao",(req,res) =>{  //app.post
-    var Form_id = req.body.Form_id;
-    var Cost_center_id = req.body.Cost_center_id;
     var Question_id_answer_p = req.body.Question_id_answer_p;
-
     Question_id_answer.Question_id_answer_p = Question_id_answer_p
-
     res.send(Question_id_answer)
-    //res.send("Nota recebida! Form_id:" + Form_id + " Centro de Custo: " + Cost_center_id + "notas: " + Question_id_answer_p);
-
 });
 
 //Recebe dados do Front (disciplina) e armazena no Json (Question_id_answer)
 app.post("/avaliacao/disciplina",(req,res) =>{  //app.post
-    var Form_id = req.body.Form_id;
-    var Cost_center_id = req.body.Cost_center_id;
     var Question_id_answer_d = req.body.Question_id_answer_d;
-    
     Question_id_answer.Question_id_answer_d = Question_id_answer_d
-
     res.send(Question_id_answer)
-    //res.send("Nota recebida! Form_id:" + Form_id + " Centro de Custo: " + Cost_center_id + "notas: " + Question_id_answer_d);
 });
 
+// define Answer_average
 var Answer_average = {
     Answer_average_u : 0,
     Answer_average_o : 0,
@@ -161,6 +146,7 @@ var Answer_average = {
     Answer_average_5s : 0
 };
 
+//Calcula Média de cada S e 5S e 3S
 app.post("/calculamedia",(req,res) =>{
     var Answer_average_u = math.mean(Question_id_answer.Question_id_answer_u);
     var Answer_average_o = math.mean(Question_id_answer.Question_id_answer_o);
@@ -179,26 +165,19 @@ app.post("/calculamedia",(req,res) =>{
     res.send(Answer_average)
 });
 
+//Salva no Banco de dados
 app.post("/salvabd", (req,res) => {
     Avaliacao.create({
-        //Form_id: Form_id,
-    //Cost_center_id: Cost_center_id,
+        Form_id: Form_id,
+        User_id: User_id,
+        Cost_center_id: Cost_center_id,
         Question_id_answer: Question_id_answer,
         Answer_average: Answer_average
     });
     res.send("enviado com sucesso")
 });
 
-
- 
-app.get("/teste",(req,res) => {
-    //res.send("nota 5.5: " + Question_id_answer.Question_id_answer_d[0] + Question_id_answer.Question_id_answer_d[0] )
-    res.send("nota 5.5: " )
-});
-
-
-
-//Envia dados pro Front?? GENÉRICO
+//Envia dados do BD pra Rota
 app.get("/resultado",(req,res) => {
     Avaliacao.findAll( {raw: true, order:[
         ['id','DESC'] //DESC = decrescente || ASC = crescente
@@ -206,12 +185,9 @@ app.get("/resultado",(req,res) => {
 
     res.json({             //Manda todas as notas da avaliação para o front, em ordem (mais recente primeiro).No front, iremos Usar fetch aqui?*/
         avaliacao: avaliacao
-
         });
-    
     }); 
 });
-
 
 //Servidor
 app.listen(4000,function(erro){
