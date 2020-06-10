@@ -55,7 +55,7 @@ app.post("/cadastro", (req, res) => {
 }); 
 
 //Verificando login
-app.get("/login", (req, res) => {
+app.post("/login", (req, res) => {
     var email = req.body.User_email
     var password = req.body.User_password
     Login.findOne({
