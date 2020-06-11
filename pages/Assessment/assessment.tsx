@@ -34,7 +34,6 @@ import {
         }
     })
 
-    
        return (
          <View style={{flex: 0.2, flexDirection: "column"}}>
              {/* < FlatList data={nomes} keyExtractor={extractKey} renderItem={listItem} /> */}

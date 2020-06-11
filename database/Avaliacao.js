@@ -8,6 +8,11 @@ const Avaliacao = connection.define('avaliacoe',{
         allownull: false
     },
 
+    User_id:{
+        type: Sequelize.TEXT,
+        allownull: false
+    },
+
     Cost_center_id:{
         type: Sequelize.TEXT,
         allownull: false

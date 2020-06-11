@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 const connection = new Sequelize('bd5s','root','123456',{
-    host: 'localhost',
+    host: '35.198.50.240',
     port: 3306,
     dialect: 'mysql'
 }); 
