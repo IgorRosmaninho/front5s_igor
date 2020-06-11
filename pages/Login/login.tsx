@@ -9,6 +9,27 @@ import {
     StyleSheet,
   } from 'react-native';
 
+  // o data da funcao fetch é um JSON da forma {
+  //  email: "emal do usuario"
+  //  senha: "1234"
+  //   }
+  
+  async function postData(url = '', data = {}) { 
+    const response = await fetch(url, {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+  }
+  
+  postData('/login', /*Inserir aqui o JSON com o login e senha*/)
+    .then(data => {
+      console.log(data); // JSON data parsed by `response.json()` call
+    });
+
   export default function Login({navigation}) {
 
    
