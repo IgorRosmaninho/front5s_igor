@@ -20,7 +20,7 @@ const { create, all } = require('mathjs')
 const config = { }
 const math = create(all, config)
 
-//Body Parser
+//Body-Parser
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
@@ -34,7 +34,7 @@ connection.authenticate()
     })
     .done();
 
-
+/*Cadastro não está sendo usado por ora
 //Recebendo dados do login e salvando no BD   
 app.post("/cadastro", (req, res) => {   
     var User_name = req.body.User_name;    //Na requisição deve ser buscado o nome que consta no formulário
@@ -53,22 +53,23 @@ app.post("/cadastro", (req, res) => {
     }); //.then para dar um redirect do back para o front
     res.json({ status: 'Usuário cadastrado!'})
 }); 
+*/
 
 //Verificando login
 app.post("/login", (req, res) => {
     var email = req.body.User_email
     var password = req.body.User_password
     Login.findOne({
-        where: {User_email: email}
-    }).then(logins => {
+        where: {User_email: email}  //Verificando se há o email na coluna User_email
+    }).then(logins => {            //A variável logins recebe o resultado de .findOne: se encontrar recebe o JSON, caso contrário recebe undefined
         if (logins != undefined){
             if(password == logins.User_password){
-                true;
+                console.log(true);
             }else{
-                false; 
+                console.log(false); 
             }
         }else{
-            res.json({ status: "Email não encontrado." });
+            res.statusCode(404); //Email não encontrado
         }
     })
 });

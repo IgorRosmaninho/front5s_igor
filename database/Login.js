@@ -34,7 +34,7 @@ Login.create({
     User_password: "1234",
     User_email: "joao@email.com",
     User_profile_photo: undefined,
-    User_role: "Diretor de produção"
+    User_role: "Engenheiro de produção"
 });
 
 module.exports = Login;
