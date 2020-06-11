@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {
     View,
@@ -8,9 +8,8 @@ import {
     TouchableOpacity,
     StyleSheet,
     ScrollView,
-    
-    
-  } from 'react-native';
+    FlatList
+    } from 'react-native';
 
   export default function Limpeza({navigation}) {
     const styles = StyleSheet.create ({
@@ -29,87 +28,55 @@ import {
         }, primaryButtonText:{
             color: '#fff', fontSize: 16, fontWeight: 'bold', alignSelf: 'center'
         }, divisor:{
-            backgroundColor: '#000', height: 2, marginHorizontal:16, 
+            backgroundColor: '#000', height: 2, 
         }, questionText:{ 
             fontSize: 16, marginTop: 16
 
         }
 
     })
+    
+    const [formLimpeza, setQuestion] = useState([
+        {question: '1.1. Utilização dos recursos existentes nos locais abertos', id: '1'},
+        {question: '1.2. Utilização dos recursos existentes nos locais fechados', id: '2'},
+        {question: '1.3. Estado de conservação de instalações e recursos ', id: '3'},
+        {question: '1.4. Controle dos problemas de conservação', id: '4'},
+    ]);
        return (
-           <ScrollView>
-           <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-start', backgroundColor: '#fff'}}>
-                <View style= {styles.container}>
-                 <Text style= {{ fontSize: 18, fontWeight: 'bold' }}> Limpeza </Text>
-                </View>
+        <ScrollView>
+            <View style= {{backgroundColor: '#fff'}}> 
                 <View style={styles.container}>
-                    {/* Tentar fazer um flatlist comunicando com fetch API */}
-                 <Text style= {styles.questionText}> 1.1. Utilização dos recursos existentes nos locais abertos </Text>
-                 <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade1-4x.png")}/>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade24x.png")}/>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade34x.png")}/>
-                     <Image style={styles.iconContainer} source={require("../../../icons/grade44x.png")}/>
-                     <Image style={styles.iconContainer} source={require("../../../icons/grade54x.png")}/>
-                 </View>
-                 <Text style={styles.imputLabel}> Justifique: </Text>
-                 <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
+                    <View>
+                        <Text style= {{ fontSize: 18, fontWeight: 'bold' }}> Limpeza</Text>
+                    </View>
+                    <FlatList
+                    keyExtractor= {(item) => item.id}
+                    data={formLimpeza}
+                    renderItem= {({ item }) => (
+                        <View>
+                            <Text style={styles.questionText}> {item.question}</Text>
+
+                            <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
+                                <Image style={styles.iconContainer} source={require("../../../icons/grade1-4x.png")}/>
+                                <Image style={styles.iconContainer} source={require("../../../icons/grade24x.png")}/>
+                                <Image style={styles.iconContainer} source={require("../../../icons/grade34x.png")}/>
+                                <Image style={styles.iconContainer} source={require("../../../icons/grade44x.png")}/>
+                                <Image style={styles.iconContainer} source={require("../../../icons/grade54x.png")}/>
+                            </View>
+
+                            <Text style={styles.imputLabel}> Justifique: </Text>
+                            <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
+                            <View style={styles.divisor}></View>
+                        </View>
+                     )}
+                    />
+                    <TouchableOpacity style={styles.primaryButton} onPress={() => navigation.navigate ("Organizacao")}>
+                        <Text style={styles.primaryButtonText}>Próximo</Text>
+                    </TouchableOpacity>
                 </View>
-                <View style={styles.divisor}></View>
+            </View>
+        </ScrollView>
+       )
 
-                <View style={styles.container}>
-                    {/* Tentar fazer um flatlist comunicando com fetch API */}
-                 <Text style= {styles.questionText}> 1.2. Utilização dos recursos existentes nos locais fechados </Text>
-                 <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade1-4x.png")}/>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade24x.png")}/>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade34x.png")}/>
-                     <Image style={styles.iconContainer} source={require("../../../icons/grade44x.png")}/>
-                     <Image style={styles.iconContainer} source={require("../../../icons/grade54x.png")}/>
-                 </View>
-                 <Text style={styles.imputLabel}> Justifique: </Text>
-                 <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
-                </View>
-                <View style={styles.divisor}></View>
-
-                <View style={styles.container}>
-                    {/* Tentar fazer um flatlist comunicando com fetch API */}
-                 <Text style= {styles.questionText}> 1.3. Estado de conservação de instalações e recursos </Text>
-                 <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade1-4x.png")}/>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade24x.png")}/>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade34x.png")}/>
-                     <Image style={styles.iconContainer} source={require("../../../icons/grade44x.png")}/>
-                     <Image style={styles.iconContainer} source={require("../../../icons/grade54x.png")}/>
-                 </View>
-                 <Text style={styles.imputLabel}> Justifique: </Text>
-                 <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
-                </View>
-                <View style={styles.divisor}></View>
-
-                <View style={styles.container}>
-                    {/* Tentar fazer um flatlist comunicando com fetch API */}
-                 <Text style= {styles.questionText}> 1.4. Controle dos problemas de conservação</Text>
-                 <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade1-4x.png")}/>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade24x.png")}/>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade34x.png")}/>
-                     <Image style={styles.iconContainer} source={require("../../../icons/grade44x.png")}/>
-                     <Image style={styles.iconContainer} source={require("../../../icons/grade54x.png")}/>
-                 </View>
-                 <Text style={styles.imputLabel}> Justifique: </Text>
-                 <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
-                </View>
-                <View style={styles.divisor}></View>
-
-                <TouchableOpacity style={styles.primaryButton} onPress={() => navigation.navigate ("Organizacao")}>
-                    <Text style={styles.primaryButtonText}>Próximo</Text>
-                </TouchableOpacity>
-           </View>
-           </ScrollView>
-           
-         
-
-      )
 
   }
