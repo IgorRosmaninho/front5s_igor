@@ -28,13 +28,13 @@ const Login = connection.define('login',{
 Login.sync({force: false}).then(() => {
     console.log("Tabela de login criada.")
 });
-
+/*
 Login.create({             
     User_name: "João",
     User_password: "1234",
     User_email: "joao@email.com",
     User_profile_photo: undefined,
-    User_role: "Diretor de produção"
+    User_role: "Engenheiro de produção"
 });
-
+*/
 module.exports = Login;
