@@ -15,7 +15,7 @@ const Pergunta = connection.define('pergunta',{
 Pergunta.sync({force: false}).then(() => {
     console.log('Tabela Pergunta criada')
 });
-
+/*
 Pergunta.create({
     titulo: "1.1",
     descricao: "Utilização dos recursos existentes nos locais abertos"
@@ -117,3 +117,4 @@ Pergunta.create({
 });
 
 module.exports = Pergunta;
+*/

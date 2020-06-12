@@ -56,20 +56,20 @@ app.post("/cadastro", (req, res) => {
 */
 
 //Verificando login
-app.post("/login", (req, res) => {
-    var email = req.body.User_email
-    var password = req.body.User_password
+app.get("/login", (req, res) => {
+    var email = req.body.User_email;
+    var password = req.body.User_password;
     Login.findOne({
         where: {User_email: email}  //Verificando se há o email na coluna User_email
     }).then(logins => {            //A variável logins recebe o resultado de .findOne: se encontrar recebe o JSON, caso contrário recebe undefined
         if (logins != undefined){
             if(password == logins.User_password){
-                console.log(true);
+                res.send(true);
             }else{
-                console.log(false); 
+                res.send(false); 
             }
         }else{
-            res.statusCode(404); //Email não encontrado
+            res.sendStatus(404); //Email não encontrado
         }
     })
 });
