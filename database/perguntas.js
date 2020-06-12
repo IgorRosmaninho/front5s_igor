@@ -115,6 +115,5 @@ Pergunta.create({
     titulo: "5.4",
     descricao: "Autodisciplina na manutenção da estrutura de arquivos e correios eletrônicos"
 });
-
-module.exports = Pergunta;
 */
+module.exports = Pergunta;

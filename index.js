@@ -14,6 +14,8 @@ const connection = require("./database/database");
 const bodyParser = require("body-parser");
 const Avaliacao = require("./database/Avaliacao");
 const Login = require("./database/Login");
+const Pergunta = require("./database/perguntas");
+const Descricoes = require("./database/Descricoes");
 
 //match.js
 const { create, all } = require('mathjs')
@@ -34,7 +36,7 @@ connection.authenticate()
     })
     .done();
 
-/*Cadastro não está sendo usado por ora
+
 //Recebendo dados do login e salvando no BD   
 app.post("/cadastro", (req, res) => {   
     var User_name = req.body.User_name;    //Na requisição deve ser buscado o nome que consta no formulário
@@ -53,7 +55,7 @@ app.post("/cadastro", (req, res) => {
     }); //.then para dar um redirect do back para o front
     res.json({ status: 'Usuário cadastrado!'})
 }); 
-*/
+
 
 //Verificando login
 app.get("/login", (req, res) => {
@@ -71,6 +73,30 @@ app.get("/login", (req, res) => {
         }else{
             res.sendStatus(404); //Email não encontrado
         }
+    })
+});
+
+//Será melhor enviar pergunta por pergunta? Ou enviar um JSON com as 4 perguntas por página?
+app.post("/pergunta", (req, res) => {
+    var titulo = req.body.titulo;
+    Pergunta.findOne({
+        where: {titulo : titulo}  //Encontrando a pergunta com o título 
+    }).then(pergunta => {
+        if(pergunta != undefined){
+            res.send(pergunta);
+        }else{
+            res.sendStatus(404);  //Não encontrado
+        }
+    })
+});
+
+//Mudar o formato da tabela? Para códigos do tipo 1.1.2, onde 1.1 se refere à pergunta e 2 à nota
+app.post("/descricao", (req, res) => {
+    var id = req.body.id;  //Recebe o id da pergunta
+    Descricoes.findOne({
+        where : {id : id}
+    }).then(json => {
+        res.send(json.descricao);
     })
 });
 
