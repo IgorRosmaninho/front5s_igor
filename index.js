@@ -96,7 +96,7 @@ app.post("/avaliacao/id",(req,res) =>{
     Form_id = req.body.Form_id;
     User_id = req.body.User_id;
     Cost_center_id = req.body.Cost_center_id;
-    
+
     res.send("Form_id: " + Form_id + " User_id: " + User_id + " Cost_center_id: " + Cost_center_id)
 });
 
@@ -187,6 +187,20 @@ app.get("/resultado",(req,res) => {
         avaliacao: avaliacao
         });
     }); 
+});
+
+app.get("/descricao",(req,res) => {
+    var s = "5.1"
+    //for (var i = s+ 0.1 , i< 5.5, i += 0.1)
+    Descricoes.findOne({
+        where: {descricao_id: s}
+    }).then(descricao => {
+        console.log(descricao)
+        res.json({
+            descricao: descricao
+    
+        });
+    });
 });
 
 //Servidor

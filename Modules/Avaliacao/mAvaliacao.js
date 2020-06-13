@@ -3,10 +3,11 @@ function avaliacao(){
 
 const express = require("express");
 const app = express();
-const connection = require("./database/database");
+const connection = require("c:/Users/Dell/Desktop/POLI/2020 - 1 semestre/Produtos 5S/GIT HUB/5S/mercedes_5s/database/database");
 const bodyParser = require("body-parser");
-const Avaliacao = require("./database/Avaliacao");
-const Login = require("./database/Login");
+const Avaliacao = require("c:/Users/Dell/Desktop/POLI/2020 - 1 semestre/Produtos 5S/GIT HUB/5S/mercedes_5s/database/Avaliacao");
+
+
 
 //match.js
 const { create, all } = require('mathjs')
@@ -49,7 +50,7 @@ app.post("/avaliacao/utilizacao",(req,res) =>{  //app.post
     //Question_id_answer.Cost_center_id = Cost_center_id;
     Question_id_answer.Question_id_answer_u = Question_id_answer_u
 
-    res.send(Question_id_answer)
+    res.send("ta enviando do modulo ")
     //res.send("Nota recebida! Form_id:" + Form_id + " Centro de Custo: " + Cost_center_id + " notas: " + Question_id_answer_u);
 });
 }

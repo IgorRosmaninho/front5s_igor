@@ -2,11 +2,7 @@ const express = require("express");
 const app = express();
 const connection = require("./database/database");
 const bodyParser = require("body-parser");
-const avaliacao = require("./Modules/Avaliacao/mAvaliacao")
-
-
-const Avaliacao = require("./database/Avaliacao");
-const Login = require("./database/Login");
+//const Descricoes = require("./database/CriaDescricoes")
 
 //match.js
 const { create, all } = require('mathjs')
@@ -27,10 +23,27 @@ connection.authenticate()
     })
     .done();
 
+app.get("/descricao",(req,res) => {
+    var s = "5.1"
+    //for (var i = s+ 0.1 , i< 5.5, i += 0.1)
+    descricoes.findAll({
+        where: {descricao_id: s}
+    }).then(descricao => {
+        console.log(descricao)
+        res.json({
+            descricao: descricao
+    
+        });
+    });
+});
 
-avaliacao()
 
 
+
+
+
+
+    //Servidor
 app.listen(4000,function(erro){
     if(erro){
         console.log("Ocorreu um erro!");

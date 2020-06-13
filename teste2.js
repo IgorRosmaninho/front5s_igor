@@ -1,24 +1,9 @@
-const { create, all } = require('mathjs')
-const config = { }
-const math = create(all, config)
+const Descricoes = require("./database/CriaDescricoes");
 
-function nois () {
-    var x = "salve";
-    return console.log(x)
-}
+var a = parseInt(1);
 
-nois()
-
-var jsonAvaliacao = {
-    
-}
-
-jsonAvaliacao.Form_id = "joao";
-jsonAvaliacao.Cost_center_id = 42;
-jsonAvaliacao.Question_id_answer_u = [4,4,4,4]
+for (var i = a + 0.1 ; i < 5.5 ; i += 0.1){
+console.log((i))}
 
 
-//var x = jsonAvaliacao.avaliacao[2]
-console.log("média= " + math.mean(jsonAvaliacao.Question_id_answer_)u)
-//console.log(x)
-console.log(jsonAvaliacao)
+
