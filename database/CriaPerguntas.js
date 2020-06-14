@@ -1,7 +1,8 @@
 const Sequelize = require("sequelize");
-const connection = require("./database") //Importando conexão com o BD
+const connection = require("./database")
 
-//Criando tabela Pergunta com coluna de título e descrição
+const abcd = 'abcd'
+
 const Pergunta = connection.define('pergunta',{
     titulo:{
         type: Sequelize.STRING
@@ -11,11 +12,10 @@ const Pergunta = connection.define('pergunta',{
     }
 });
 
-//Sincroniza com banco de dados e não cria se houver uma tabela Pergunta
 Pergunta.sync({force: false}).then(() => {
     console.log('Tabela Pergunta criada')
 });
-/*
+
 Pergunta.create({
     titulo: "1.1",
     descricao: "Utilização dos recursos existentes nos locais abertos"
@@ -115,5 +115,5 @@ Pergunta.create({
     titulo: "5.4",
     descricao: "Autodisciplina na manutenção da estrutura de arquivos e correios eletrônicos"
 });
-*/
+
 module.exports = Pergunta;
