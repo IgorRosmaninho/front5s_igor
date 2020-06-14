@@ -16,7 +16,7 @@ const Descricoes = connection.define('descricoes',{
 Descricoes.sync({force: false}).then(() => {
   console.log("Tabela Descricao Criada")
 });
-
+/*
 Descricoes.create({
   descricao_id: "1.1",
   nota:"1",
@@ -536,5 +536,5 @@ Descricoes.create({
   nota:"5",
   descricao: "Todos os documentos e mensagens eletrônicas são utilizadas e estão guardadas de acordo com a estruturação definida. São feitas limpezas de arquivos obsoletos de acordo com a freqüência definida.",
 });
-
+*/
 module.exports = Descricoes;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {
     View,
@@ -8,8 +8,7 @@ import {
     TouchableOpacity,
     StyleSheet,
     ScrollView,
-    
-    
+    FlatList,
   } from 'react-native';
   
   async function postData(url = '', data = {}) { 
@@ -28,15 +27,21 @@ import {
       console.log(data); // JSON data parsed by `response.json()` call
     });
 
+
   export default function Limpeza({navigation}) {
     const styles = StyleSheet.create ({
         container: {
             margin:16,
-        },iconContainer: {
+        },iconDimension: {
             height: 24, 
             width:24,
-            margin: 16,
-        },imputLabel:{
+        },iconContainer:{
+            height:48,
+            width:48,
+            margin:8,
+            justifyContent: "center",
+            alignItems:'center'
+        }, imputLabel:{
             color: '#000', fontSize: 14, marginTop: 8
         }, imputText:{
             color:'#000' ,backgroundColor: '#ffffff', height: 96, marginVertical: 16, fontSize: 16, padding: 12, borderColor: '#000', borderWidth: 1, textAlignVertical: 'top'
@@ -45,87 +50,68 @@ import {
         }, primaryButtonText:{
             color: '#fff', fontSize: 16, fontWeight: 'bold', alignSelf: 'center'
         }, divisor:{
-            backgroundColor: '#000', height: 2, marginHorizontal:16, 
+            backgroundColor: '#000', height: 2, 
         }, questionText:{ 
             fontSize: 16, marginTop: 16
-
         }
-
     })
+    
+    // Data para Flatlist
+    const [formLimpeza, setQuestion] = useState([
+        {question: '1.1. Utilização dos recursos existentes nos locais abertos', id: '1'},
+        {question: '1.2. Utilização dos recursos existentes nos locais fechados', id: '2'},
+        {question: '1.3. Estado de conservação de instalações e recursos ', id: '3'},
+        {question: '1.4. Controle dos problemas de conservação', id: '4'},
+    ]);
+    
+    // tentiva de fazer o botão funcionar e trocar; dá para fazer integraçãp, mas precisa arrumar as animações de troca de imagem
+    const [iconOne, setIconOne] = useState( {uri: require("../../../icons/grade1-4x.png")});
+     
+    const answer = () => {
+        setIconOne ({ uri: require("/Users/taqtile/Desktop/FAU/5s_mercedes/mercedes_5s/icons/grade1-selected4x.png")})
+        console.warn('nota 1')
+        this.setState ({setNoteDescription: true})
+    };
+
+    // Condicional para aparecer descritivo da nota (in progress)
+    const [noteDescription, setNoteDescription] = useState([false])
+
+    setNoteDescription? noteDescription : null
+
        return (
-           <ScrollView>
-           <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-start', backgroundColor: '#fff'}}>
-                <View style= {styles.container}>
-                 <Text style= {{ fontSize: 18, fontWeight: 'bold' }}> Limpeza </Text>
-                </View>
+        <ScrollView>
+            <View style= {{backgroundColor: '#fff'}}> 
                 <View style={styles.container}>
-                    {/* Tentar fazer um flatlist comunicando com fetch API */}
-                 <Text style= {styles.questionText}> 1.1. Utilização dos recursos existentes nos locais abertos </Text>
-                 <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade1-4x.png")}/>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade24x.png")}/>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade34x.png")}/>
-                     <Image style={styles.iconContainer} source={require("../../../icons/grade44x.png")}/>
-                     <Image style={styles.iconContainer} source={require("../../../icons/grade54x.png")}/>
-                 </View>
-                 <Text style={styles.imputLabel}> Justifique: </Text>
-                 <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
+                    <View>
+                        <Text style= {{ fontSize: 18, fontWeight: 'bold' }}> Limpeza</Text>
+                    </View>
+                    <FlatList
+                    keyExtractor= {(item) => item.id}
+                    data={formLimpeza}
+                    renderItem= {({ item }) => (
+                        <View>
+                            <Text style={styles.questionText}> {item.question}</Text>
+
+                            <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
+                                <TouchableOpacity style={styles.iconContainer} onPress={answer}><Image style={styles.iconDimension} source={require("../../../icons/grade1-4x.png")}/></TouchableOpacity>
+                                <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade24x.png")} /></TouchableOpacity>
+                                <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade34x.png")}/></TouchableOpacity>
+                                <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade44x.png")}/></TouchableOpacity>
+                                <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade54x.png")}/></TouchableOpacity>
+                            </View>
+                            <Text style={styles.imputLabel}> Justifique: </Text>
+                            <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
+                            <View style={styles.divisor}></View>
+                        </View>
+                     )}
+                    />
+                    <TouchableOpacity style={styles.primaryButton} onPress={() => navigation.navigate ("Organizacao")}>
+                        <Text style={styles.primaryButtonText}>Próximo</Text>
+                    </TouchableOpacity>
                 </View>
-                <View style={styles.divisor}></View>
+            </View>
+        </ScrollView>
+       )
 
-                <View style={styles.container}>
-                    {/* Tentar fazer um flatlist comunicando com fetch API */}
-                 <Text style= {styles.questionText}> 1.2. Utilização dos recursos existentes nos locais fechados </Text>
-                 <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade1-4x.png")}/>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade24x.png")}/>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade34x.png")}/>
-                     <Image style={styles.iconContainer} source={require("../../../icons/grade44x.png")}/>
-                     <Image style={styles.iconContainer} source={require("../../../icons/grade54x.png")}/>
-                 </View>
-                 <Text style={styles.imputLabel}> Justifique: </Text>
-                 <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
-                </View>
-                <View style={styles.divisor}></View>
-
-                <View style={styles.container}>
-                    {/* Tentar fazer um flatlist comunicando com fetch API */}
-                 <Text style= {styles.questionText}> 1.3. Estado de conservação de instalações e recursos </Text>
-                 <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade1-4x.png")}/>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade24x.png")}/>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade34x.png")}/>
-                     <Image style={styles.iconContainer} source={require("../../../icons/grade44x.png")}/>
-                     <Image style={styles.iconContainer} source={require("../../../icons/grade54x.png")}/>
-                 </View>
-                 <Text style={styles.imputLabel}> Justifique: </Text>
-                 <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
-                </View>
-                <View style={styles.divisor}></View>
-
-                <View style={styles.container}>
-                    {/* Tentar fazer um flatlist comunicando com fetch API */}
-                 <Text style= {styles.questionText}> 1.4. Controle dos problemas de conservação</Text>
-                 <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade1-4x.png")}/>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade24x.png")}/>
-                    <Image style={styles.iconContainer} source={require("../../../icons/grade34x.png")}/>
-                     <Image style={styles.iconContainer} source={require("../../../icons/grade44x.png")}/>
-                     <Image style={styles.iconContainer} source={require("../../../icons/grade54x.png")}/>
-                 </View>
-                 <Text style={styles.imputLabel}> Justifique: </Text>
-                 <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
-                </View>
-                <View style={styles.divisor}></View>
-
-                <TouchableOpacity style={styles.primaryButton} onPress={() => navigation.navigate ("Organizacao")}>
-                    <Text style={styles.primaryButtonText}>Próximo</Text>
-                </TouchableOpacity>
-           </View>
-           </ScrollView>
-           
-         
-
-      )
 
   }
