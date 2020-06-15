@@ -79,10 +79,16 @@ app.post("/login", (req, res) => {
 
 //Será melhor enviar pergunta por pergunta? Ou enviar um JSON com as 4 perguntas por página?
 app.post("/pergunta", (req, res) => {
-    var titulo = req.body.titulo;
-    Pergunta.findOne({
-        where: {titulo : titulo}  //Encontrando a pergunta com o título 
-    }).then(pergunta => {
+    var s = req.body.s;
+    Pergunta.findAll({
+        where: {s : s
+        },
+        order: [
+            ['titulo', 'ASC']
+        ],
+        attributes: ['titulo','descricao']
+    } 
+    ).then(pergunta => {
         if(pergunta != undefined){
             res.send(pergunta);
         }else{
