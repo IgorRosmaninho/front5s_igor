@@ -17,6 +17,11 @@ const Login = require("./database/Login");
 const Pergunta = require("./database/CriaPerguntas");
 const Descricoes = require("./database/CriaDescricoes");
 
+//router
+const perguntaController = require("./Domínio/Pergunta/PerguntaController");
+
+
+
 //match.js
 const { create, all } = require('mathjs')
 const config = { }
@@ -77,6 +82,9 @@ app.post("/login", (req, res) => {
 });
 
 
+app.use("/",perguntaController);
+
+/*
 //Será melhor enviar pergunta por pergunta? Ou enviar um JSON com as 4 perguntas por página?
 app.post("/pergunta", (req, res) => {
     var s = req.body.s;
@@ -96,6 +104,7 @@ app.post("/pergunta", (req, res) => {
         }
     })
 });
+*/
 
 //Envia json com as 20 descrições de notas do S requisitado pelo front
 app.post("/descricao", (req, res) => {
@@ -239,6 +248,11 @@ app.get("/resultado",(req,res) => {
         });
     }); 
 });
+
+
+
+
+
 
 
 //Servidor
