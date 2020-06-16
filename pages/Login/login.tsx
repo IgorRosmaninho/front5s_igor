@@ -25,7 +25,13 @@ import {
     return response.json(); // parses JSON response into native JavaScript objects
   }
   
-  postData('/login', /*Inserir aqui o JSON com o login e senha*/)
+  var loginData = {   //Teste
+    email: "teste@teste.com",
+    senha: "teste",
+  };
+
+
+  postData('/login', loginData)
     .then(data => {
       console.log(data); // JSON data parsed by `response.json()` call
     });

@@ -1,5 +1,14 @@
 const express = require("express");
+const app = express();
 const router = express.Router();
+const connection = require("../../database/database");
+const bodyParser = require("body-parser");
+const Pergunta = require("./CriaPerguntas");
+
+
+//Body-Parser
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
 //Será melhor enviar pergunta por pergunta? Ou enviar um JSON com as 4 perguntas por página?
 router.post("/pergunta", (req, res) => {

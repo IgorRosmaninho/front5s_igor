@@ -21,12 +21,6 @@ import {
     });
     return response.json(); // parses JSON response into native JavaScript objects
   }
-  
-  postData('/avaliacao/limpeza', /*Inserir aqui o JSON com a Flatlist de avaliacoes da limpeza*/)
-    .then(data => {
-      console.log(data); // JSON data parsed by `response.json()` call
-    });
-
 
   export default function Limpeza({navigation}) {
     const styles = StyleSheet.create ({
@@ -63,6 +57,11 @@ import {
         {question: '1.3. Estado de conservação de instalações e recursos ', id: '3'},
         {question: '1.4. Controle dos problemas de conservação', id: '4'},
     ]);
+    
+    postData('/avaliacao/limpeza', formLimpeza)
+    .then(data => {
+      console.log(data); // JSON data parsed by `response.json()` call
+    });
     
     // tentiva de fazer o botão funcionar e trocar; dá para fazer integraçãp, mas precisa arrumar as animações de troca de imagem
     const [iconOne, setIconOne] = useState( {uri: require("../../../icons/grade1-4x.png")});
