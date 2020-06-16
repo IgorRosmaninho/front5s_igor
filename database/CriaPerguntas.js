@@ -19,6 +19,7 @@ Pergunta.sync({force: false}).then(() => {
     console.log('Tabela Pergunta criada')
 });
 
+/*
 Pergunta.create({
     s: "1",
     titulo: "1.1",
@@ -138,5 +139,5 @@ Pergunta.create({
     titulo: "5.4",
     descricao: "Autodisciplina na manutenção da estrutura de arquivos e correios eletrônicos"
 });
-
+*/
 module.exports = Pergunta;
