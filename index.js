@@ -14,8 +14,8 @@ const connection = require("./database/database");
 const bodyParser = require("body-parser");
 const Avaliacao = require("./database/Avaliacao");
 const Login = require("./database/Login");
-const Pergunta = require("./database/perguntas");
-const Descricoes = require("./database/Descricoes");
+const Pergunta = require("./database/CriaPerguntas");
+const Descricoes = require("./database/CriaDescricoes");
 
 //match.js
 const { create, all } = require('mathjs')
@@ -58,7 +58,7 @@ app.post("/cadastro", (req, res) => {
 
 
 //Verificando login
-app.get("/login", (req, res) => {
+app.post("/login", (req, res) => {
     var email = req.body.User_email;
     var password = req.body.User_password;
     Login.findOne({
@@ -76,12 +76,19 @@ app.get("/login", (req, res) => {
     })
 });
 
+
 //Será melhor enviar pergunta por pergunta? Ou enviar um JSON com as 4 perguntas por página?
 app.post("/pergunta", (req, res) => {
-    var titulo = req.body.titulo;
-    Pergunta.findOne({
-        where: {titulo : titulo}  //Encontrando a pergunta com o título 
-    }).then(pergunta => {
+    var s = req.body.s;
+    Pergunta.findAll({
+        where: {s : s
+        },
+        order: [
+            ['titulo', 'ASC']
+        ],
+        attributes: ['titulo','descricao']
+    } 
+    ).then(pergunta => {
         if(pergunta != undefined){
             res.send(pergunta);
         }else{
@@ -90,17 +97,31 @@ app.post("/pergunta", (req, res) => {
     })
 });
 
-//Mudar o formato da tabela? Para códigos do tipo 1.1.2, onde 1.1 se refere à pergunta e 2 à nota
-app.get("/descricao/:descricao_id/:nota", (req, res) => {
-    var descricao_id = req.params.descricao_id;  //Recebe o id da pergunta
-    var nota = parseInt(req.params.nota) - 1;
-    Descricoes.findAll({
-        attributes: [descricao_id]
-    }).then(array => {
-        console.log(array);
-        //descricao = array.nota.descricao;
-        //res.send(descricao);
-    })
+//Envia json com as 20 descrições de notas do S requisitado pelo front
+app.post("/descricao", (req, res) => {
+    (async () =>{
+        descricaoJson = {};
+        var s = req.body.s;
+        var i = 0
+        var ii = 0
+
+        for (i = s + 0.1; i < s + 0.49; i += 0.1) {
+            ii = i.toFixed(1)
+            await Descricoes.findAll({
+                where: { descricao_id: ii 
+                },
+                order: [
+                    ['descricao_id', 'ASC'],
+                    ['nota', 'ASC'],
+                ],
+                attributes: ['descricao_id', 'nota','descricao']
+            } 
+            ).then(descricao => {
+                descricaoJson[ii] = descricao
+            });
+        };
+        return res.json(descricaoJson);
+    })()
 });
 
 //define Form_id 
@@ -126,7 +147,7 @@ app.post("/avaliacao/id",(req,res) =>{
     Form_id = req.body.Form_id;
     User_id = req.body.User_id;
     Cost_center_id = req.body.Cost_center_id;
-    
+
     res.send("Form_id: " + Form_id + " User_id: " + User_id + " Cost_center_id: " + Cost_center_id)
 });
 
@@ -218,6 +239,7 @@ app.get("/resultado",(req,res) => {
         });
     }); 
 });
+
 
 //Servidor
 app.listen(4000,function(erro){
