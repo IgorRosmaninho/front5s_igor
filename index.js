@@ -91,12 +91,15 @@ app.post("/pergunta", (req, res) => {
 });
 
 //Mudar o formato da tabela? Para códigos do tipo 1.1.2, onde 1.1 se refere à pergunta e 2 à nota
-app.post("/descricao", (req, res) => {
-    var id = req.body.id;  //Recebe o id da pergunta
-    Descricoes.findOne({
-        where : {id : id}
-    }).then(json => {
-        res.send(json.descricao);
+app.get("/descricao/:descricao_id/:nota", (req, res) => {
+    var descricao_id = req.params.descricao_id;  //Recebe o id da pergunta
+    var nota = parseInt(req.params.nota) - 1;
+    Descricoes.findAll({
+        attributes: [descricao_id]
+    }).then(array => {
+        console.log(array);
+        //descricao = array.nota.descricao;
+        //res.send(descricao);
     })
 });
 
