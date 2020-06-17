@@ -85,7 +85,7 @@ import {
                         </View>
                      )}
                     />
-                    <TouchableOpacity style={styles.primaryButton} onPress={() => navigation.navigate ("Higiene")}>
+                    <TouchableOpacity style={styles.primaryButton} onPress={() => navigation.navigate ("Padronizacao")}>
                         <Text style={styles.primaryButtonText}>Próximo</Text>
                     </TouchableOpacity>
                 </View>

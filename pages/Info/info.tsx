@@ -19,7 +19,7 @@ import {
                     Utilização:
                 </Text>
                 <Text style={{ color: '#000', fontSize: 12, marginTop: 4}}>
-                    Aqui entram as informações referentes ai senso de utilização!
+                    Aqui entram as informações referentes ao senso de utilização!
                 </Text>
             </View>
             <View style={{ borderRadius: 8, marginHorizontal: 48, }}>
@@ -27,7 +27,7 @@ import {
                     Organização:
                 </Text>
                 <Text style={{ color: '#000', fontSize: 12, marginTop: 4}}>
-                    Aqui entram as informações referentes ai senso de organização!
+                    Aqui entram as informações referentes ao senso de organização!
                 </Text>
             </View>
             <View style={{ borderRadius: 8, marginHorizontal: 48, }}>
@@ -35,7 +35,7 @@ import {
                     Limpeza:
                 </Text>
                 <Text style={{ color: '#000', fontSize: 12, marginTop: 4}}>
-                    Aqui entram as informações referentes ai senso de limpeza!
+                    Aqui entram as informações referentes ao senso de limpeza!
                 </Text>
             </View>
             <View style={{ borderRadius: 8, marginHorizontal: 48, }}>
@@ -43,7 +43,7 @@ import {
                     Padronização:
                 </Text>
                 <Text style={{ color: '#000', fontSize: 12, marginTop: 4}}>
-                    Aqui entram as informações referentes ai senso de padronização!
+                    Aqui entram as informações referentes ao senso de padronização!
                 </Text>
             </View>
             <View style={{ borderRadius: 8, marginHorizontal: 48, }}>
@@ -51,7 +51,7 @@ import {
                     Disciplina:
                 </Text>
                 <Text style={{ color: '#000', fontSize: 12, marginTop: 4}}>
-                    Aqui entram as informações referentes ai senso de disciplina!
+                    Aqui entram as informações referentes ao senso de disciplina!
                 </Text>
             </View>
         </View>
