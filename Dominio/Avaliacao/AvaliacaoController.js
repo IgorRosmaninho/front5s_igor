@@ -3,6 +3,7 @@ const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser");
 const Avaliacao = require("./Avaliacao");
+const Ranking = require("../Ranking/CriaRanking")
 
 //Body-Parser
 app.use(bodyParser.urlencoded({extended:false}));
@@ -105,17 +106,36 @@ router.post("/calculamedia",(req,res) =>{
     res.send(Answer_average)
 });
 
+
 //Salva no Banco de dados
 router.post("/salvabd", (req,res) => {
-    Avaliacao.create({
+   
+    await Avaliacao.create({
         Form_id: Form_id,
         User_id: User_id,
         Cost_center_id: Cost_center_id,
         Question_id_answer: Question_id_answer,
         Answer_average: Answer_average
     });
+
+    await Ranking.create({
+        Cost_center_id: Cost_center_id,
+        Average_u: 1,
+        Average_o: 2,
+        Average_l: 3,
+        Average_p: 4,
+        Average_d: 5,
+        Average_3s: 6,
+        Average_5s: 7
+    });
+
+    await Ranking.increment(
+        'Average_u',{by: Answer_average_u}
+    );
+
     res.send("enviado com sucesso")
 });
+
 
 //Envia dados do BD pra Rota
 router.get("/resultado",(req,res) => {
@@ -128,6 +148,11 @@ router.get("/resultado",(req,res) => {
         });
     }); 
 });
+
+router.post("/obtermedias",(req,res) => {
+    res.send(Answer_average)
+});
+
 
 
 module.exports = router;

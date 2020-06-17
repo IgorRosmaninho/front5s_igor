@@ -18,9 +18,9 @@ const perguntaController = require("./Dominio/Pergunta/PerguntaController");
 const loginController = require("./Dominio/Login/LoginController");
 const avaliacaoController = require("./Dominio/Avaliacao/AvaliacaoController");
 const descricaoController = require("./Dominio/Descricao/DescricaoController");
-//const rankingController = require("./Domínio/Ranking/RankingController")
-//const infoController = require("./Domínio/Info/InfoController");
-//const historicoController = require("./Domínio/Historico/HistoricoController")
+const rankingController = require("./Dominio/Ranking/RankingController")
+//const infoController = require("./Dominio/Info/InfoController");
+//const historicoController = require("./Dominio/Historico/HistoricoController")
 
 //match.js
 const { create, all } = require('mathjs')
@@ -45,7 +45,7 @@ app.use("/",perguntaController);
 app.use("/",loginController);
 app.use("/",avaliacaoController);
 app.use("/",descricaoController);
-//app.use("/",rankingController);
+app.use("/",rankingController);
 //app.use("/",infoController);
 //app.use("/",historicoController);
 
