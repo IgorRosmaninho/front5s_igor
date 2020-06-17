@@ -17,24 +17,7 @@ const Avaliacao = connection.define('avaliacoe',{
         type: Sequelize.TEXT,
         allownull: false
     },
-
-    Question_id_answer1:{
-        type: Sequelize.INTEGER, //colocar .ARRAY estava dando erro mysql não aceita
-        allownull: false
-    }, 
-    Question_id_answer2:{
-        type: Sequelize.INTEGER, //colocar .ARRAY estava dando erro mysql não aceita
-        allownull: false
-    },
-    Question_id_answer3:{
-        type: Sequelize.INTEGER, //colocar .ARRAY estava dando erro mysql não aceita
-        allownull: false
-    },
-    Question_id_answer4:{
-        type: Sequelize.INTEGER, //colocar .ARRAY estava dando erro mysql não aceita
-        allownull: false
-    },
-    Question_id_answer5:{
+    Question_id_answer:{
         type: Sequelize.INTEGER, //colocar .ARRAY estava dando erro mysql não aceita
         allownull: false
     },

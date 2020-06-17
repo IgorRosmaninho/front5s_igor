@@ -89,11 +89,13 @@ import {
         this.setState({
             noteDescription: !this.state.noteDescription
         }) 
-        noteOne()       
+    
     }
+    
+    
+
 
     function noteOne(){
-        noteDescription ? noteOne : null
         return(
         <View style={styles.commentBox}>
             <Text>Em vários locais foram encontradas diversas anormalidades no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente, falta ou desperdício</Text>
@@ -101,7 +103,7 @@ import {
         )
     }
    
-
+    noteDescription ? noteOne : null  
 
        return (
         <ScrollView>

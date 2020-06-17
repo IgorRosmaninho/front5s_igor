@@ -22,12 +22,6 @@ import {
     });
     return response.json(); // parses JSON response into native JavaScript objects
   }
-  
-  postData('/avaliacao/ultilizacao', /*Inserir aqui o JSON com a Flatlist de avaliacoes da ultilizacao*/)
-    .then(data => {
-      console.log(data); // JSON data parsed by `response.json()` call
-    });
-
   export default function Utilização({navigation}) {
     const styles = StyleSheet.create ({
         container: {
@@ -58,6 +52,13 @@ import {
         {question: '1.3. Estado de conservação de instalações e recursos ', id: '3'},
         {question: '1.4. Controle dos problemas de conservação', id: '4'},
     ]);
+
+    postData('/avaliacao/ultilizacao', formUtilizacao)
+    .then(data => {
+      console.log(data); // JSON data parsed by `response.json()` call
+    });
+
+
        return (
         <ScrollView>
             <View style= {{backgroundColor: '#fff'}}> 

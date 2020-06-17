@@ -1,24 +1,18 @@
-const { create, all } = require('mathjs')
-const config = { }
-const math = create(all, config)
 
-function nois () {
-    var x = "salve";
-    return console.log(x)
+
+var a = parseInt(1);
+var j ={};
+
+
+
+for (var i = a + 0.1 ; i < a + 0.5 ; i += 0.1){
+    var ii = i.toFixed(1);
+    console.log(i)
+    console.log(a)
+    console.log(ii)
+    j[ii] = ii;
 }
 
-nois()
-
-var jsonAvaliacao = {
-    
-}
-
-jsonAvaliacao.Form_id = "joao";
-jsonAvaliacao.Cost_center_id = 42;
-jsonAvaliacao.Question_id_answer_u = [4,4,4,4]
+console.log(j)
 
 
-//var x = jsonAvaliacao.avaliacao[2]
-console.log("média= " + math.mean(jsonAvaliacao.Question_id_answer_)u)
-//console.log(x)
-console.log(jsonAvaliacao)

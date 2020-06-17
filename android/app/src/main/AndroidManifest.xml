@@ -2,6 +2,9 @@
   package="com.app_5s">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALER_WINDOW"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE"/>
 
     <application
       android:name=".MainApplication"
