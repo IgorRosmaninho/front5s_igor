@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const connection = require("./database");
+const connection = require("../../database/database");
 
 /*Criação da Tabela Avaliação, com Form_id(text), Cost_center_id(text), Question_id_answer(array(int), Answer_average(array(float))*/
 const Avaliacao = connection.define('avaliacoe',{
@@ -17,8 +17,9 @@ const Avaliacao = connection.define('avaliacoe',{
         type: Sequelize.TEXT,
         allownull: false
     },
+
     Question_id_answer:{
-        type: Sequelize.INTEGER, //colocar .ARRAY estava dando erro mysql não aceita
+        type: Sequelize.JSON, //colocar .ARRAY estava dando erro mysql não aceita
         allownull: false
     },
     

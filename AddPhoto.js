@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
         imageContainer: {
             width: '90%',
             heigth: Dimensions.get('window').width * / 2, 
-            backgroundColor: '#EEE',
+backgroundColor: '#EEE',
             marginTop: 10,
         },
     image: {
@@ -95,4 +95,4 @@ const styles = StyleSheet.create({
     }
     })
 
-    export defaut AddPhoto
+    export defaut AddPhoto;

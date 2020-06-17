@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const router = express.Router();
-const connection = require("../../database/database");
 const bodyParser = require("body-parser");
 const Pergunta = require("./CriaPerguntas");
 
