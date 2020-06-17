@@ -110,13 +110,14 @@ router.post("/calculamedia",(req,res) =>{
 //Salva no Banco de dados
 router.post("/salvabd", (req,res) => {
    
-    await Avaliacao.create({
+        Avaliacao.create({
         Form_id: Form_id,
         User_id: User_id,
         Cost_center_id: Cost_center_id,
         Question_id_answer: Question_id_answer,
         Answer_average: Answer_average
     });
+
 
     await Ranking.create({
         Cost_center_id: Cost_center_id,
