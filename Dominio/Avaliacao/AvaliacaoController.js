@@ -137,7 +137,6 @@ router.post("/salvabd", (req,res) => {
     res.send("enviado com sucesso")
 });
 
-
 //Envia dados do BD pra Rota
 router.get("/resultado",(req,res) => {
     Avaliacao.findAll( {raw: true, order:[

@@ -23,7 +23,7 @@ import {
     return response.json(); // parses JSON response into native JavaScript objects
   }
 
-  export default function Higiene({navigation}) {
+  export default function Padronizacao({navigation}) {
     const styles = StyleSheet.create ({
         container: {
             margin:16,
@@ -47,14 +47,14 @@ import {
         }
 
     })
-    const [formHigiene, setQuestion] = useState([
+    const [formPadronizacao, setQuestion] = useState([
         {question: '1.1. Utilização dos recursos existentes nos locais abertos', id: '1'},
         {question: '1.2. Utilização dos recursos existentes nos locais fechados', id: '2'},
         {question: '1.3. Estado de conservação de instalações e recursos ', id: '3'},
         {question: '1.4. Controle dos problemas de conservação', id: '4'},
     ]);
 
-    postData('/avaliacao/higiene', formHigiene)
+    postData('/avaliacao/padronizacao', formPadronizacao)
     .then(data => {
       console.log(data); // JSON data parsed by `response.json()` call
     });
@@ -64,11 +64,11 @@ import {
             <View style= {{backgroundColor: '#fff'}}> 
                 <View style={styles.container}>
                     <View>
-                        <Text style= {{ fontSize: 18, fontWeight: 'bold' }}> Higiene</Text>
+                        <Text style= {{ fontSize: 18, fontWeight: 'bold' }}> Padronização </Text>
                     </View>
                     <FlatList
                     keyExtractor= {(item) => item.id}
-                    data={formHigiene}
+                    data={formPadronizacao}
                     renderItem= {({ item }) => (
                         <View>
                             <Text style={styles.questionText}> {item.question}</Text>
