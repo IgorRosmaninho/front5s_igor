@@ -2,127 +2,127 @@
 //  * @format
 //  */
 
-//import {AppRegistry} from 'react-native';
-//import App from './App';
-//import {name as appName} from './app.json';
+import {AppRegistry} from 'react-native';
+import App from './App';
+import {name as appName} from './app.json';
 
-//AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => App);
 
-const express = require("express");
-const app = express();
-const connection = require("./database/database");
-const bodyParser = require("body-parser");
-const Avaliacao = require("./database/Avaliacao");
-const Login = require("./database/Login");
-const Pergunta = require("./database/perguntas");
-const Descricoes = require("./database/Descricoes");
+// const express = require("express");
+// const app = express();
+// const connection = require("./database/database");
+// const bodyParser = require("body-parser");
+// const Avaliacao = require("./database/Avaliacao");
+// const Login = require("./database/Login");
+// const Pergunta = require("./database/perguntas");
+// const Descricoes = require("./database/Descricoes");
 
-//match.js
-const { create, all } = require('mathjs')
-const config = { }
-const math = create(all, config)
+// //match.js
+// const { create, all } = require('mathjs')
+// const config = { }
+// const math = create(all, config)
 
-//Body-Parser
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json());
+// //Body-Parser
+// app.use(bodyParser.urlencoded({extended:false}));
+// app.use(bodyParser.json());
 
-//Conexão com Banco de Dados mysql
-connection.authenticate()
-    .then(function() {
-        console.log("Conectado com o BD")
-    })
-    .catch(function(err) {
-        console.log("msgErro");
-    })
-    .done();
-
-
-//Recebendo dados do login e salvando no BD   
-app.post("/cadastro", (req, res) => {   
-    var User_name = req.body.User_name;    //Na requisição deve ser buscado o nome que consta no formulário
-    var User_password = req.body.User_password;
-    var User_email = req.body.User_email;
-    var User_profile_photo = req.body.User_profile_photo;
-    var User_role = req.body.User_role;
-
-    //Colocando os dados na tabela de login
-    Login.create({             
-        User_name: User_name,
-        User_password: User_password,
-        User_email: User_email,
-        User_profile_photo: User_profile_photo,
-        User_role: User_role
-    }); //.then para dar um redirect do back para o front
-    res.json({ status: 'Usuário cadastrado!'})
-}); 
+// //Conexão com Banco de Dados mysql
+// connection.authenticate()
+//     .then(function() {
+//         console.log("Conectado com o BD")
+//     })
+//     .catch(function(err) {
+//         console.log("msgErro");
+//     })
+//     .done();
 
 
-//Verificando login
-app.get("/login", (req, res) => {
-    var email = req.body.User_email;
-    var password = req.body.User_password;
-    Login.findOne({
-        where: {User_email: email}  //Verificando se há o email na coluna User_email
-    }).then(logins => {            //A variável logins recebe o resultado de .findOne: se encontrar recebe o JSON, caso contrário recebe undefined
-        if (logins != undefined){
-            if(password == logins.User_password){
-                res.send(true);
-            }else{
-                res.send(false); 
-            }
-        }else{
-            res.sendStatus(404); //Email não encontrado
-        }
-    })
-});
+// //Recebendo dados do login e salvando no BD   
+// app.post("/cadastro", (req, res) => {   
+//     var User_name = req.body.User_name;    //Na requisição deve ser buscado o nome que consta no formulário
+//     var User_password = req.body.User_password;
+//     var User_email = req.body.User_email;
+//     var User_profile_photo = req.body.User_profile_photo;
+//     var User_role = req.body.User_role;
 
-//Será melhor enviar pergunta por pergunta? Ou enviar um JSON com as 4 perguntas por página?
-app.post("/pergunta", (req, res) => {
-    var titulo = req.body.titulo;
-    Pergunta.findOne({
-        where: {titulo : titulo}  //Encontrando a pergunta com o título 
-    }).then(pergunta => {
-        if(pergunta != undefined){
-            res.send(pergunta);
-        }else{
-            res.sendStatus(404);  //Não encontrado
-        }
-    })
-});
+//     //Colocando os dados na tabela de login
+//     Login.create({             
+//         User_name: User_name,
+//         User_password: User_password,
+//         User_email: User_email,
+//         User_profile_photo: User_profile_photo,
+//         User_role: User_role
+//     }); //.then para dar um redirect do back para o front
+//     res.json({ status: 'Usuário cadastrado!'})
+// }); 
 
-//Mudar o formato da tabela? Para códigos do tipo 1.1.2, onde 1.1 se refere à pergunta e 2 à nota
-app.post("/descricao", (req, res) => {
-    var id = req.body.id;  //Recebe o id da pergunta
-    Descricoes.findOne({
-        where : {id : id}
-    }).then(json => {
-        res.send(json.descricao);
-    })
-});
 
-//define Form_id 
-var Form_id = 0
+// //Verificando login
+// app.get("/login", (req, res) => {
+//     var email = req.body.User_email;
+//     var password = req.body.User_password;
+//     Login.findOne({
+//         where: {User_email: email}  //Verificando se há o email na coluna User_email
+//     }).then(logins => {            //A variável logins recebe o resultado de .findOne: se encontrar recebe o JSON, caso contrário recebe undefined
+//         if (logins != undefined){
+//             if(password == logins.User_password){
+//                 res.send(true);
+//             }else{
+//                 res.send(false); 
+//             }
+//         }else{
+//             res.sendStatus(404); //Email não encontrado
+//         }
+//     })
+// });
 
-//User_id 
-var User_id = 0 
+// //Será melhor enviar pergunta por pergunta? Ou enviar um JSON com as 4 perguntas por página?
+// app.post("/pergunta", (req, res) => {
+//     var titulo = req.body.titulo;
+//     Pergunta.findOne({
+//         where: {titulo : titulo}  //Encontrando a pergunta com o título 
+//     }).then(pergunta => {
+//         if(pergunta != undefined){
+//             res.send(pergunta);
+//         }else{
+//             res.sendStatus(404);  //Não encontrado
+//         }
+//     })
+// });
 
-//Cost_center_id 
-var Cost_center_id = 0
+// //Mudar o formato da tabela? Para códigos do tipo 1.1.2, onde 1.1 se refere à pergunta e 2 à nota
+// app.post("/descricao", (req, res) => {
+//     var id = req.body.id;  //Recebe o id da pergunta
+//     Descricoes.findOne({
+//         where : {id : id}
+//     }).then(json => {
+//         res.send(json.descricao);
+//     })
+// });
 
-//Question_id_answer 
-var Question_id_answer = {
-    Question_id_answer_u: 0,
-    Question_id_answer_o: 0,
-    Question_id_answer_l: 0,
-    Question_id_answer_p: 0,
-    Question_id_answer_d: 0 
-}
+// //define Form_id 
+// var Form_id = 0
 
-//Recebe dados do front de Form_id User_id e Cost_center_id
-app.post("/avaliacao/id",(req,res) =>{  
-    Form_id = req.body.Form_id;
-    User_id = req.body.User_id;
-    Cost_center_id = req.body.Cost_center_id;
+// //User_id 
+// var User_id = 0 
+
+// //Cost_center_id 
+// var Cost_center_id = 0
+
+// //Question_id_answer 
+// var Question_id_answer = {
+//     Question_id_answer_u: 0,
+//     Question_id_answer_o: 0,
+//     Question_id_answer_l: 0,
+//     Question_id_answer_p: 0,
+//     Question_id_answer_d: 0 
+// }
+
+// //Recebe dados do front de Form_id User_id e Cost_center_id
+// app.post("/avaliacao/id",(req,res) =>{  
+//     Form_id = req.body.Form_id;
+//     User_id = req.body.User_id;
+//     Cost_center_id = req.body.Cost_center_id;
     
 //     res.send("Form_id: " + Form_id + " User_id: " + User_id + " Cost_center_id: " + Cost_center_id)
 // });
