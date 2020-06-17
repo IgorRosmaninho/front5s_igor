@@ -110,7 +110,7 @@ router.post("/calculamedia",(req,res) =>{
 //Salva no Banco de dados
 router.post("/salvabd", (req,res) => {
    
-    await Avaliacao.create({
+        Avaliacao.create({
         Form_id: Form_id,
         User_id: User_id,
         Cost_center_id: Cost_center_id,
@@ -118,6 +118,7 @@ router.post("/salvabd", (req,res) => {
         Answer_average: Answer_average
     });
 
+/*
     await Ranking.create({
         Cost_center_id: Cost_center_id,
         Average_u: 1,
@@ -132,7 +133,7 @@ router.post("/salvabd", (req,res) => {
     await Ranking.increment(
         'Average_u',{by: Answer_average_u}
     );
-
+*/
     res.send("enviado com sucesso")
 });
 

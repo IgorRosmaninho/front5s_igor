@@ -24,10 +24,12 @@ const Login = connection.define('login',{
     }
 }); //É possível passar um último objeto opções {} (vazio). Não sei ainda o porquê
 
+/*
 //Sincronizando ao BD
 Login.sync({force: false}).then(() => {
     console.log("Tabela de login criada.")
 });
+*/
 /*
 Login.create({             
     User_name: "João",
