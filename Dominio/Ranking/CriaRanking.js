@@ -44,9 +44,11 @@ const Ranking = connection.define('ranking',{
     }
 });
 
-/*Sincroniza com banco de dados e cria só se não houver uma tabela ranking*/
+/*
+//Sincroniza com banco de dados e cria só se não houver uma tabela ranking
 Ranking.sync({force: false}).then(() => {
     console.log("Tabela Ranking Criada")
 });
+*/
 
 module.exports = Ranking;
