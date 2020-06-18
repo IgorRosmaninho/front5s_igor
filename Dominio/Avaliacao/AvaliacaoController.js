@@ -77,6 +77,7 @@ router.post("/avaliacao/disciplina",(req,res) =>{  //app.post
 });
 
 // define Answer_average
+/*
 var Answer_average = {
     Answer_average_u : 0,
     Answer_average_o : 0,
@@ -86,15 +87,29 @@ var Answer_average = {
     Answer_average_3s : 0,
     Answer_average_5s : 0
 };
+*/
+
+var Answer_average_u = 0;
+var Answer_average_o = 0;
+var Answer_average_l = 0;
+var Answer_average_p = 0;
+var Answer_average_d = 0;
+var Answer_average_3s = 0;
+var Answer_average_5s = 0;
+
+
 
 //Calcula Média de cada S e 5S e 3S
 router.post("/calculamedia",(req,res) =>{
+
+    /*
     var Answer_average_u = math.mean(Question_id_answer.Question_id_answer_u);
     var Answer_average_o = math.mean(Question_id_answer.Question_id_answer_o);
     var Answer_average_l = math.mean(Question_id_answer.Question_id_answer_l);
     var Answer_average_p = math.mean(Question_id_answer.Question_id_answer_p);
     var Answer_average_d = math.mean(Question_id_answer.Question_id_answer_d);
-
+    /*
+    /*
     Answer_average.Answer_average_u = Answer_average_u
     Answer_average.Answer_average_o = Answer_average_o
     Answer_average.Answer_average_l = Answer_average_l
@@ -102,39 +117,40 @@ router.post("/calculamedia",(req,res) =>{
     Answer_average.Answer_average_d = Answer_average_d
     Answer_average.Answer_average_3s = math.mean(Answer_average_u,Answer_average_o,Answer_average_l)
     Answer_average.Answer_average_5s = math.mean(Answer_average_u,Answer_average_o,Answer_average_l,Answer_average_p,Answer_average_d)
+    */
 
-    res.send(Answer_average)
+    Answer_average_u = math.mean(Question_id_answer.Question_id_answer_u);
+    Answer_average_o = math.mean(Question_id_answer.Question_id_answer_o);
+    Answer_average_l = math.mean(Question_id_answer.Question_id_answer_l);
+    Answer_average_p = math.mean(Question_id_answer.Question_id_answer_p);
+    Answer_average_d = math.mean(Question_id_answer.Question_id_answer_d);
+
+    Answer_average_3s = math.mean(Answer_average_u,Answer_average_o,Answer_average_l)
+    Answer_average_5s = math.mean(Answer_average_u,Answer_average_o,Answer_average_l,Answer_average_p,Answer_average_d)
+
+    res.send(Answer_average_u +  " " +  Answer_average_o +  " " +  Answer_average_l + " " +  Answer_average_p + " " +  Answer_average_d + " " +  Answer_average_3s + " " + Answer_average_5s)
 });
 
 
 //Salva no Banco de dados
 router.post("/salvabd", (req,res) => {
-   
-        Avaliacao.create({
+   (async() =>{
+    await Avaliacao.create({
         Form_id: Form_id,
         User_id: User_id,
         Cost_center_id: Cost_center_id,
         Question_id_answer: Question_id_answer,
-        Answer_average: Answer_average
+        Answer_average_u: Answer_average_u,
+        Answer_average_o: Answer_average_o,
+        Answer_average_l: Answer_average_l,
+        Answer_average_p: Answer_average_p,
+        Answer_average_d: Answer_average_d,
+        Answer_average_3s: Answer_average_3s,
+        Answer_average_5s: Answer_average_5s,
     });
 
-/*
-    await Ranking.create({
-        Cost_center_id: Cost_center_id,
-        Average_u: 1,
-        Average_o: 2,
-        Average_l: 3,
-        Average_p: 4,
-        Average_d: 5,
-        Average_3s: 6,
-        Average_5s: 7
-    });
-
-    await Ranking.increment(
-        'Average_u',{by: Answer_average_u}
-    );
-*/
     res.send("enviado com sucesso")
+   })()
 });
 
 //Envia dados do BD pra Rota
@@ -150,7 +166,7 @@ router.get("/resultado",(req,res) => {
 });
 
 router.post("/obtermedias",(req,res) => {
-    res.send(Answer_average)
+    res.send("falta fazer")
 });
 
 
