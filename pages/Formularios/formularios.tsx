@@ -27,7 +27,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 
 
-  export default function Formulario({navigation}) {
+  export default function Formularios({navigation}) {
 
     const styles = StyleSheet.create({
       container: {
@@ -79,24 +79,24 @@ import { ScrollView } from 'react-native-gesture-handler';
       }
     });
 
-    export default class Formularios extends Component{
-    state = {
+    //class Formularios extends Component{
+    const state = {
       docs: []
     };
 
-    componentDidMount() {
+    function componentDidMount() {
       this.loadHistorico();
     }
    
-    loadHistorico = async () => {
-      const response = await api.get("/historico");
+  //    function loadHistorico  async () => {
+  //     const response = await api.get("/historico");
       
-      const { docs } = response.data;
+  //     const { docs } = response.data;
 
-      this.setState({ docs });
-  };
+  //     this.setState({ docs });
+  // };
 
-  renderItem = ({ item }) => (
+  function renderItem (item){
     <View>
       <Text style={styles.historicoTitle}>{item.title}</Text>
       <Text style={styles.historicoDescription}>{item.description}</Text>
@@ -105,9 +105,9 @@ import { ScrollView } from 'react-native-gesture-handler';
                   <Text style={styles.historicoButtonText}> Detalhes </Text>
       </TouchableOpacity>
     </View>
-  );
+  };
   
-  render() {
+  
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -123,5 +123,5 @@ import { ScrollView } from 'react-native-gesture-handler';
         </View>
       </ScrollView>
     )
-  }
-}}
+  
+}

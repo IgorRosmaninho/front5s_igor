@@ -3,7 +3,7 @@ const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser");
 const Avaliacao = require("./Avaliacao");
-const Ranking = require("../Ranking/CriaRanking")
+//const Ranking = require("../Ranking/CriaRanking")
 
 //Body-Parser
 app.use(bodyParser.urlencoded({extended:false}));
@@ -76,18 +76,7 @@ router.post("/avaliacao/disciplina",(req,res) =>{  //app.post
     res.send(Question_id_answer)
 });
 
-// define Answer_average
-/*
-var Answer_average = {
-    Answer_average_u : 0,
-    Answer_average_o : 0,
-    Answer_average_l : 0,
-    Answer_average_p : 0,
-    Answer_average_d : 0,
-    Answer_average_3s : 0,
-    Answer_average_5s : 0
-};
-*/
+// define Answer_average_x
 
 var Answer_average_u = 0;
 var Answer_average_o = 0;
@@ -102,22 +91,6 @@ var Answer_average_5s = 0;
 //Calcula Média de cada S e 5S e 3S
 router.post("/calculamedia",(req,res) =>{
 
-    /*
-    var Answer_average_u = math.mean(Question_id_answer.Question_id_answer_u);
-    var Answer_average_o = math.mean(Question_id_answer.Question_id_answer_o);
-    var Answer_average_l = math.mean(Question_id_answer.Question_id_answer_l);
-    var Answer_average_p = math.mean(Question_id_answer.Question_id_answer_p);
-    var Answer_average_d = math.mean(Question_id_answer.Question_id_answer_d);
-    /*
-    /*
-    Answer_average.Answer_average_u = Answer_average_u
-    Answer_average.Answer_average_o = Answer_average_o
-    Answer_average.Answer_average_l = Answer_average_l
-    Answer_average.Answer_average_p = Answer_average_p
-    Answer_average.Answer_average_d = Answer_average_d
-    Answer_average.Answer_average_3s = math.mean(Answer_average_u,Answer_average_o,Answer_average_l)
-    Answer_average.Answer_average_5s = math.mean(Answer_average_u,Answer_average_o,Answer_average_l,Answer_average_p,Answer_average_d)
-    */
 
     Answer_average_u = math.mean(Question_id_answer.Question_id_answer_u);
     Answer_average_o = math.mean(Question_id_answer.Question_id_answer_o);
