@@ -81,29 +81,28 @@ import {
     // };
 
     // Condicional para aparecer descritivo da nota (in progress)
-     function note(){
-        const [noteDescription, setNoteDescription] = useState(false);
-     }
+    //  function note(){
+    //     const [noteDescription, setNoteDescription] = useState(false);
+    //  }
 
-    function changeNote () {
-        this.setState({
-            noteDescription: !this.state.noteDescription
-        }) 
-    
-    }
+    // function changeNote () {
+    //     this.setState({
+    //         noteDescription: !this.state.noteDescription
+    //     }); 
+    // }
     
     
 
 
-    function noteOne(){
-        return(
-        <View style={styles.commentBox}>
-            <Text>Em vários locais foram encontradas diversas anormalidades no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente, falta ou desperdício</Text>
-        </View>
-        )
-    }
+    // function noteOne(){
+    //     return(
+    //     <View style={styles.commentBox}>
+    //         <Text>Em vários locais foram encontradas diversas anormalidades no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente, falta ou desperdício</Text>
+    //     </View>
+    //     )
+    // }
    
-    noteDescription ? noteOne : null  
+   
 
        return (
         <ScrollView>
@@ -120,7 +119,7 @@ import {
                             <Text style={styles.bodyText}> {item.question}</Text>
 
                             <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
-                                <TouchableOpacity style={styles.iconContainer} onPress={changeNote}><Image style={styles.iconDimension} source={require("../../../icons/grade1-4x.png")}/></TouchableOpacity>
+                                <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade1-4x.png")}/></TouchableOpacity>
                                 <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade24x.png")} /></TouchableOpacity>
                                 <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade34x.png")}/></TouchableOpacity>
                                 <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade44x.png")}/></TouchableOpacity>

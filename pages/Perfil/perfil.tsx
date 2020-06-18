@@ -23,7 +23,7 @@ import {
           headers: { 'Content-Type': 'application/json' },
           
       };
-      fetch('https://jsonplaceholder.typicode.com/posts', requestOptions)
+      fetch('http://localhost:4000/cadastro', requestOptions)
           .then(response => response.json())
           .then(data => mudarNome(data));
   
@@ -34,7 +34,7 @@ import {
        return (
         
          <View style={{flex: 0.2, flexDirection: "column"}}>
-           {nome.map(bolo => <Text> {bolo.title} </Text> )}
+           {nome.map(user => <Text> {user.User_name} </Text> )}
              
              </View>
        )}
