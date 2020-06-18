@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import AddPhoto from AddPhoto.js
 
 import {
     View,
@@ -13,20 +14,20 @@ import {
   
   async function postData(url = '', data = {}) { 
     const response = await fetch(url, {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data) // body data type must match "Content-Type" header
-    });
-    return response.json(); // parses JSON response into native JavaScript objects
+      method: 'POST', // or 'PUT'
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(data),
+})
+.then(response => response.json())
+.then(data => {
+  console.log('Success:', data);
+})
+.catch((error) => {
+  console.error('Error:', error);
+})
   }
-  
-  postData('/avaliacao/limpeza', /*Inserir aqui o JSON com a Flatlist de avaliacoes da limpeza*/)
-    .then(data => {
-      console.log(data); // JSON data parsed by `response.json()` call
-    });
-
 
   export default function Limpeza({navigation}) {
     const styles = StyleSheet.create ({
@@ -104,6 +105,7 @@ import {
    
    
 
+    postData('/avaliacao/limpeza', formLimpeza)
        return (
         <ScrollView>
             <View style= {{backgroundColor: '#fff'}}> 
@@ -127,7 +129,7 @@ import {
                             </View>
                             <Text style={styles.imputLabel}> Justifique: </Text>
                             <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
-                            <TouchableOpacity style={styles.secondaryButton}> 
+                            <TouchableOpacity onPress={AddPhoto} style={styles.secondaryButton}> 
                                 <Text style={styles.secondaryButtonText}>Abrir câmera</Text>
                             </TouchableOpacity>
                             <View style={styles.divisor}></View>
