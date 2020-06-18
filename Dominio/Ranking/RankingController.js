@@ -3,7 +3,7 @@ const app = express();
 const router = express.Router();
 const connection = require("../../database/database");
 const bodyParser = require("body-parser");
-const Ranking = require("./CriaRanking");
+//const Ranking = require("./CriaRanking");
 const Avaliacao = require("../Avaliacao/Avaliacao")
 
 
