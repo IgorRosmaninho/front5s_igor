@@ -42,63 +42,6 @@ function StackAssessment (){
 
 const App: () => React$Node = () => {
 
-
-  // function MyTabBar({ state, descriptors, navigation }) {
-  //   return (
-  //     <View style={{ flexDirection: 'row', height:56, justifyContent: 'center', alignItems:'center'}}>
-  //       {state.routes.map((route, index) => {
-  //         const { options } = descriptors[route.key];
-  //         const label =
-  //           options.tabBarLabel !== undefined
-  //             ? options.tabBarLabel
-  //             : options.title !== undefined
-  //             ? options.title
-  //             : route.name;
-  
-  //         const isFocused = state.index === index;
-  
-  //         const onPress = () => {
-  //           const event = navigation.emit({
-  //             type: 'tabPress',
-  //             target: route.key,
-  //           });
-  
-  //           if (!isFocused && !event.defaultPrevented) {
-  //             navigation.navigate(route.name);
-  //           }
-  //         };
-  
-  //         const onLongPress = () => {
-  //           navigation.emit({
-  //             type: 'tabLongPress',
-  //             target: route.key,
-  //           });
-  //         };
-  
-  //         return (
-  //           <TouchableOpacity
-  //             accessibilityRole="button"
-  //             accessibilityStates={isFocused ? ['selected'] : []}
-  //             accessibilityLabel={options.tabBarAccessibilityLabel}
-  //             testID={options.tabBarTestID}
-  //             onPress={onPress}
-  //             onLongPress={onLongPress}
-  //             style={{ flex: 1 }}
-              
-  //           >
-  //             <Text style={{ color: isFocused ? '#000' : '#222' }}>
-  //               {label}
-  //             </Text>
-  //           </TouchableOpacity>
-  //         );
-  //       })}
-  //     </View>
-  //   );
-  // }
-
-
-
-
   return (
     <NavigationContainer>
       <Tab.Navigator tabBarOptions={{
@@ -113,12 +56,6 @@ const App: () => React$Node = () => {
        <Tab.Screen name="Perfil" component={Perfil} />
      </Tab.Navigator>
     </NavigationContainer>
- 
-    //   <Stack.Navigator initialRouteName = "Login">
-    //     <Stack.Screen name="Login" component={Login}/>
-   
-  
-    //   </Stack.Navigator>
   
   );
 };

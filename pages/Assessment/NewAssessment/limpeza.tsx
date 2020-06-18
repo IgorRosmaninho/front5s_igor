@@ -21,6 +21,12 @@ import {
     });
     return response.json(); // parses JSON response into native JavaScript objects
   }
+  
+  postData('/avaliacao/limpeza', /*Inserir aqui o JSON com a Flatlist de avaliacoes da limpeza*/)
+    .then(data => {
+      console.log(data); // JSON data parsed by `response.json()` call
+    });
+
 
   export default function Limpeza({navigation}) {
     const styles = StyleSheet.create ({
@@ -41,12 +47,19 @@ import {
             color:'#000' ,backgroundColor: '#ffffff', height: 96, marginVertical: 16, fontSize: 16, padding: 12, borderColor: '#000', borderWidth: 1, textAlignVertical: 'top'
         },primaryButton:{
             backgroundColor: '#000', height: 48, justifyContent: 'center', margin: 16,
+        },secondaryButton:{
+            backgroundColor: '#fff', height: 48, justifyContent: 'center', marginVertical: 16, borderColor: '#000', borderWidth: 1
         }, primaryButtonText:{
             color: '#fff', fontSize: 16, fontWeight: 'bold', alignSelf: 'center'
-        }, divisor:{
+        }, secondaryButtonText:{
+            color: '#000', fontSize: 16, fontWeight: 'bold', alignSelf: 'center'
+        },divisor:{
             backgroundColor: '#000', height: 2, 
-        }, questionText:{ 
+        }, bodyText:{ 
             fontSize: 16, marginTop: 16
+        },commentBox:{
+            backgroundColor: '#f5f5f5',
+            marginVertical: 16,
         }
     })
     
@@ -58,24 +71,39 @@ import {
         {question: '1.4. Controle dos problemas de conservação', id: '4'},
     ]);
     
-    postData('/avaliacao/limpeza', formLimpeza)
-    .then(data => {
-      console.log(data); // JSON data parsed by `response.json()` call
-    });
-    
     // tentiva de fazer o botão funcionar e trocar; dá para fazer integraçãp, mas precisa arrumar as animações de troca de imagem
-    const [iconOne, setIconOne] = useState( {uri: require("../../../icons/grade1-4x.png")});
+    // const [iconOne, setIconOne] = useState( {uri: require("../../../icons/grade1-4x.png")});
      
-    const answer = () => {
-        setIconOne ({ uri: require("/Users/taqtile/Desktop/FAU/5s_mercedes/mercedes_5s/icons/grade1-selected4x.png")})
-        console.warn('nota 1')
-        this.setState ({setNoteDescription: true})
-    };
+    // const answer = () => {
+    //     setIconOne ({ uri: require("/Users/taqtile/Desktop/FAU/5s_mercedes/mercedes_5s/icons/grade1-selected4x.png")})
+    //     console.warn('nota 1')
+    //     noteOne
+    // };
 
     // Condicional para aparecer descritivo da nota (in progress)
-    const [noteDescription, setNoteDescription] = useState([false])
+     function note(){
+        const [noteDescription, setNoteDescription] = useState(false);
+     }
 
-    setNoteDescription? noteDescription : null
+    function changeNote () {
+        this.setState({
+            noteDescription: !this.state.noteDescription
+        }) 
+    
+    }
+    
+    
+
+
+    function noteOne(){
+        return(
+        <View style={styles.commentBox}>
+            <Text>Em vários locais foram encontradas diversas anormalidades no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente, falta ou desperdício</Text>
+        </View>
+        )
+    }
+   
+    noteDescription ? noteOne : null  
 
        return (
         <ScrollView>
@@ -89,10 +117,10 @@ import {
                     data={formLimpeza}
                     renderItem= {({ item }) => (
                         <View>
-                            <Text style={styles.questionText}> {item.question}</Text>
+                            <Text style={styles.bodyText}> {item.question}</Text>
 
                             <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
-                                <TouchableOpacity style={styles.iconContainer} onPress={answer}><Image style={styles.iconDimension} source={require("../../../icons/grade1-4x.png")}/></TouchableOpacity>
+                                <TouchableOpacity style={styles.iconContainer} onPress={changeNote}><Image style={styles.iconDimension} source={require("../../../icons/grade1-4x.png")}/></TouchableOpacity>
                                 <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade24x.png")} /></TouchableOpacity>
                                 <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade34x.png")}/></TouchableOpacity>
                                 <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade44x.png")}/></TouchableOpacity>
@@ -100,6 +128,9 @@ import {
                             </View>
                             <Text style={styles.imputLabel}> Justifique: </Text>
                             <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
+                            <TouchableOpacity style={styles.secondaryButton}> 
+                                <Text style={styles.secondaryButtonText}>Abrir câmera</Text>
+                            </TouchableOpacity>
                             <View style={styles.divisor}></View>
                         </View>
                      )}
