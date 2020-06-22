@@ -33,11 +33,9 @@ import {
     
        return (
         
-        //  <View>
-        //    {nome.map(user => <Text> {user.title} </Text> )}
-        //      <Text>Oi</Text>
-        //      </View>
-        <View>
-          <Text>Oi</Text>
-        </View>
+         <View>
+           {nome.map(user => <Text> {user.title} </Text> )}
+             <Text>Oi</Text>
+             </View>
+        
        )}

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import AddPhoto from AddPhoto.js
+//import AddPhoto from "../../../AddPhoto";
 
 import {
     View,
@@ -129,7 +129,7 @@ import {
                             </View>
                             <Text style={styles.imputLabel}> Justifique: </Text>
                             <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
-                            <TouchableOpacity onPress={AddPhoto} style={styles.secondaryButton}> 
+                            <TouchableOpacity style={styles.secondaryButton}> 
                                 <Text style={styles.secondaryButtonText}>Abrir câmera</Text>
                             </TouchableOpacity>
                             <View style={styles.divisor}></View>
