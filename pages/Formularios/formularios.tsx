@@ -65,24 +65,25 @@ import {
       }
     });
 
-    
-    const state = {
+  class Historico extends Component{
+
+    state = {
       docs: []
     };
 
-    // const componentDidMount () {
-    //   this.loadHistorico();
-    // }
+    componentDidMount() {
+      this.loadHistorico();
+    }
    
-  //  function loadHistorico = async () => {
-  //     const response = await api.get('');
+    loadHistorico = async () => {
+       const response = await api.get('');
       
-  //     const { docs } = response.data;
+     const { docs } = response.data;
 
-  //     this.setState({ docs });
-  // };
+     this.setState({ docs });
+ };
 
-  function renderItem (item){
+  renderItem (item){
     <View>
       <Text style={styles.historicoTitle}>{item.Cost_center_id}</Text>
       <Text style={styles.historicoDescription}>{item.Answer_average_x}</Text>
@@ -93,6 +94,7 @@ import {
       </TouchableOpacity>
     </View>
   };
+}
   
   
     return (
