@@ -1,7 +1,7 @@
 import axios from 'react-native-axios';
 
 const api = axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com/posts'
+    baseURL: 'http://localhost:4000/historico/5s/createdAt/DESC'
 });
 
 export default api;
