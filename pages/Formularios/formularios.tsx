@@ -13,7 +13,7 @@ import {
     Button
   } from 'react-native';
 
-  export default function Formulario({navigation}) {
+  export default function Formularios({navigation}) {
 
     const styles = StyleSheet.create({ 
       container: {
@@ -65,24 +65,24 @@ import {
       }
     });
 
-    class Formularios extends Component{
-    state = {
+    
+    const state = {
       docs: []
     };
 
-    componentDidMount() {
-      this.loadHistorico();
-    }
+    // const componentDidMount () {
+    //   this.loadHistorico();
+    // }
    
-    loadHistorico = async () => {
-      const response = await api.get('');
+  //  function loadHistorico = async () => {
+  //     const response = await api.get('');
       
-      const { docs } = response.data;
+  //     const { docs } = response.data;
 
-      this.setState({ docs });
-  };
+  //     this.setState({ docs });
+  // };
 
-  renderItem = ({ item }) => (
+  function renderItem (item){
     <View>
       <Text style={styles.historicoTitle}>{item.Cost_center_id}</Text>
       <Text style={styles.historicoDescription}>{item.Answer_average_x}</Text>
@@ -92,9 +92,9 @@ import {
         <Text style={styles.historicoButtonText}> Detalhes </Text>
       </TouchableOpacity>
     </View>
-  );
+  };
   
-  render() {
+  
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -110,5 +110,5 @@ import {
         </View>
       </ScrollView>
     )
-  }
-}}
+  
+}
