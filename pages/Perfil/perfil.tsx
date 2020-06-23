@@ -23,7 +23,7 @@ import {
           headers: { 'Content-Type': 'application/json' },
           
       };
-      fetch('https://jsonplaceholder.typicode.com/posts', requestOptions)
+      fetch('https://jsonplaceholder.typicode.com/posts/1', requestOptions)
           .then(response => response.json())
           .then(data => mudarNome(data));
   
@@ -33,8 +33,9 @@ import {
     
        return (
         
-         <View style={{flex: 0.2, flexDirection: "column"}}>
-           {nome.map(bolo => <Text> {bolo.title} </Text> )}
-             
+         <View>
+           {nome.map(user => <Text> {user.title} </Text> )}
+             <Text>Oi</Text>
              </View>
+        
        )}

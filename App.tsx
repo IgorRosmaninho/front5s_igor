@@ -34,9 +34,10 @@ function StackAssessment (){
         <Stack.Screen name="Limpeza" component={Limpeza} options={{title: 'Nova avaliação'}}/>
         <Stack.Screen name="Organizacao" component={Organizacao} options={{title: 'Nova avaliação'}}/>
         <Stack.Screen name="Utilizacao" component={Utilizacao} options={{title: 'Nova avaliação'}}/>
-       <Stack.Screen name="Padronizacao" component={Padronizacao} options={{title: 'Nova avaliação'}}/>
+        <Stack.Screen name="Padronizacao" component={Padronizacao} options={{title: 'Nova avaliação'}}/>
         <Stack.Screen name="Disciplina" component={Disciplina} options={{title: 'Nova avaliação'}}/>
         <Stack.Screen name="Resultado" component={Resultado} options={{title: 'Nova avaliação'}}/>
+        <Stack.Screen name="Login" component={Login} options={{title: ''}}/>
   </Stack.Navigator>
   )}
 
@@ -44,7 +45,7 @@ const App: () => React$Node = () => {
 
   return (
     <NavigationContainer>
-      <Tab.Navigator tabBarOptions={{
+      <Tab.Navigator  initialRouteName={"Login"} tabBarOptions={{
         activeTintColor: '#000',
       }} 
       // tabBar={props => <MyTabBar {...props} />}

@@ -1,4 +1,4 @@
-#Tue Jun 09 17:29:50 BRT 2020
+#Tue Jun 23 10:23:05 BRT 2020
 base.0=/Users/taqtile/Desktop/FAU/5s_mercedes/mercedes_5s/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

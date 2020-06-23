@@ -1,4 +1,4 @@
-import Reactimport { Component } from 'react'
+import React from 'react';
 import {
     View,
     Text,
@@ -10,12 +10,12 @@ import {
     Platform,
     ScrollView,
     Alert
-} from 'reactive-native'
-import imagePiker from 'react-native-image-picker'
+} from 'react-native'
+import ImagePicker  from 'react-native-image-picker'
 import { Component } from 'react'
-import { ImagePickerIOS } from 'react-native'
-import { kMaxLength } from 'buffer'
-import { thisExpression } from '@babel/types'
+//import { ImagePickerIOS } from 'react-native'
+// import { kMaxLength } from 'buffer'
+//import { thisExpression } from '@babel/types'
 
 class AddPhoto extends Component {
     state = {
@@ -59,8 +59,8 @@ class AddPhoto extends Component {
             </ScrollView>
         )
     }
-}
-const styles = StyleSheet.create({
+
+ styles = StyleSheet.create({
     container: {
         flex: 1,
         alingItens: 'center'
@@ -69,15 +69,16 @@ const styles = StyleSheet.create({
         fontSize: 20,
         maginTop: Platform.OS === 'ios' ? 30:10,
         fontWeight: 'bold',
-        imageContainer: {
+    },
+    imageContainer: {
             width: '90%',
-            heigth: Dimensions.get('window').width * / 2, 
-backgroundColor: '#EEE',
+            heigth: "50%", 
+            backgroundColor: '#EEEEEE',
             marginTop: 10,
         },
     image: {
         width: '100%',
-        heigth: Dimensions.get('window').width * / 2,
+        heigth: "50%",
         resizeMode: 'center'
         },
     button: {
@@ -94,5 +95,5 @@ backgroundColor: '#EEE',
         width: '90%'
     }
     })
-
-    export defaut AddPhoto;
+}
+    export default AddPhoto;
