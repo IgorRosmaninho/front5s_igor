@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../Formularios/api';
+import { ScrollView } from 'react-native-gesture-handler';
 
 import {
     View,
@@ -11,25 +12,10 @@ import {
     FlatList,
     Button
   } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-
-
-//async function postData(url = '', data = {}) { 
-//  const response = await fetch(url, {
-//    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-//    headers: {
-//      'Content-Type': 'application/json'
-//    },
-//    body: JSON.stringify(data) // body data type must match "Content-Type" header
-//  });
-//  return response.json(); // parses JSON response into native JavaScript objects
-//}
-
-
 
   export default function Formularios({navigation}) {
 
-    const styles = StyleSheet.create({
+    const styles = StyleSheet.create({ 
       container: {
         flex: 1,
         backgroundColor: '#fafafa'
@@ -79,17 +65,17 @@ import { ScrollView } from 'react-native-gesture-handler';
       }
     });
 
-    //class Formularios extends Component{
-    const state = {
+    class Formularios extends Component{
+    state = {
       docs: []
     };
 
-    function componentDidMount() {
+    const componentDidMount() {
       this.loadHistorico();
     }
    
-  //    function loadHistorico  async () => {
-  //     const response = await api.get("/historico");
+    loadHistorico = async () => {
+      const response = await api.get('');
       
   //     const { docs } = response.data;
 
@@ -98,11 +84,12 @@ import { ScrollView } from 'react-native-gesture-handler';
 
   function renderItem (item){
     <View>
-      <Text style={styles.historicoTitle}>{item.title}</Text>
-      <Text style={styles.historicoDescription}>{item.description}</Text>
+      <Text style={styles.historicoTitle}>{item.Cost_center_id}</Text>
+      <Text style={styles.historicoDescription}>{item.Answer_average_x}</Text>
+      <Text style={styles.historicoDescription}>Data da avaliação: {item.createdAt}</Text>
 
       <TouchableOpacity style={styles.historicoButton} onPress={() => {}}>
-                  <Text style={styles.historicoButtonText}> Detalhes </Text>
+        <Text style={styles.historicoButtonText}> Detalhes </Text>
       </TouchableOpacity>
     </View>
   };
