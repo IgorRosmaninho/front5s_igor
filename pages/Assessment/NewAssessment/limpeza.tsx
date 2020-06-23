@@ -65,43 +65,38 @@ import {
     })
     
     // Data para Flatlist
-    const [formLimpeza, setQuestion] = useState([
+    const formLimpeza = [
         {question: '1.1. Utilização dos recursos existentes nos locais abertos', id: '1'},
         {question: '1.2. Utilização dos recursos existentes nos locais fechados', id: '2'},
         {question: '1.3. Estado de conservação de instalações e recursos ', id: '3'},
         {question: '1.4. Controle dos problemas de conservação', id: '4'},
-    ]);
+    ];
     
-    // tentiva de fazer o botão funcionar e trocar; dá para fazer integraçãp, mas precisa arrumar as animações de troca de imagem
-    // const [iconOne, setIconOne] = useState( {uri: require("../../../icons/grade1-4x.png")});
+    //tentiva de fazer o botão funcionar e trocar; dá para fazer integraçãp, mas precisa arrumar as animações de troca de imagem
+    const [iconOne, setIconOne] = useState( {uri: require("../../../icons/grade1-4x.png")});
      
-    // const answer = () => {
-    //     setIconOne ({ uri: require("/Users/taqtile/Desktop/FAU/5s_mercedes/mercedes_5s/icons/grade1-selected4x.png")})
-    //     console.warn('nota 1')
-    //     noteOne
-    // };
+    const answer = () => {
+        setIconOne ({ uri: require("/Users/taqtile/Desktop/FAU/5s_mercedes/mercedes_5s/icons/grade1-selected4x.png")})
+        console.warn('nota 1')
+        noteOne();
+    };
 
-    // Condicional para aparecer descritivo da nota (in progress)
-    //  function note(){
-    //     const [noteDescription, setNoteDescription] = useState(false);
-    //  }
+    //Condicional para aparecer descritivo da nota (in progress)
+   
+    const [noteDescription, setNoteDescription] = useState(false);
+     
 
-    // function changeNote () {
-    //     this.setState({
-    //         noteDescription: !this.state.noteDescription
-    //     }); 
-    // }
-    
-    
+    const changeNote = () => {
+        setNoteDescription(!noteDescription)        
+    }
 
-
-    // function noteOne(){
-    //     return(
-    //     <View style={styles.commentBox}>
-    //         <Text>Em vários locais foram encontradas diversas anormalidades no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente, falta ou desperdício</Text>
-    //     </View>
-    //     )
-    // }
+    const noteOne = () => {
+        return(
+        <View style={styles.commentBox}>
+            <Text>Em vários locais foram encontradas diversas anormalidades no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente, falta ou desperdício</Text>
+        </View>
+        )
+    }
    
    
 
@@ -121,12 +116,13 @@ import {
                             <Text style={styles.bodyText}> {item.question}</Text>
 
                             <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
-                                <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade1-4x.png")}/></TouchableOpacity>
+                                <TouchableOpacity style={styles.iconContainer} onPress={answer}><Image style={styles.iconDimension} source={iconOne}/></TouchableOpacity>
                                 <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade24x.png")} /></TouchableOpacity>
                                 <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade34x.png")}/></TouchableOpacity>
                                 <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade44x.png")}/></TouchableOpacity>
                                 <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade54x.png")}/></TouchableOpacity>
                             </View>
+                            {noteDescription ? noteOne : null }
                             <Text style={styles.imputLabel}> Justifique: </Text>
                             <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
                             <TouchableOpacity style={styles.secondaryButton}> 

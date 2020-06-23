@@ -65,17 +65,17 @@ import {
       }
     });
 
-    class Formularios extends Component{
-    state = {
+    
+    const state = {
       docs: []
     };
 
-    const componentDidMount() {
-      this.loadHistorico();
-    }
+    // const componentDidMount () {
+    //   this.loadHistorico();
+    // }
    
-    loadHistorico = async () => {
-      const response = await api.get('');
+  //  function loadHistorico = async () => {
+  //     const response = await api.get('');
       
   //     const { docs } = response.data;
 
