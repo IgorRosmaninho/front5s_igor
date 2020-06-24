@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import api from '../Formularios/api';
-import { ScrollView } from 'react-native-gesture-handler';
+//import api from '../Formularios/api';
+//import { ScrollView } from 'react-native-gesture-handler';
 
 import {
     View,
@@ -10,7 +10,8 @@ import {
     TouchableOpacity,
     StyleSheet,
     FlatList,
-    Button
+    Button,
+    ScrollView
   } from 'react-native';
 
   export default function Formularios({navigation}) {
@@ -66,9 +67,9 @@ import {
     });
 
     
-    const state = {
-      docs: []
-    };
+    // const state = {
+    //   docs: []
+    // };
 
     // const componentDidMount () {
     //   this.loadHistorico();
@@ -98,15 +99,12 @@ import {
     return (
       <ScrollView>
         <View style={styles.container}>
-          <View>
-            <Text style= {{ fontSize: 18, fontWeight: 'bold' }}> Formulários </Text>
-          </View>
-          <FlatList
+          {/* <FlatList
             contentContainerStyle={styles.list}
             data={this.state.docs}
             keyExtractor={item => item._id}
             renderItem={this.renderItem}
-          />
+          /> */}
         </View>
       </ScrollView>
     )

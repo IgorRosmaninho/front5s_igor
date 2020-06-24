@@ -8,7 +8,8 @@ import {name as appName} from './app.json';
 
 AppRegistry.registerComponent(appName, () => App);
 
-//  const express = require("express");
+
+//  const express = require("./node_modules/express/lib/express");
 //  const app = express();
 //  const connection = require("./database/database");
 //  const bodyParser = require("body-parser");

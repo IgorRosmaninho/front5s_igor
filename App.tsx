@@ -20,6 +20,7 @@ import Info from './pages/Info/info'
 import Formularios from './pages/Formularios/formularios'
 import Ranking from './pages/Ranking/ranking'
 import Perfil from './pages/Perfil/perfil'
+import AddPhoto from './AddPhoto';
 
 
  
@@ -38,8 +39,37 @@ function StackAssessment (){
         <Stack.Screen name="Disciplina" component={Disciplina} options={{title: 'Nova avaliação'}}/>
         <Stack.Screen name="Resultado" component={Resultado} options={{title: 'Nova avaliação'}}/>
         <Stack.Screen name="Login" component={Login} options={{title: ''}}/>
+        <Stack.Screen name="Evidencia" component={AddPhoto} options={{title: 'Evidencia'}}/>
   </Stack.Navigator>
   )}
+
+function StackRanking (){
+  return(
+    <Stack.Navigator>
+          <Stack.Screen name="Ranking" component={Ranking} options={{ title: 'Ranking' }} />
+    </Stack.Navigator>
+    )}
+
+function StackFormularios (){
+  return(
+      <Stack.Navigator>
+            <Stack.Screen name="Fomrularios" component={Formularios} options={{ title: 'Formulários' }} />
+      </Stack.Navigator>
+      )}
+
+ function StackInfo (){
+  return(
+    <Stack.Navigator>
+          <Stack.Screen name="Info" component={Info} options={{ title: 'Informações' }} />
+    </Stack.Navigator>
+    )}
+
+function StackPerfil (){
+  return(
+    <Stack.Navigator>
+            <Stack.Screen name="Perfil" component={Perfil} options={{ title: 'Perfil' }} />
+      </Stack.Navigator>
+      )}
 
 const App: () => React$Node = () => {
 
@@ -47,14 +77,12 @@ const App: () => React$Node = () => {
     <NavigationContainer>
       <Tab.Navigator  initialRouteName={"Login"} tabBarOptions={{
         activeTintColor: '#000',
-      }} 
-      // tabBar={props => <MyTabBar {...props} />}
-      >
-       <Tab.Screen name="Avaliação" component={StackAssessment} />
-       <Tab.Screen name="Ranking" component={Ranking} />
-       <Tab.Screen name="Formulários" component={Formularios} />
-       <Tab.Screen name="Info" component={Info} />
-       <Tab.Screen name="Perfil" component={Perfil} />
+      }}>
+       <Tab.Screen name="Avaliação" component={StackAssessment}/>
+       <Tab.Screen name="Ranking" component={StackRanking}/>
+       <Tab.Screen name="Formulários" component={StackFormularios} />
+       <Tab.Screen name="Info" component={StackInfo} />
+       <Tab.Screen name="Perfil" component={StackPerfil} />
      </Tab.Navigator>
     </NavigationContainer>
   

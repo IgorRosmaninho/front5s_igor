@@ -6,18 +6,17 @@ import {
     TouchableOpacity,
     TextInput,
     Image,
-    Dimensions,
-    Platform,
     ScrollView,
     Alert
 } from 'react-native'
+import styles from './pages/style/styles';
 import ImagePicker  from 'react-native-image-picker'
 import { Component } from 'react'
 //import { ImagePickerIOS } from 'react-native'
 // import { kMaxLength } from 'buffer'
 //import { thisExpression } from '@babel/types'
 
-class AddPhoto extends Component {
+export default class AddPhoto extends Component {
     state = {
         image: null,
         comment: '',
@@ -39,61 +38,32 @@ class AddPhoto extends Component {
     }
 
     render() {
+        const { navigation } = this.props;
         return (
             <ScrollView>
+                
                 <View style={styles.container}>
-                    <Text style={styles.title}>Adicione uma imagem</Text>
-                    <View style={style.imageContainer}>
-                            <Image source={this.state.image} style={styles.image}></Image>
+                    <Text style={styles.h2}>Adicione uma imagem:</Text>
+                    <View style={styles.container}>
+                            <Image source={this.state.image}></Image>
                     </View>
-                    <TouchableOpacity onPress={this.pickImage} style={styles.button}>
-                        <Text style={styles.buttomText}>Escolha a foto</Text>
+
+                    <TouchableOpacity onPress={this.pickImage} style={styles.secondaryButton}>
+                        <Text style={styles.secondaryButtonText}>Escolha a foto</Text>
                     </TouchableOpacity>
+
+                    <Text style={styles.imputLabel}>Justifique:</Text>
                     <TextInput placeholder='Algum comentário para a foto?'
-                     style={style.input} value={this.state.comment}
+                    style={styles.imputText}
+                     value={this.state.comment}
                      onChangeText={comment => this.setState({ comment })}/>
-                     <TouchableOpacity onPress={this.save} style={styles.button}>
-                         <Text style={styles.buttomText}>Salvar</Text>
+
+                     <TouchableOpacity onPress={this.save} style={styles.primaryButton}>
+                         <Text style={styles.primaryButtonText}>Salvar</Text>
                      </TouchableOpacity>
                 </View>
             </ScrollView>
         )
     }
 
- styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alingItens: 'center'
-    },
-    title: {
-        fontSize: 20,
-        maginTop: Platform.OS === 'ios' ? 30:10,
-        fontWeight: 'bold',
-    },
-    imageContainer: {
-            width: '90%',
-            heigth: "50%", 
-            backgroundColor: '#EEEEEE',
-            marginTop: 10,
-        },
-    image: {
-        width: '100%',
-        heigth: "50%",
-        resizeMode: 'center'
-        },
-    button: {
-        merginTop: 30,
-        padding: 10,
-        backgroundColor: '#4286f4'
-    },
-    buttomText: {
-        fontSize: 20,
-        color: '#FFF'
-    },
-    input: {
-        marginTop: 20,
-        width: '90%'
-    }
-    })
 }
-    export default AddPhoto;

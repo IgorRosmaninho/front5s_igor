@@ -10,6 +10,8 @@ import {
     ScrollView,
     FlatList,
   } from 'react-native';
+  import styles from '../../style/styles'
+ 
 
 
   async function postData(url = '', data = {}) { 
@@ -30,27 +32,7 @@ import {
   }
 
   export default function Disciplina({navigation}) {
-    const styles = StyleSheet.create ({
-        container: {
-            margin:16,
-        },iconContainer: {
-            height: 24, 
-            width:24,
-            margin: 16,
-        },imputLabel:{
-            color: '#000', fontSize: 14, marginTop: 8
-        }, imputText:{
-            color:'#000' ,backgroundColor: '#ffffff', height: 96, marginVertical: 16, fontSize: 16, padding: 12, borderColor: '#000', borderWidth: 1, textAlignVertical: 'top'
-        },primaryButton:{
-            backgroundColor: '#000', height: 48, justifyContent: 'center', margin: 16,
-        }, primaryButtonText:{
-            color: '#fff', fontSize: 16, fontWeight: 'bold', alignSelf: 'center'
-        }, divisor:{
-            backgroundColor: '#000', height: 2, marginHorizontal:16, 
-        }, questionText:{ 
-            fontSize: 16, marginTop: 16}
-
-    });
+ 
 
     const [formDisciplina, setQuestion] = useState([
         {question: '1.1. Utilização dos recursos existentes nos locais abertos', id: '1'},
@@ -65,14 +47,14 @@ import {
             <View style= {{backgroundColor: '#fff'}}> 
                 <View style={styles.container}>
                     <View>
-                        <Text style= {{ fontSize: 18, fontWeight: 'bold' }}> Disciplina</Text>
+                        <Text style= {styles.h2}> Disciplina</Text>
                     </View>
                     <FlatList
                     keyExtractor= {(item) => item.id}
                     data={formDisciplina}
                     renderItem= {({ item }) => (
                         <View>
-                            <Text style={styles.questionText}> {item.question}</Text>
+                            <Text style={styles.bodyText}> {item.question}</Text>
 
                             <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
                                 <Image style={styles.iconContainer} source={require("../../../icons/grade1-4x.png")}/>

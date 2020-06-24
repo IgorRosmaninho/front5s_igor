@@ -7,6 +7,7 @@ import {
     TextInput,
     TouchableOpacity,
   } from 'react-native';
+  import styles from '../../style/styles'
 
   export default function NewAssessment({navigation}) {
     
