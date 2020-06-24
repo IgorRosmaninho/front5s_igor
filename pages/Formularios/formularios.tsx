@@ -13,89 +13,42 @@ import {
     Button,
     ScrollView
   } from 'react-native';
+  import styles from '../style/styles'
 
-  export default function Formularios({navigation}) {
-
-    const styles = StyleSheet.create({ 
-      container: {
-        flex: 1,
-        backgroundColor: '#fafafa'
-      },
-  
-      list: {
-        padding: 20
-      },
-  
-      historicoContainer: {
-        backgroundColor: '#fff',
-        borderWidth: 1,
-        borderColor: '#DDD',
-        borderRadius: 8,
-        padding: 20,
-        marginBottom: 20
-      },
-  
-      historicoTitle: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: '#333'
-      },
-  
-      historicoDescription: {
-        fontSize: 16,
-        color: '#999',
-        marginTop: 5,
-        lineHeight: 24
-      },
-  
-      historicoButton: {
-        height: 42,
-        borderRadius: 8,
-        borderWidth: 2,
-        borderColor: '#999',
-        backgroundColor: 'transparent',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 10
-      },
-  
-      historicoButtonText: {
-        fontSize: 16,
-        color: '#999',
-        fontWeight: 'bold'
-      }
-    });
+  export default class Formularios extends Component{
 
     
-    // const state = {
-    //   docs: []
-    // };
+//     const state = {
+//       docs: []
+//     };
 
-    // const componentDidMount () {
-    //   this.loadHistorico();
-    // }
+//     componentDidMount() {
+//       this.loadHistorico();
+//     }
    
-  //  function loadHistorico = async () => {
-  //     const response = await api.get('');
+//     loadHistorico = async () => {
+//        const response = await api.get('');
       
-  //     const { docs } = response.data;
+//      const { docs } = response.data;
 
-  //     this.setState({ docs });
-  // };
+//      this.setState({ docs });
+//  };
 
-  function renderItem (item){
+  renderItem (item){
     <View>
-      <Text style={styles.historicoTitle}>{item.Cost_center_id}</Text>
-      <Text style={styles.historicoDescription}>{item.Answer_average_x}</Text>
-      <Text style={styles.historicoDescription}>Data da avaliação: {item.createdAt}</Text>
+      <Text style={styles.h2}>{item.Cost_center_id}</Text>
+      <Text style={styles.bodyText}>{item.Answer_average_x}</Text>
+      <Text style={styles.bodyText}>Data da avaliação: {item.createdAt}</Text>
 
-      <TouchableOpacity style={styles.historicoButton} onPress={() => {}}>
-        <Text style={styles.historicoButtonText}> Detalhes </Text>
+      <TouchableOpacity style={styles.primaryButton} onPress={() => {}}>
+        <Text style={styles.bodyText}> Detalhes </Text>
       </TouchableOpacity>
     </View>
   };
+
   
-  
+  render() {
+    const { navigation } = this.props;
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -108,5 +61,5 @@ import {
         </View>
       </ScrollView>
     )
-  
+  }
 }
