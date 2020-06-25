@@ -31,7 +31,7 @@ export default class AddPhoto extends Component {
          if (!res.didCancel) {
              this.setState({ image: {uri: res.uri, base64: res.data}})
          }
-     })
+     }); 
     }
     save = async() => {
         Alert.alert('Imagem adicionada', this.state.comment)
