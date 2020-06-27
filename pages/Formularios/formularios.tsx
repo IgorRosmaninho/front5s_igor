@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import api from '../Formularios/api';
+import {hist5sDESC, hist5sASC, hist3sDESC} from '../api_back';
 //import { ScrollView } from 'react-native-gesture-handler';
 
 import {
@@ -11,55 +11,66 @@ import {
     StyleSheet,
     FlatList,
     Button,
-    ScrollView
+    ScrollView,
+    
   } from 'react-native';
   import styles from '../style/styles'
 
+  var x = 0;
   export default class Formularios extends Component{
 
     
-//     const state = {
-//       docs: []
-//     };
+    state = {
+      docs: []
+    };
 
-//     componentDidMount() {
-//       this.loadHistorico();
-//     }
-   
-//     loadHistorico = async () => {
-//        const response = await api.get('');
+    componentDidMount() {
+      hist5sDESC.get('')
+        .then(response => {
+          this.setState({
+           docs: response.data
+          });
+
+          console.log(response.data)
+          console.warn("Data", this.state.docs);
+      })
+      .catch(error => console.log(error));
+      }
       
-//      const { docs } = response.data;
-
-//      this.setState({ docs });
-//  };
-
-  renderItem (item){
-    <View>
-      <Text style={styles.h2}>{item.Cost_center_id}</Text>
-      <Text style={styles.bodyText}>{item.Answer_average_x}</Text>
-      <Text style={styles.bodyText}>Data da avaliação: {item.createdAt}</Text>
-
-      <TouchableOpacity style={styles.primaryButton} onPress={() => {}}>
-        <Text style={styles.bodyText}> Detalhes </Text>
-      </TouchableOpacity>
-    </View>
-  };
-
   
-  render() {
-    const { navigation } = this.props;
-    return (
-      <ScrollView>
-        <View style={styles.container}>
-          {/* <FlatList
-            contentContainerStyle={styles.list}
-            data={this.state.docs}
-            keyExtractor={item => item._id}
-            renderItem={this.renderItem}
-          /> */}
-        </View>
-      </ScrollView>
-    )
-  }
+
+render() {
+  const {docs} = this.state;
+  const { navigation } = this.props;
+  return (
+    //<ScrollView>
+      <View style={styles.container}>
+        <View>
+                <Text>App!</Text>
+            </View>
+        <FlatList
+          contentContainerStyle={styles.list}
+          data={this.state.docs}
+          keyExtractor={(item) => item.id}
+          renderItem={({item}) => (
+            <View>
+              <Text style={styles.h2}>Centro de custo: {item.Cost_center_id}</Text>
+              <Text style={styles.bodyText}>Nota 5S: {item.Answer_average_5s}</Text>
+              <Text style={styles.bodyText}>Data da avaliação: {item.createdAt}</Text>
+
+              
+                
+              <TouchableOpacity style={styles.secondaryButton} onPress={() => {}}>
+                <Text style={styles.secondaryButtonText}> Detalhes </Text>
+               </TouchableOpacity>
+
+              <View style={styles.divisor}/>
+            </View>
+          )}
+           
+        />
+      </View>
+    //</ScrollView>
+  )
+}
 }

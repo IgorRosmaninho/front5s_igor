@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect}from 'react';
 import AddPhoto from "../../../AddPhoto";
+
 
 import {
     View,
@@ -10,6 +11,8 @@ import {
     ScrollView,
     FlatList,
   } from 'react-native';
+
+  import {pergunta} from '../../api_back'
 
   import styles from '../../style/styles';
 
@@ -33,9 +36,22 @@ import {
 // })
 //   }
 
+
+
   export default function Limpeza({navigation}) {
     
-    
+    const [data, setData] = useState({hits:[]});
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await pergunta.get('/3')
+            setData(response.data)
+            
+                console.log(response.data)
+            };
+        fetchData();
+    },[]);
+
     // Data para Flatlist
     const formLimpeza = [
         {question: '1.1. Utilização dos recursos existentes nos locais abertos', id: '1'},
@@ -68,7 +84,6 @@ import {
         AddPhoto
     } 
    
-   
 
     //postData('/avaliacao/limpeza', formLimpeza)
        return (
@@ -79,11 +94,11 @@ import {
                         <Text style= {styles.h2}> Limpeza</Text>
                     </View>
                     <FlatList
-                    keyExtractor= {(item) => item.id}
-                    data={formLimpeza}
+                    keyExtractor= {(item) => item.titulo}
+                    data={data}
                     renderItem= {({ item }) => (
                         <View>
-                            <Text style={styles.bodyText}> {item.question}</Text>
+                            <Text style={styles.bodyText}> {item.titulo} {item.descricao} </Text>
 
                             <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
                                 <TouchableOpacity style={styles.iconContainer} onPress={answer}><Image style={styles.iconDimension} source={iconOneSelected}/></TouchableOpacity>

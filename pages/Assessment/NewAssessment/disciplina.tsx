@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
     View,
@@ -12,27 +12,39 @@ import {
   } from 'react-native';
   import styles from '../../style/styles'
  
+  import {pergunta} from '../../api_back'
 
 
-  async function postData(url = '', data = {}) { 
-    const response = await fetch(url, {
-      method: 'POST', // or 'PUT'
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(data),
-})
-.then(response => response.json())
-.then(data => {
-  console.log('Success:', data);
-})
-.catch((error) => {
-  console.error('Error:', error);
-})
-  }
+//   async function postData(url = '', data = {}) { 
+//     const response = await fetch(url, {
+//       method: 'POST', // or 'PUT'
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify(data),
+// })
+// .then(response => response.json())
+// .then(data => {
+//   console.log('Success:', data);
+// })
+// .catch((error) => {
+//   console.error('Error:', error);
+// })
+//   }
 
   export default function Disciplina({navigation}) {
- 
+    
+    const [data, setData] = useState({hits:[]});
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await pergunta.get('/5')
+            setData(response.data)
+            
+                console.log(response.data)
+            };
+        fetchData();
+    },[]);
 
     const [formDisciplina, setQuestion] = useState([
         {question: '1.1. Utilização dos recursos existentes nos locais abertos', id: '1'},
@@ -41,8 +53,9 @@ import {
         {question: '1.4. Controle dos problemas de conservação', id: '4'},
     ]);
 
-    postData('/avaliacao/disciplina', formDisciplina)
-       return (
+    //postData('/avaliacao/disciplina', formDisciplina)
+       
+    return (
         <ScrollView>
             <View style= {{backgroundColor: '#fff'}}> 
                 <View style={styles.container}>
@@ -50,11 +63,11 @@ import {
                         <Text style= {styles.h2}> Disciplina</Text>
                     </View>
                     <FlatList
-                    keyExtractor= {(item) => item.id}
-                    data={formDisciplina}
+                    keyExtractor= {(item) => item.titulo}
+                    data={data}
                     renderItem= {({ item }) => (
                         <View>
-                            <Text style={styles.bodyText}> {item.question}</Text>
+                            <Text style={styles.bodyText}> {item.titulo} {item.descricao}</Text>
 
                             <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
                                 <Image style={styles.iconContainer} source={require("../../../icons/grade1-4x.png")}/>
