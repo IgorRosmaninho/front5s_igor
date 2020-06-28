@@ -7,7 +7,8 @@ import {
     TextInput,
     Image,
     ScrollView,
-    Alert
+    Alert,
+    Dimensions
 } from 'react-native'
 import styles from './pages/style/styles';
 import ImagePicker  from 'react-native-image-picker'
@@ -33,7 +34,7 @@ export default class AddPhoto extends Component {
          }
      }); 
     }
-    save = async() => {
+    save = async() => { //fazer um post pro back
         Alert.alert('Imagem adicionada', this.state.comment)
     }
 
@@ -44,8 +45,8 @@ export default class AddPhoto extends Component {
                 
                 <View style={styles.container}>
                     <Text style={styles.h2}>Adicione uma imagem:</Text>
-                    <View style={styles.container}>
-                            <Image source={this.state.image}></Image>
+                    <View style={estilo.imageContainer}>
+                            <Image source={this.state.image} style={estilo.image}></Image>
                     </View>
 
                     <TouchableOpacity onPress={this.pickImage} style={styles.secondaryButton}>
@@ -67,3 +68,20 @@ export default class AddPhoto extends Component {
     }
 
 }
+
+const estilo = StyleSheet.create({
+    imageContainer:{
+        width: '90%',
+        height: Dimensions.get('window').width * 3 / 4,
+        backgroundColor: '#EEE',
+        marginTop:10
+    },
+    image:{
+        width: Dimensions.get('window').width,
+        height:Dimensions.get('window').width * 3 / 4,
+        resizeMode: 'center'
+    }
+
+
+
+})
