@@ -59,7 +59,7 @@ render() {
 
               
                 
-              <TouchableOpacity style={styles.secondaryButton} onPress={() => {}}>
+              <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes")}>
                 <Text style={styles.secondaryButtonText}> Detalhes </Text>
                </TouchableOpacity>
 

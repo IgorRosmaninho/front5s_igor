@@ -4,6 +4,10 @@ import axios from 'react-native-axios';
 //"Ipv4 2.4": 192.168.0.18
 //"Ipv4 2.4_ext": 192.168.0.13
 
+const hist_image = axios.create({
+    baseURL:  'http://192.168.0.13:4000/hist_image'
+})
+
 const imagem = axios.create({
     baseURL:  'http://192.168.0.13:4000/image'
 })
@@ -43,4 +47,4 @@ const hist3sDESC = axios.create({
 });
 
 
-export  {id,imagem, descricao, avaliacao, resultado, pergunta, hist5sDESC, hist5sASC, hist3sDESC};
+export  {hist_image,id,imagem, descricao, avaliacao, resultado, pergunta, hist5sDESC, hist5sASC, hist3sDESC};

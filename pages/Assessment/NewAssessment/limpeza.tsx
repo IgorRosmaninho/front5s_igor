@@ -22,7 +22,7 @@ import {
 
   export default function Limpeza({navigation}) {
     
-    const [pergunta_txt, setPergunta] = useState([]);
+    const [pergunta_txt, setPergunta] = useState([0,0,0,0]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -34,7 +34,7 @@ import {
         fetchData();
     },[]);
 
-    const [descricao_txt, setDescricao] = useState({hits:[0,0,0,0]});
+    const [descricao_txt, setDescricao] = useState({3.1:[0,0,0,0]});
     useEffect(() => {
         const fetchData2 = async () => {
             const response = await descricao.get('/3')
@@ -90,7 +90,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}>Em vários locais foram encontradas diversas anormalidades no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente, falta ou desperdício</Text>
+                <Text style = {styles.BodyTextSecondary}>{descricao_txt["3.1"][0].descricao}</Text>
                     </View>
                 )
                 break;
@@ -98,7 +98,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 2 </Text>
+                        <Text style = {styles.BodyTextSecondary}>{descricao_txt["3.1"][1].descricao} </Text>
                     </View>
                 )
                 break;
@@ -106,7 +106,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 3 </Text>
+                        <Text style = {styles.BodyTextSecondary}>{descricao_txt["3.1"][2].descricao} </Text>
                     </View>
                 )
                 break;
@@ -114,7 +114,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 4 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.1"][3].descricao} </Text>
                     </View>
                 )
                 break;
@@ -122,7 +122,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 5 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.1"][4].descricao}</Text>
                     </View>
                 )
                 break;
@@ -146,7 +146,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}>Em vários locais foram encontradas diversas anormalidades no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente, falta ou desperdício</Text>
+                        <Text style = {styles.BodyTextSecondary}>{descricao_txt["3.2"][0].descricao}</Text>
                     </View>
                 )
                 break;
@@ -154,7 +154,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 2 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.2"][1].descricao} </Text>
                     </View>
                 )
                 break;
@@ -162,7 +162,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 3 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.2"][2].descricao} </Text>
                     </View>
                 )
                 break;
@@ -170,7 +170,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 4 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.2"][3].descricao} </Text>
                     </View>
                 )
                 break;
@@ -178,7 +178,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 5 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.2"][4].descricao} </Text>
                     </View>
                 )
                 break;
@@ -201,7 +201,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}>Em vários locais foram encontradas diversas anormalidades no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente, falta ou desperdício</Text>
+                        <Text style = {styles.BodyTextSecondary}>{descricao_txt["3.3"][0].descricao}</Text>
                     </View>
                 )
                 break;
@@ -209,7 +209,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 2 </Text>
+                        <Text style = {styles.BodyTextSecondary}>  {descricao_txt["3.3"][1].descricao} </Text>
                     </View>
                 )
                 break;
@@ -217,7 +217,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 3 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.3"][2].descricao} </Text>
                     </View>
                 )
                 break;
@@ -225,7 +225,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 4 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.3"][3].descricao} </Text>
                     </View>
                 )
                 break;
@@ -233,7 +233,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 5 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.3"][4].descricao} </Text>
                     </View>
                 )
                 break;
@@ -256,7 +256,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}>Em vários locais foram encontradas diversas anormalidades no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente, falta ou desperdício</Text>
+                        <Text style = {styles.BodyTextSecondary}>{descricao_txt["3.4"][0].descricao}</Text>
                     </View>
                 )
                 break;
@@ -264,7 +264,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 2 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.4"][1].descricao} </Text>
                     </View>
                 )
                 break;
@@ -272,7 +272,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 3 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.4"][2].descricao} </Text>
                     </View>
                 )
                 break;
@@ -280,7 +280,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 4 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.4"][3].descricao} </Text>
                     </View>
                 )
                 break;
@@ -288,7 +288,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 5 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.4"][4].descricao} </Text>
                     </View>
                 )
                 break;
@@ -311,7 +311,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}>Em vários locais foram encontradas diversas anormalidades no uso e adequação de recursos (não compartilhamento, excesso, improvisações, recursos desnecessários, recursos inadequados ou usados inadequadamente, falta ou desperdício</Text>
+                        <Text style = {styles.BodyTextSecondary}>{descricao_txt["3.5"][0].descricao}</Text>
                     </View>
                 )
                 break;
@@ -319,7 +319,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 2 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.5"][1].descricao} </Text>
                     </View>
                 )
                 break;
@@ -327,7 +327,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 3 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.5"][2].descricao} </Text>
                     </View>
                 )
                 break;
@@ -335,7 +335,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 4 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.5"][3].descricao} </Text>
                     </View>
                 )
                 break;
@@ -343,7 +343,7 @@ import {
                 return (
                     <View style={styles.commentBox}>
                         <Text style= {styles.h4}>Descrição da nota</Text>
-                        <Text style = {styles.BodyTextSecondary}> descrição 5 </Text>
+                        <Text style = {styles.BodyTextSecondary}> {descricao_txt["3.5"][4].descricao} </Text>
                     </View>
                 )
                 break;
@@ -364,8 +364,9 @@ import {
                         <Text style= {styles.h2}> Limpeza</Text>
                         </View>
                         <View>
+                        <Text style={styles.bodyText}>{pergunta_txt[0].titulo} {pergunta_txt[0].descricao} </Text>
                         {/* <View><Text>{pergunta_txt.map(item=><Text>{item.titulo}</Text>)}</Text></View>  */}
-                            <View><Text>{pergunta_txt[0].titulo}{pergunta_txt[0].descricao}</Text></View> 
+                            {/* <View><Text>{pergunta_txt[0].titulo} {pergunta_txt[0].descricao}</Text></View>  */}
                             {/* <Text style={styles.bodyText}> {pergunta_txt.map((item,index)=><Text key={index}><Text>{item.titulo}</Text></Text>)}</Text> */}
                             <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
                                 <TouchableOpacity style={styles.iconContainer} onPress={alteral11}><Image style={styles.iconDimension} source={iconOneSelected}/></TouchableOpacity>
@@ -384,7 +385,8 @@ import {
                              <View style={styles.divisor}></View>
 
                              <View>
-                            {/* <Text style={styles.bodyText}> {item.titulo} {item.descricao} </Text> */}
+                            <Text style={styles.bodyText}>{pergunta_txt[1].titulo} {pergunta_txt[1].descricao} </Text>
+                            {/* <View><Text>{pergunta_txt[0].titulo} {pergunta_txt[0].descricao}</Text></View> */}
                             <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
                                 <TouchableOpacity style={styles.iconContainer} onPress={alteral21}><Image style={styles.iconDimension} source={iconOneSelected}/></TouchableOpacity>
                                 <TouchableOpacity style={styles.iconContainer} onPress={alteral22}><Image style={styles.iconDimension} source={require("../../../icons/grade24x.png")} /></TouchableOpacity>
@@ -402,6 +404,7 @@ import {
                              <View style={styles.divisor}></View>
 
                              <View>
+                             <Text style={styles.bodyText}>{pergunta_txt[2].titulo} {pergunta_txt[2].descricao} </Text>
                             {/* <Text style={styles.bodyText}> {item.titulo} {item.descricao} </Text> */}
                             <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
                                 <TouchableOpacity style={styles.iconContainer} onPress={alteral31}><Image style={styles.iconDimension} source={iconOneSelected}/></TouchableOpacity>
@@ -420,6 +423,7 @@ import {
                              <View style={styles.divisor}></View>
 
                              <View>
+                             <Text style={styles.bodyText}>{pergunta_txt[3].titulo} {pergunta_txt[3].descricao} </Text>
                             {/* <Text style={styles.bodyText}> {item.titulo} {item.descricao} </Text> */}
                             <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
                                 <TouchableOpacity style={styles.iconContainer} onPress={alteral41}><Image style={styles.iconDimension} source={iconOneSelected}/></TouchableOpacity>

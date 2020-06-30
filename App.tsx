@@ -19,6 +19,7 @@ import ResultadoDetalhes from './pages/Assessment/NewAssessment/resultado_detalh
 
 import Info from './pages/Info/info'
 import Formularios from './pages/Formularios/formularios'
+import FormulariosDetalhes from './pages/Formularios/formularios_detalhes'
 import Ranking from './pages/Ranking/ranking'
 import Perfil from './pages/Perfil/perfil'
 import AddPhoto from './AddPhoto';
@@ -55,7 +56,8 @@ function StackRanking (){
 function StackFormularios (){
   return(
       <Stack.Navigator>
-            <Stack.Screen name="Fomrularios" component={Formularios} options={{ title: 'Formulários' }} />
+            <Stack.Screen name="Formularios" component={Formularios} options={{ title: 'Formulários' }} />
+            <Stack.Screen name="FormulariosDetalhes" component={FormulariosDetalhes} options={{ title: 'Formulários' }} />
       </Stack.Navigator>
       )}
 
