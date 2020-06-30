@@ -58,6 +58,9 @@ const styles = StyleSheet.create ({
     divisor:{
         backgroundColor: '#000', height: 2, 
     }, 
+    espaco:{
+        backgroundColor: '#fff', height: 20,
+    }
     
     
 }) 

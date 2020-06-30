@@ -14,7 +14,8 @@ import Organizacao from './pages/Assessment/NewAssessment/organizacao';
 import Utilizacao from './pages/Assessment/NewAssessment/utilizacao';
 import Padronizacao from './pages/Assessment/NewAssessment/padronizacao';
 import Disciplina from './pages/Assessment/NewAssessment/disciplina';
-import Resultado from './pages/Assessment/NewAssessment/resultado'
+import Resultado from './pages/Assessment/NewAssessment/resultado';
+import ResultadoDetalhes from './pages/Assessment/NewAssessment/resultado_detalhes'
 
 import Info from './pages/Info/info'
 import Formularios from './pages/Formularios/formularios'
@@ -38,6 +39,7 @@ function StackAssessment (){
         <Stack.Screen name="Padronizacao" component={Padronizacao} options={{title: 'Nova avaliação'}}/>
         <Stack.Screen name="Disciplina" component={Disciplina} options={{title: 'Nova avaliação'}}/>
         <Stack.Screen name="Resultado" component={Resultado} options={{title: 'Nova avaliação'}}/>
+        <Stack.Screen name="ResultadoDetalhes" component={ResultadoDetalhes} options={{title: 'Nova avaliação'}}/>
         <Stack.Screen name="Login" component={Login} options={{title: ''}}/>
         <Stack.Screen name="Evidencia" component={AddPhoto} options={{title: 'Evidencia'}}/>
   </Stack.Navigator>

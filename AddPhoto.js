@@ -10,9 +10,11 @@ import {
     Alert,
     Dimensions
 } from 'react-native'
+import {imagem} from './pages/api_back'
 import styles from './pages/style/styles';
 import ImagePicker  from 'react-native-image-picker'
 import { Component } from 'react'
+import axios from 'react-native-axios';
 //import { ImagePickerIOS } from 'react-native'
 // import { kMaxLength } from 'buffer'
 //import { thisExpression } from '@babel/types'
@@ -35,8 +37,10 @@ export default class AddPhoto extends Component {
      }); 
     }
     save = async() => { //fazer um post pro back
-        Alert.alert('Imagem adicionada', this.state.comment)
-    }
+        //Alert.alert('Imagem adicionada', this.state.comment)
+        imagem.post('', {image:JSON.stringify(this.state.image)}).then(response => {console.log(response)})}
+          
+
 
     render() {
         const { navigation } = this.props;

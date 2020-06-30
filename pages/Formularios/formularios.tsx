@@ -16,7 +16,6 @@ import {
   } from 'react-native';
   import styles from '../style/styles'
 
-  var x = 0;
   export default class Formularios extends Component{
 
     
@@ -46,10 +45,10 @@ render() {
     //<ScrollView>
       <View style={styles.container}>
         <View>
-                <Text>App!</Text>
+          
             </View>
         <FlatList
-          contentContainerStyle={styles.list}
+          // contentContainerStyle={styles.list}
           data={this.state.docs}
           keyExtractor={(item) => item.id}
           renderItem={({item}) => (
