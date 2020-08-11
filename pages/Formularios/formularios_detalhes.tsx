@@ -24,21 +24,19 @@ import {
         const fetchData = async () => {
             const response = await hist_image.get('')
             setData(response.data)
-            
-
             };
         fetchData();
     },[]);
 
-    
-
+    //Convertendo de base64 para PNG
+    var base64Icon = 'data:image/png;base64' + data;
 
     return (
     <ScrollView>               
                     <View style={styles.container}>
                         <Text style={styles.h2}>Adicione uma imagem:</Text>
                         <View style={estilo.imageContainer}>
-                                <Image source={data} style={estilo.image}></Image>
+                                <Image source={{uri: base64Icon}} style={estilo.image}></Image>
                     </View>
                     </View>
     </ScrollView>
