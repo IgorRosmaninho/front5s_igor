@@ -17,31 +17,35 @@ import {
 
   export default function FormulariosDetalhes({navigation}) {
 
-    const [data, setData] = useState({hits:[]});
-    //const [data, setData] = useState();
+    
+    const [data, setData] = useState({uri:null, base64:null});
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await hist_image.get('')
-            setData(response.data)
+            const response = await hist_image.get('/2')
+            //setState(image: JSON.parse(response))
+            console.log(response.data.uri)
+            setData({uri:response.data.uri,base64: response.data.base64})
+       
             };
         fetchData();
     },[]);
 
-    //Convertendo de base64 para PNG
-    var base64Icon = 'data:image/png;base64' + data;
+  
+//Convertendo de base64 para PNG
+var base64Icon = 'data:image/png;base64,' + data.base64;
+//var x = "file:///storage/emulated/0/Pictures/image-c20f6c43-da42-4c05-a4e6-f67402b1a29c.jpg"
 
-    return (
-    <ScrollView>               
-                    <View style={styles.container}>
-                        <Text style={styles.h2}>Adicione uma imagem:</Text>
-                        <View style={estilo.imageContainer}>
-                                <Image source={{uri: base64Icon}} style={estilo.image}></Image>
+return (
+<ScrollView>               
+                <View style={styles.container}>
+                    <Text style={styles.h2}> Evidências:</Text>
+                    <View style={estilo.imageContainer}>
+                        <Image source={{uri:base64Icon}} style={estilo.image}></Image>
                     </View>
-                    </View>
-    </ScrollView>
+                </View>
+</ScrollView>
 )
-
 }
 
 const estilo = StyleSheet.create({

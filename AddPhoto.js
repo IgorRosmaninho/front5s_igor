@@ -10,7 +10,7 @@ import {
     Alert,
     Dimensions
 } from 'react-native'
-import {imagem} from './pages/api_back'
+import {imagem, avaliacao, avaliacaoid} from './pages/api_back'
 import styles from './pages/style/styles';
 import ImagePicker  from 'react-native-image-picker'
 import { Component } from 'react'
@@ -36,6 +36,20 @@ export default class AddPhoto extends Component {
          }
      }); 
     }
+
+    //Pegando o avaliacaoId
+    const [id, setId] = useState({id:null});
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await avaliacaoid.get('')
+            //setState(image: JSON.parse(response))
+            console.log(response.data.id)
+            setId({id:response.data.id})
+            };
+        fetchData();
+    },[]);
+
     save = async() => { //fazer um post pro back
         //Alert.alert('Imagem adicionada', this.state.comment)
         imagem.post('', {image:JSON.stringify(this.state.image)}).then(response => {console.log(response)})}
