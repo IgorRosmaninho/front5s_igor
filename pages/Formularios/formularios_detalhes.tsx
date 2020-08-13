@@ -15,7 +15,7 @@ import {
 
   import {hist_image, avaliacao, pergunta} from '../api_back'
 
-  export default function FormulariosUtilizacao({navigation}) {
+  export default function FormulariosDetalhes({navigation}) {
 
     //A ideia é criar uma response para cada imagem, de modo a renderizar todas as imagens feitas
     //O problema é quando essa imagem tiver sido feita. O que renderizar? 
