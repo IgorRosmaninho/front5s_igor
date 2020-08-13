@@ -17,7 +17,6 @@ import {
   import styles from '../style/styles'
 
   export default class Formularios extends Component{
-
     
     state = {
       docs: []

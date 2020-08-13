@@ -15,10 +15,10 @@ import {
 
   import {hist_image, avaliacao, pergunta} from '../api_back'
 
-  export default function FormulariosDetalhes({navigation}) {
+  export default function FormulariosDetalhes({ route, navigation }) {
 
     //A ideia é criar uma response para cada imagem, de modo a renderizar todas as imagens feitas
-    //O problema é quando essa imagem tiver sido feita. O que renderizar? 
+    //O problema é quando essa imagem não tiver sido feita. O que renderizar? 
     //Renderização condicional para não renderizar quando não existir no bd?
 
     const [data, setData] = useState({uri:null, base64:null});
@@ -53,48 +53,48 @@ var base64Icon = 'data:image/png;base64,' + data.base64;
 //var x = "file:///storage/emulated/0/Pictures/image-c20f6c43-da42-4c05-a4e6-f67402b1a29c.jpg"
 
 return (
-<ScrollView>               
-                <View style={styles.container}>
-                    <Text style={styles.h2}> Evidências:</Text>
-                    <View/>
-                    <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question[0].titulo}: {question[0].descricao}.</Text>
-                    <View/>
-                    <Text style={{fontSize: 16}}> Nota: </Text>
-                    <View/>
-                    <Text style={{fontSize: 16}}> Justificativa: .</Text>
-                    <View/>
-                    <View style={estilo.imageContainer}>
-                        <Image source={{uri:base64Icon}} style={estilo.image}></Image>
-                    </View>
-                    <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question[1].titulo} {question[1].descricao}.</Text>
-                    <View/>
-                    <Text style={{fontSize: 16}}> Nota: </Text>
-                    <View/>
-                    <Text style={{fontSize: 16}}> Justificativa: .</Text>
-                    <View/>
-                    <View style={estilo.imageContainer}>
-                        <Image source={{uri:base64Icon}} style={estilo.image}></Image>
-                    </View>
-                    <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question[2].titulo} {question[2].descricao}.</Text>
-                    <View/>
-                    <Text style={{fontSize: 16}}> Nota: </Text>
-                    <View/>
-                    <Text style={{fontSize: 16}}> Justificativa: .</Text>
-                    <View/>
-                    <View style={estilo.imageContainer}>
-                        <Image source={{uri:base64Icon}} style={estilo.image}></Image>
-                    </View>
-                    <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question[3].titulo} {question[3].descricao}.</Text>
-                    <View/>
-                    <Text style={{fontSize: 16}}> Nota: </Text>
-                    <View/>
-                    <Text style={{fontSize: 16}}> Justificativa: .</Text>
-                    <View/>
-                    <View style={estilo.imageContainer}>
-                        <Image source={{uri:base64Icon}} style={estilo.image}></Image>
-                    </View>
-                </View>
-</ScrollView>
+    <ScrollView>               
+        <View style={styles.container}>
+            <Text style={styles.h2}> Evidências:</Text>
+            <View/>
+            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question[0].titulo}: {question[0].descricao}.</Text>
+            <View/>
+            <Text style={{fontSize: 16}}> Nota: </Text>
+            <View/>
+            <Text style={{fontSize: 16}}> Justificativa: .</Text>
+            <View/>
+            <View style={estilo.imageContainer}>
+                <Image source={{uri:base64Icon}} style={estilo.image}></Image>
+            </View>
+            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question[1].titulo} {question[1].descricao}.</Text>
+            <View/>
+            <Text style={{fontSize: 16}}> Nota: </Text>
+            <View/>
+            <Text style={{fontSize: 16}}> Justificativa: .</Text>
+            <View/>
+            <View style={estilo.imageContainer}>
+                <Image source={{uri:base64Icon}} style={estilo.image}></Image>
+            </View>
+            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question[2].titulo} {question[2].descricao}.</Text>
+            <View/>
+            <Text style={{fontSize: 16}}> Nota: </Text>
+            <View/>
+            <Text style={{fontSize: 16}}> Justificativa: .</Text>
+            <View/>
+            <View style={estilo.imageContainer}>
+                <Image source={{uri:base64Icon}} style={estilo.image}></Image>
+            </View>
+            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question[3].titulo} {question[3].descricao}.</Text>
+            <View/>
+            <Text style={{fontSize: 16}}> Nota: </Text>
+            <View/>
+            <Text style={{fontSize: 16}}> Justificativa: .</Text>
+            <View/>
+            <View style={estilo.imageContainer}>
+                <Image source={{uri:base64Icon}} style={estilo.image}></Image>
+            </View>
+        </View>
+    </ScrollView>
 )}
 
 const estilo = StyleSheet.create({
