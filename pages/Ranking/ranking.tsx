@@ -18,29 +18,6 @@ import {
  // const [dd,setDd] = useState(null)
 
   export default function Ranking({navigation}) {
-    //const [cc,setCc] = useState(null)
-    //const [dd,setDd] = useState("oi")
-    //const  [cc, setCc] = useState([  
-        // useEffect(() => {
-        //     setDd("olá")
-        //     setCc([  
-        //     { position: '1º', id: 'Centro de custo 23', nota: '4,3' },
-        //     { position: '2º', id: 'Centro de custo 11', nota: '4,4' },
-        //     { position: '3º', id: 'Centro de custo 02', nota: '4,8' },
-        //     { position: '4º', id: 'Centro de custo 17', nota: '3,8' },
-        //     { position: '5º', id: 'Centro de custo 14', nota: '4,1' },
-        //     { position: '6º', id: 'Centro de custo 03', nota: '3,3' },
-        //     { position: '7º', id: 'Centro de custo 09', nota: '4,3' },
-        //     { position: '8º', id: 'Centro de custo 13', nota: '4,4' },
-        //     { position: '9º', id: 'Centro de custo 20', nota: '4,8' },
-        //     { position: '10º', id: 'Centro de custo 21', nota: '3,8' },
-        //     { position: '11º', id: 'Centro de custo 27', nota: '4,1' },
-        //     { position: '12º', id: 'Centro de custo 24', nota: '3,3' },
-        //     { position: '13º', id: '102Centro de custo 12', nota: '4,3' },
-        //     ]);
-        // },[]);
-
-
 
     const [cc, setCc] = useState([]);
     useEffect(() => {
@@ -105,51 +82,3 @@ import {
             );    
     };
 
-  
-
-
-
-
-
-// import React from 'react';
-
-// import {
-//     View,
-//     Image,
-//     Text,
-//     TextInput,
-//     TouchableOpacity,
-//     StyleSheet,
-//     FlatList,
-//     Button,
-//   } from 'react-native';
-
-
-
-//   export default function Ranking({navigation}) {
-   
-//   //   const [nome, mudarNome] = React.useState([]);
-//   //   React.useEffect(() => {
-//   //     // POST request using fetch inside useEffect React hook
-//   //     const requestOptions = {
-//   //         method: 'GET',
-//   //         headers: { 'Content-Type': 'application/json' },
-          
-//   //     };
-//   //     fetch('https://jsonplaceholder.typicode.com/posts/1', requestOptions)
-//   //         .then(response => response.json())
-//   //         .then(data => mudarNome(data));
-  
-//   // // empty dependency array means this effect will only run once (like componentDidMount in classes)
-//   // }, []);
-
-    
-//        return (
-//          <View style={{flex: 0.2, flexDirection: "column"}}>
-//             <Text>Ranking</Text>
-//              </View>
-//         // <View>
-//         //    {nome.map(user => <Text> {user.title} </Text> )}
-//         //      <Text>Oi</Text>
-//         //     </View>
-//        )}
