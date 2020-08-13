@@ -17,7 +17,7 @@ import {
   import styles from '../style/styles'
 
   export default class Formularios extends Component{
-    
+
     state = {
       docs: []
     };
@@ -59,7 +59,7 @@ render() {
               <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosSensos",{Cost_center_id: item.Cost_center_id, Answer_average_5s: item.Answer_average_5s, createdAt: item.createdAt})}>
                 <Text style={styles.secondaryButtonText}> Detalhes </Text>
               </TouchableOpacity>
-
+              <View style={styles.divisor}/>
             </View>
           )}
         />
