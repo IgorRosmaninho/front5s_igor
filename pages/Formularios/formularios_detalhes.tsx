@@ -47,7 +47,7 @@ import {
         fetchData();
     },[]);
 
-  
+
 //Convertendo de base64 para PNG
 var base64Icon = 'data:image/png;base64,' + data.base64;
 //var x = "file:///storage/emulated/0/Pictures/image-c20f6c43-da42-4c05-a4e6-f67402b1a29c.jpg"
