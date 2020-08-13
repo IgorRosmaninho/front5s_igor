@@ -12,7 +12,7 @@ import {
     FlatList,
   } from 'react-native';
 
-  import {pergunta, descricao} from '../../api_back'
+  import {avaliacao, pergunta, descricao} from '../../api_back'
 
   import styles from '../../style/styles';
 
@@ -353,6 +353,12 @@ import {
         }
     }
 
+    //Enviar para o backend
+    const save = async() => { //fazer um post pro back
+        //Alert.alert('Imagem adicionada', this.state.comment)
+        avaliacao.post('/l', {Question_id_answer_l: [l1,l2,l3,l4]}).then(response => {console.log(response)})}
+          
+
 
 
        return (
@@ -441,32 +447,12 @@ import {
                              </TouchableOpacity>
                              <View style={styles.divisor}></View>
 
-                             <View>
-                            {/* <Text style={styles.bodyText}> {item.titulo} {item.descricao} </Text> */}
-                            <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
-                                <TouchableOpacity style={styles.iconContainer} onPress={alteral51}><Image style={styles.iconDimension} source={iconOneSelected}/></TouchableOpacity>
-                                <TouchableOpacity style={styles.iconContainer} onPress={alteral52}><Image style={styles.iconDimension} source={require("../../../icons/grade24x.png")} /></TouchableOpacity>
-                                <TouchableOpacity style={styles.iconContainer} onPress={alteral53}><Image style={styles.iconDimension} source={require("../../../icons/grade34x.png")}/></TouchableOpacity>
-                                <TouchableOpacity style={styles.iconContainer} onPress={alteral54}><Image style={styles.iconDimension} source={require("../../../icons/grade44x.png")}/></TouchableOpacity>
-                                <TouchableOpacity style={styles.iconContainer} onPress={alteral55}><Image style={styles.iconDimension} source={require("../../../icons/grade54x.png")}/></TouchableOpacity>
-                            </View>
-                            </View>
-                            {renderCondL5()}
-                             <Text style={styles.imputLabel}> Justifique: </Text>
-                             <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
-                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia")} > 
-                                 <Text style={styles.secondaryButtonText}>Adicionar evidência</Text>
-                             </TouchableOpacity>
-                             <View style={styles.divisor}></View>
-
-
-
-
+                     
 
                              
                          </View>
                          
-                            <TouchableOpacity style={styles.primaryButton} onPress={() => navigation.navigate ("Organizacao")}>
+                            <TouchableOpacity style={styles.primaryButton} onPress={() => {save();navigation.navigate ("Organizacao")}}>
                          <Text style={styles.primaryButtonText}>Próximo</Text>
                      </TouchableOpacity>
                  </View>
@@ -477,44 +463,3 @@ import {
 
 
 
-
-//         <ScrollView>
-//             <View style= {{backgroundColor: '#fff'}}> 
-//                 <View style={styles.container}>
-//                     <View>
-//                         <Text style= {styles.h2}> Limpeza</Text>
-//                     </View>
-//                     <FlatList
-//                     keyExtractor= {(item) => item.titulo}
-//                     data={data}
-//                     renderItem= {({ item }) => (
-//                         <View>
-//                             <Text style={styles.bodyText}> {item.titulo} {item.descricao} </Text>
-
-//                             <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginVertical: 24}}>
-//                                 <TouchableOpacity style={styles.iconContainer} onPress={answer}><Image style={styles.iconDimension} source={iconOneSelected}/></TouchableOpacity>
-//                                 <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade24x.png")} /></TouchableOpacity>
-//                                 <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade34x.png")}/></TouchableOpacity>
-//                                 <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade44x.png")}/></TouchableOpacity>
-//                                 <TouchableOpacity style={styles.iconContainer}><Image style={styles.iconDimension} source={require("../../../icons/grade54x.png")}/></TouchableOpacity>
-//                             </View>
-//                             {noteDescription ? noteOne() : null}
-//                             <Text style={styles.imputLabel}> Justifique: </Text>
-//                             <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
-//                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia")} > 
-//                                 <Text style={styles.secondaryButtonText}>Adicionar evidência</Text>
-//                             </TouchableOpacity>
-//                             <View style={styles.divisor}></View>
-//                         </View>
-//                      )}
-//                     />
-//                     <TouchableOpacity style={styles.primaryButton} onPress={() => navigation.navigate ("Organizacao")}>
-//                         <Text style={styles.primaryButtonText}>Próximo</Text>
-//                     </TouchableOpacity>
-//                 </View>
-//             </View>
-//         </ScrollView>
-        
-
-
-  

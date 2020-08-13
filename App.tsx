@@ -20,6 +20,8 @@ import ResultadoDetalhes from './pages/Assessment/NewAssessment/resultado_detalh
 import Info from './pages/Info/info'
 import Formularios from './pages/Formularios/formularios'
 import FormulariosDetalhes from './pages/Formularios/formularios_detalhes'
+import FormulariosSensos from './pages/Formularios/formularios_sensos'
+
 import Ranking from './pages/Ranking/ranking'
 import RankingDetalhes from './pages/Ranking/ranking_detalhes'
 import Perfil from './pages/Perfil/perfil'
@@ -44,7 +46,6 @@ function StackAssessment (){
         <Stack.Screen name="ResultadoDetalhes" component={ResultadoDetalhes} options={{title: 'Nova avaliação'}}/>
         <Stack.Screen name="Login" component={Login} options={{title: ''}}/>
         <Stack.Screen name="Evidencia" component={AddPhoto} options={{title: 'Evidencia'}}/>
-        <Stack.Screen name="RankingDetalhes" component={RankingDetalhes} options={{title: 'Detalhe'}}/>
   </Stack.Navigator>
   )}
 
@@ -52,6 +53,7 @@ function StackRanking (){
   return(
     <Stack.Navigator>
           <Stack.Screen name="Ranking" component={Ranking} options={{ title: 'Ranking' }} />
+          <Stack.Screen name="RankingDetalhes" component={RankingDetalhes} options={{title: 'Detalhe'}}/>
     </Stack.Navigator>
     )}
 
@@ -60,6 +62,7 @@ function StackFormularios (){
       <Stack.Navigator>
             <Stack.Screen name="Formularios" component={Formularios} options={{ title: 'Formulários' }} />
             <Stack.Screen name="FormulariosDetalhes" component={FormulariosDetalhes} options={{ title: 'Formulários' }} />
+            <Stack.Screen name="FormulariosSensos" component={FormulariosSensos} options={{title: 'Formulários'}}/>
       </Stack.Navigator>
       )}
 
