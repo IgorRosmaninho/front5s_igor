@@ -46,5 +46,15 @@ const hist3sDESC = axios.create({
     baseURL: 'http://192.168.0.13:4000/historico/3s/createdAt/ASC'
 });
 
+const rank_graf = axios.create({
+    baseURL: 'http://192.168.0.13:4000/ranking/5s/'
+});
 
-export  {hist_image,id,imagem, descricao, avaliacao, resultado, pergunta, hist5sDESC, hist5sASC, hist3sDESC};
+const rank = axios.create({
+    baseURL: 'http://192.168.0.13:4000/ranking/'
+});
+
+
+
+
+export  {rank,rank_graf,hist_image,id,imagem, descricao, avaliacao, resultado, pergunta, hist5sDESC, hist5sASC, hist3sDESC};

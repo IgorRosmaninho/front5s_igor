@@ -14,16 +14,7 @@ import {
 
 
   export default function Assessment({navigation}) {
-    // const nomes = [{nome: 'Amanda', idade: 23},{nome: 'Jorge', idade: 43},{nome: 'Giu', idade: 56}]
-    
-    // const extractKey = item => item
 
-    // const listItem = ({item}) => (
-    //     <View style={{flexDirection:'row', }}>
-    //         <Text style={{fontSize:120}}> {item.nome} </Text>
-    //         <Text> {item.idade} </Text>
-    //     </View>
-    // )
     
     const styles = StyleSheet.create ({
         secondaryButton: {
@@ -38,7 +29,7 @@ import {
          <View style={{flex: 0.2, flexDirection: "column"}}>
              {/* < FlatList data={nomes} keyExtractor={extractKey} renderItem={listItem} /> */}
             
-             <TouchableOpacity style= {styles.secondaryButton} onPress={() => navigation.navigate('NewAssessment')}>
+             <TouchableOpacity style= {styles.secondaryButton} onPress={() => navigation.push('NewAssessment')}>
              <Text style= {{ color: '#fff',fontSize: 16, padding: 1, fontWeight: 'bold', alignSelf: 'center' }}> Nova Avaliação </Text>
              </TouchableOpacity>
 
