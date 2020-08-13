@@ -20,7 +20,9 @@ import axios from 'react-native-axios';
 //import { thisExpression } from '@babel/types'
 
 export default class AddPhoto extends Component {
+    
     state = {
+        
         image: null,
         comment: '',
     }
@@ -53,8 +55,7 @@ export default class AddPhoto extends Component {
 
     save = async() => { //fazer um post pro back
         //Alert.alert('Imagem adicionada', this.state.comment)
-        imagem.post('', {avaliacaoId: id, titulo: titulo , image:JSON.stringify(this.state.image)}).then(response => {console.log(response)})}
-          
+        imagem.post('', {avaliacaoId: id, s: s, titulo: titulo , image:JSON.stringify(this.state.image)}).then(response => {console.log(response)})}
 
     render() {
         const { navigation } = this.props;
