@@ -51,7 +51,7 @@ export default function AddPhoto ({route,navigation}) {
 
     const save = async() => { //fazer um post pro back
         //Alert.alert('Imagem adicionada', this.state.comment)
-        imagem.post('', {avaliacaoId: id, titulo: titulo , image:JSON.stringify(state.image)}).then(response => {console.log(response)})}
+        imagem.post('', {image:JSON.stringify(state.image)}).then(response => {console.log(response)})}
           
 
         return (
@@ -63,7 +63,7 @@ export default function AddPhoto ({route,navigation}) {
                             <Image source={state.image} style={estilo.image}></Image>
                     </View>
 
-                    <TouchableOpacity onPress={pickImage()} style={styles.secondaryButton}>
+                    <TouchableOpacity onPress= {() => {pickImage()}} style={styles.secondaryButton}>
                         <Text style={styles.secondaryButtonText}>Escolha a foto</Text>
                     </TouchableOpacity>
 
@@ -73,7 +73,7 @@ export default function AddPhoto ({route,navigation}) {
                      value={state.comment}
                      onChangeText={comment => setState({ comment })}/>
 
-                     <TouchableOpacity onPress={save()} style={styles.primaryButton}>
+                     <TouchableOpacity onPress= {() => {save()}} style={styles.primaryButton}>
                          <Text style={styles.primaryButtonText}>Salvar</Text>
                      </TouchableOpacity>
                 </View>

@@ -24,7 +24,7 @@ import {
     //Renderização condicional para não renderizar quando não existir no bd?
 
     const [data, setData] = useState({uri:null, base64:null});
-    const [question, setQuestion] = useState({s: null, titulo: null, descricao: null})
+    const [question, setQuestion] = useState({array_perg: null})
     const [aval, setAval] = useState({notas: null, justificativas: null}) //Verificar como as justificativas serão enviadas do back
 
     //Pegando imagem
@@ -37,7 +37,7 @@ import {
             setData({uri:response1.data.uri,base64: response1.data.base64})
 
             const response2 = await pergunta.get('/'+ s) //Verificar a rota para passar as perguntas
-            setQuestion({s: response2.question.s, titulo: response2.question.titulo, descricao: response2.question.descricao}) 
+            setQuestion({array_perg: response2.question}) 
 
             const response3 = await avaliacao.get('/' + createdAt + '/' + Question_id_answer_S) //Verificar a rota para passar as justificativas
             setAval({notas: response3.aval.notas, justificativas: response3.aval.justificativas}) 
@@ -55,7 +55,7 @@ return (
         <View style={styles.container}>
             <Text style={styles.h2}> Evidências:</Text>
             <View/>
-            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question[0].titulo}: {question[0].descricao}.</Text>
+            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question.array_perg[0].titulo}: {question.array_perg[0].descricao}.</Text>
             <View/>
             <Text style={{fontSize: 16}}> Nota: {aval.notas[0]} </Text>
             <View/>
@@ -64,7 +64,7 @@ return (
             <View style={estilo.imageContainer}>
                 <Image source={{uri:base64Icon}} style={estilo.image}></Image>
             </View>
-            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question[1].titulo} {question[1].descricao}.</Text>
+            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question.array_perg[1].titulo}: {question.array_perg[1].descricao}.</Text>
             <View/>
             <Text style={{fontSize: 16}}> Nota: {aval.notas[1]} </Text>
             <View/>
@@ -73,7 +73,7 @@ return (
             <View style={estilo.imageContainer}>
                 <Image source={{uri:base64Icon}} style={estilo.image}></Image>
             </View>
-            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question[2].titulo} {question[2].descricao}.</Text>
+            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question.array_perg[2].titulo}: {question.array_perg[2].descricao}.</Text>
             <View/>
             <Text style={{fontSize: 16}}> Nota: {aval.notas[2]} </Text>
             <View/>
@@ -82,7 +82,7 @@ return (
             <View style={estilo.imageContainer}>
                 <Image source={{uri:base64Icon}} style={estilo.image}></Image>
             </View>
-            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question[3].titulo} {question[3].descricao}.</Text>
+            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question.array_perg[3].titulo}: {question.array_perg[3].descricao}.</Text>
             <View/>
             <Text style={{fontSize: 16}}> Nota: {aval.notas[3]} </Text>
             <View/>
