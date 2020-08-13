@@ -56,7 +56,7 @@ render() {
               <Text style={styles.bodyText}>Nota 5S: {item.Answer_average_5s}</Text>
               <Text style={styles.bodyText}>Data da avaliação: {item.createdAt}</Text>
 
-              <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosSensos",{Cost_center_id: item.Cost_center_id, Answer_average_5s: item.Answer_average_5s, createdAt: item.createdAt})}>
+              <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosSensos",{id: item.id, Cost_center_id: item.Cost_center_id, Answer_average_5s: item.Answer_average_5s, createdAt: item.createdAt})}>
                 <Text style={styles.secondaryButtonText}> Detalhes </Text>
               </TouchableOpacity>
               <View style={styles.divisor}/>

@@ -17,15 +17,15 @@ import {
 
   export default function FormulariosDetalhes({ route, navigation }) {
     //Parâmetros enviados do formularios_sensos
-    const { Cost_center_id, createdAt, Question_id_answer_S, s } = route.params;
+    const { id, Cost_center_id, createdAt, Question_id_answer_S, s } = route.params;
 
     //A ideia é criar uma response para cada imagem, de modo a renderizar todas as imagens feitas
     //O problema é quando essa imagem não tiver sido feita. O que renderizar? 
     //Renderização condicional para não renderizar quando não existir no bd?
 
     const [data, setData] = useState({uri:null, base64:null});
-    const [question, setQuestion] = useState({array_perg: null})
-    const [aval, setAval] = useState({notas: null, justificativas: null}) //Verificar como as justificativas serão enviadas do back
+    const [question, setQuestion] = useState([0,0,0,0])
+    const [aval, setAval] = useState({notas: [0,0,0,0], justificativas: ["","","",""]}) //Verificar como as justificativas serão enviadas do back
 
     //Pegando imagem
     //Dá pra fazer um laço aqui? Pra ir alterando o estado conforme for renderizando
@@ -37,10 +37,10 @@ import {
             setData({uri:response1.data.uri,base64: response1.data.base64})
 
             const response2 = await pergunta.get('/'+ s) //Verificar a rota para passar as perguntas
-            setQuestion({array_perg: response2.question}) 
+            setQuestion(response2.data) 
 
-            const response3 = await avaliacao.get('/' + createdAt + '/' + Question_id_answer_S) //Verificar a rota para passar as justificativas
-            setAval({notas: response3.aval.notas, justificativas: response3.aval.justificativas}) 
+            const response3 = await avaliacao.get('/' + id + '/' + Question_id_answer_S) //Verificar a rota para passar as justificativas
+            setAval({notas: response3.data.notas, justificativas: response3.data.justificativas}) 
             };
         fetchData();
     },[]);
@@ -55,7 +55,7 @@ return (
         <View style={styles.container}>
             <Text style={styles.h2}> Evidências:</Text>
             <View/>
-            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question.array_perg[0].titulo}: {question.array_perg[0].descricao}.</Text>
+            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question[0].titulo}: {question[0].descricao}.</Text>
             <View/>
             <Text style={{fontSize: 16}}> Nota: {aval.notas[0]} </Text>
             <View/>
@@ -64,7 +64,7 @@ return (
             <View style={estilo.imageContainer}>
                 <Image source={{uri:base64Icon}} style={estilo.image}></Image>
             </View>
-            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question.array_perg[1].titulo}: {question.array_perg[1].descricao}.</Text>
+            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question[1].titulo}: {question[1].descricao}.</Text>
             <View/>
             <Text style={{fontSize: 16}}> Nota: {aval.notas[1]} </Text>
             <View/>
@@ -73,7 +73,7 @@ return (
             <View style={estilo.imageContainer}>
                 <Image source={{uri:base64Icon}} style={estilo.image}></Image>
             </View>
-            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question.array_perg[2].titulo}: {question.array_perg[2].descricao}.</Text>
+            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question[2].titulo}: {question[2].descricao}.</Text>
             <View/>
             <Text style={{fontSize: 16}}> Nota: {aval.notas[2]} </Text>
             <View/>
@@ -82,7 +82,7 @@ return (
             <View style={estilo.imageContainer}>
                 <Image source={{uri:base64Icon}} style={estilo.image}></Image>
             </View>
-            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question.array_perg[3].titulo}: {question.array_perg[3].descricao}.</Text>
+            <Text style={{fontSize: 16, fontWeight: 'bold'}}> {question[3].titulo}: {question[3].descricao}.</Text>
             <View/>
             <Text style={{fontSize: 16}}> Nota: {aval.notas[3]} </Text>
             <View/>

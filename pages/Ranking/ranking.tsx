@@ -69,7 +69,7 @@ import {
                             return (
                                 <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('RankingDetalhes',{Cost_center_id: item.Cost_center_id, position: index+1})}>
                                     <Text style={{ fontSize: 18, fontWeight: 'bold', textAlign: 'center' }}> {index + 1}º      <Text style={{ fontSize: 18, fontWeight: 'normal' }}>Centro de Custo: {item.Cost_center_id}</Text> </Text>
-                                    <Text style={{ fontSize: 18 }}>Nota:  {item.Cost_center_Avg_5s}</Text>
+                                    <Text style={{ fontSize: 18 }}>Nota:  {item.Cost_center_Avg_5s.toFixed(2)}</Text>
                                 </TouchableOpacity>
                             );
                         }}
