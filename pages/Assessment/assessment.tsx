@@ -11,17 +11,12 @@ import {
     Button,
   } from 'react-native';
 
-  import {id} from '../api_back'
+ 
 
 
   export default function Assessment({navigation}) {
 
-    //Enviar para o backend
-    const save = async() => { //fazer um post pro back
-        //Alert.alert('Imagem adicionada', this.state.comment)
-        avaliacao.post('/p', {Question_id_answer_p: {notas:[l1,l2,l3,l4], justificativas:[text1,text2,text3,text4] }}).then(response => {console.log(response)})}
-          
-    
+
     const styles = StyleSheet.create ({
         secondaryButton: {
             backgroundColor: '#000',
