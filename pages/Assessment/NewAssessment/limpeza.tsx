@@ -45,14 +45,7 @@ import {
         fetchData2();
     },[]);
 
-    // Data para Flatlist
-    const formLimpeza = [
-        {question: '1.1. Utilização dos recursos existentes nos locais abertos', id: '1'},
-        {question: '1.2. Utilização dos recursos existentes nos locais fechados', id: '2'},
-        {question: '1.3. Estado de conservação de instalações e recursos ', id: '3'},
-        {question: '1.4. Controle dos problemas de conservação', id: '4'},
-    ];
-    
+ 
     //botão funcionar e trocar
      const iconOne = {One, OneSelected}
      
@@ -356,9 +349,13 @@ import {
     //Enviar para o backend
     const save = async() => { //fazer um post pro back
         //Alert.alert('Imagem adicionada', this.state.comment)
-        avaliacao.post('/l', {Question_id_answer_l: [l1,l2,l3,l4]}).then(response => {console.log(response)})}
+        avaliacao.post('/l', {Question_id_answer_l: {notas:[l1,l2,l3,l4], justificativas:[text1,text2,text3,text4] }}).then(response => {console.log(response)})}
           
-
+    // define const text das justificativas
+    const [text1,setText1] = useState('');
+    const [text2,setText2] = useState('');
+    const [text3,setText3] = useState('');
+    const [text4,setText4] = useState('');
 
 
        return (
@@ -384,7 +381,13 @@ import {
                             </View>
                             {renderCondL1()}
                              <Text style={styles.imputLabel}> Justifique: </Text>
-                             <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
+                             <TextInput 
+                             style= {styles.imputText}
+                             placeholder= "Escreva aqui sua justificativa"
+                             onChangeText={text => setText1(text)}
+                             defaultValue = {text1}
+                             >
+                             </TextInput>
                              <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia")} > 
                                  <Text style={styles.secondaryButtonText}>Adicionar evidência</Text>
                              </TouchableOpacity>
@@ -403,7 +406,13 @@ import {
                             </View>
                             {renderCondL2()}
                              <Text style={styles.imputLabel}> Justifique: </Text>
-                             <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
+                             <TextInput 
+                             style= {styles.imputText}
+                             placeholder= "Escreva aqui sua justificativa"
+                             onChangeText={text => setText2(text)}
+                             defaultValue = {text2}
+                             >
+                             </TextInput>
                              <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia")} > 
                                  <Text style={styles.secondaryButtonText}>Adicionar evidência</Text>
                              </TouchableOpacity>
@@ -422,7 +431,13 @@ import {
                             </View>
                             {renderCondL3()}
                              <Text style={styles.imputLabel}> Justifique: </Text>
-                             <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
+                             <TextInput 
+                             style= {styles.imputText}
+                             placeholder= "Escreva aqui sua justificativa"
+                             onChangeText={text => setText3(text)}
+                             defaultValue = {text3}
+                             >
+                             </TextInput>
                              <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia")} > 
                                  <Text style={styles.secondaryButtonText}>Adicionar evidência</Text>
                              </TouchableOpacity>
@@ -441,7 +456,13 @@ import {
                             </View>
                             {renderCondL4()}
                              <Text style={styles.imputLabel}> Justifique: </Text>
-                             <TextInput style= {styles.imputText}>Escreva aqui sua justificativa</TextInput>
+                             <TextInput 
+                             style= {styles.imputText}
+                             placeholder= "Escreva aqui sua justificativa"
+                             onChangeText={text => setText4(text)}
+                             defaultValue = {text4}
+                             >
+                             </TextInput>
                              <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia")} > 
                                  <Text style={styles.secondaryButtonText}>Adicionar evidência</Text>
                              </TouchableOpacity>
@@ -452,7 +473,7 @@ import {
                              
                          </View>
                          
-                            <TouchableOpacity style={styles.primaryButton} onPress={() => {save();navigation.navigate ("Organizacao")}}>
+                            <TouchableOpacity style={styles.primaryButton} onPress={() => {save();navigation.navigate ("Padronizacao")}}>
                          <Text style={styles.primaryButtonText}>Próximo</Text>
                      </TouchableOpacity>
                  </View>

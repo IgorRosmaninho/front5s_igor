@@ -13,7 +13,7 @@ import {
   } from 'react-native';
   import styles from '../../style/styles'
 
-  import {resultado} from '../../api_back'
+  import {salvabd, resultado} from '../../api_back'
 
   export default function Resultado({navigation}) {
 
@@ -29,7 +29,16 @@ import {
             };
         fetchData();
     },[]);
-   
+
+    // //Manda calcular no back
+    // const calcula = async() => { //fazer um post pro back
+    //     //Alert.alert('Imagem adicionada', this.state.comment)
+    //     calculamedia.post('').then(response => {console.log(response)})}
+    
+        //Manda salvar o back salvar no BD
+    const salvar = async() => { //fazer um post pro back
+        //Alert.alert('Imagem adicionada', this.state.comment)
+        salvabd.post('').then(response => {console.log(response)})}
 
        return (
            <ScrollView>
@@ -60,7 +69,7 @@ import {
                 <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("ResultadoDetalhes")}>
                     <Text style={styles.secondaryButtonText}>Detalhes</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.primaryButton} onPress={() => navigation.navigate ("Resultado")}>
+                <TouchableOpacity style={styles.primaryButton} onPress={() => {salvar();navigation.navigate ("Resultado")}}>
                     <Text style={styles.primaryButtonText}>Salvar</Text>
                 </TouchableOpacity>
                 </View>
