@@ -19,7 +19,7 @@ import {
              </View>
             <View style={{ justifyContent: 'center', alignSelf: 'center', width: '100%'}}>
               <TouchableOpacity style={{backgroundColor: '#000', height: 48, justifyContent: 'center', margin: 16,}} 
-                onPress={() => navigation.navigate ("Limpeza") }
+                onPress={() => navigation.navigate ("Utilizacao") }
                 >
                  <Text style={{color: '#fff', fontSize: 16, fontWeight: 'bold', alignSelf: 'center'}} > Começar</Text>
             </TouchableOpacity>

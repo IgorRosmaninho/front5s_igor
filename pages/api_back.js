@@ -58,8 +58,10 @@ const rank = axios.create({
     baseURL: 'http://192.168.0.13:4000/ranking/'
 });
 
+const salvabd = axios.create({
+    baseURL: 'http://192.168.0.13:4000/salvabd/'
+});
 
 
-
-export  {rank,rank_graf,hist_image,id,imagem, descricao, avaliacao, resultado, pergunta, hist5sDESC, hist5sASC, hist3sDESC, avaliacaoid};
+export  {salvabd, rank,rank_graf,hist_image,id,imagem, descricao, avaliacao, resultado, pergunta, hist5sDESC, hist5sASC, hist3sDESC, avaliacaoid};
 
