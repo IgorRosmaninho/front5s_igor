@@ -76,7 +76,7 @@ import {
     const openCamera = () => {
         AddPhoto
     } 
-   
+
     const [l1, setl1] = useState(0)
     function alteral11 () {setl1(1)}
     function alteral12 () {setl1(2)}

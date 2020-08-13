@@ -38,6 +38,7 @@ export default class AddPhoto extends Component {
     }
 
     //Pegando o avaliacaoId
+    //Enviar para as evidencias e pegar aqui como parametro na class
     const [id, setId] = useState({id:null});
 
     useEffect(() => {
@@ -52,9 +53,8 @@ export default class AddPhoto extends Component {
 
     save = async() => { //fazer um post pro back
         //Alert.alert('Imagem adicionada', this.state.comment)
-        imagem.post('', {image:JSON.stringify(this.state.image)}).then(response => {console.log(response)})}
+        imagem.post('', {avaliacaoId: id, titulo: titulo , image:JSON.stringify(this.state.image)}).then(response => {console.log(response)})}
           
-
 
     render() {
         const { navigation } = this.props;
