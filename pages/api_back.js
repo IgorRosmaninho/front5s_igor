@@ -17,11 +17,11 @@ const imagem = axios.create({
 })
 
 const id = axios.create({
-    baseURL:  'http://192.168.0.13:4000//avaliacao/id'
+    baseURL:  'http://192.168.0.13:4000/avaliacao/id'
  });
  
 const avaliacao = axios.create({
-    baseURL:  'http://192.168.0.13:4000//avaliacao'
+    baseURL:  'http://192.168.0.13:4000/avaliacao'
  });
 
 const resultado = axios.create({

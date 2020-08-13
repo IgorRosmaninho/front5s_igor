@@ -52,6 +52,7 @@ function StackRanking (){
   return(
     <Stack.Navigator>
           <Stack.Screen name="Ranking" component={Ranking} options={{ title: 'Ranking' }} />
+          <Stack.Screen name="RankingDetalhes" component={RankingDetalhes} options={{title: 'Detalhe'}}/>
     </Stack.Navigator>
     )}
 
