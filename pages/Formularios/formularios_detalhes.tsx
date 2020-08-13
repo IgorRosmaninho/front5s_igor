@@ -39,7 +39,7 @@ import {
             const response2 = await pergunta.get('/'+ s) //Verificar a rota para passar as perguntas
             setQuestion({s: response2.question.s, titulo: response2.question.titulo, descricao: response2.question.descricao}) 
 
-            const response3 = await avaliacao.get('/avaliacao/' + createdAt + '/' + Question_id_answer_S) //Verificar a rota para passar as justificativas
+            const response3 = await avaliacao.get('/' + createdAt + '/' + Question_id_answer_S) //Verificar a rota para passar as justificativas
             setAval({notas: response3.aval.notas, justificativas: response3.aval.justificativas}) 
             };
         fetchData();
