@@ -30,31 +30,31 @@ export default function FormulariosSensos({route, navigation}) {
 
           <Text style={styles.bodyText}>Escolha o senso que deseja detalhar:</Text>
           <View />
-          <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, nota: nota, createdAt: createdAt, senso: "Question_id_answer_u"})}>
+          <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, createdAt: createdAt, Question_id_answer_S: "Question_id_answer_u", s: 1})}>
             <Text style={styles.secondaryButtonText}> Utilização </Text>
           </TouchableOpacity>
 
           <View />
 
-          <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, nota: nota, createdAt: createdAt, senso: "Question_id_answer_o"})}>
+          <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, createdAt: createdAt, Question_id_answer_S: "Question_id_answer_o", s: 2})}>
             <Text style={styles.secondaryButtonText}> Organização </Text>
             </TouchableOpacity>
 
             <View />
 
-            <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, nota: nota, createdAt: createdAt, senso: "Question_id_answer_l"})}>
+            <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, createdAt: createdAt, Question_id_answer_S: "Question_id_answer_l", s: 3})}>
             <Text style={styles.secondaryButtonText}> Limpeza </Text>
             </TouchableOpacity>
 
             <View />
 
-            <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, nota: nota, createdAt: createdAt, senso: "Question_id_answer_p"})}>
+            <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, createdAt: createdAt, Question_id_answer_S: "Question_id_answer_p", s: 4})}>
             <Text style={styles.secondaryButtonText}> Padronização </Text>
             </TouchableOpacity>
 
             <View />
 
-            <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, nota: nota, createdAt: createdAt, senso: "Question_id_answer_d"})}>
+            <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, createdAt: createdAt, Question_id_answer_S: "Question_id_answer_d", s: 5})}>
             <Text style={styles.secondaryButtonText}> Disciplina </Text>
             </TouchableOpacity>
 
