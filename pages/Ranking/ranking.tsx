@@ -40,17 +40,7 @@ import {
         //     ]);
         // },[]);
 
-    const Positions = [  
-            { nposition: '1º'},
-            { nposition: '2º'},
-            { nposition: '3º'},
-            { nposition: '4º'},
-            { nposition: '5º'},
-            { nposition: '6º'},
-            { nposition: '7º'},
-            { nposition: '8º'},
-            { nposition: '9º'},
-            ];
+
 
     const [cc, setCc] = useState([]);
     useEffect(() => {

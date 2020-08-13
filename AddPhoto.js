@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View,
     Text,
@@ -10,7 +10,7 @@ import {
     Alert,
     Dimensions
 } from 'react-native'
-import {imagem} from './pages/api_back'
+import {imagem, avaliacao, avaliacaoid} from './pages/api_back'
 import styles from './pages/style/styles';
 import ImagePicker  from 'react-native-image-picker'
 import { Component } from 'react'
@@ -35,12 +35,26 @@ export default class AddPhoto extends Component {
              this.setState({ image: {uri: res.uri, base64: res.data}})
          }
      }); 
-    }
+    };
+
+    //Pegando o avaliacaoId
+    //Enviar para as evidencias e pegar aqui como parametro na class
+    // const [id, setId] = useState({id:null});
+
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const response = await avaliacaoid.get('')
+    //         //setState(image: JSON.parse(response))
+    //         console.log(response.data.id)
+    //         setId({id:response.data.id})
+    //         };
+    //     fetchData();
+    // },[]);
+
     save = async() => { //fazer um post pro back
         //Alert.alert('Imagem adicionada', this.state.comment)
-        imagem.post('', {image:JSON.stringify(this.state.image)}).then(response => {console.log(response)})}
+        imagem.post('', {avaliacaoId: id, titulo: titulo , image:JSON.stringify(this.state.image)}).then(response => {console.log(response)})}
           
-
 
     render() {
         const { navigation } = this.props;
