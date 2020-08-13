@@ -20,45 +20,46 @@ export default function FormulariosSensos({route, navigation}) {
 
   return (
     //<ScrollView>
-    <View>
-      <Text style={styles.h2}>Centro de custo: {Cost_center_id}</Text>
-      <Text style={styles.bodyText}>Nota 5S: {nota}</Text>
-      <Text style={styles.bodyText}>Data da avaliação: {createdAt}</Text>
+    <View style={styles.container}>
+      <View>
+          <Text style={styles.h2}>Centro de custo: {Cost_center_id}</Text>
+          <Text style={styles.bodyText}>Nota 5S: {nota}</Text>
+          <Text style={styles.bodyText}>Data da avaliação: {createdAt}</Text>
 
-      <View style={styles.divisor}/>
+          <View style={styles.divisor}/>
 
-      <Text style={styles.bodyText}>Escolha o senso que deseja detalhar:</Text>
-      <View />
-      <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, nota: nota, createdAt: createdAt, senso: "Question_id_answer_u"})}>
-        <Text style={styles.secondaryButtonText}> Utilização </Text>
-      </TouchableOpacity>
+          <Text style={styles.bodyText}>Escolha o senso que deseja detalhar:</Text>
+          <View />
+          <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, nota: nota, createdAt: createdAt, senso: "Question_id_answer_u"})}>
+            <Text style={styles.secondaryButtonText}> Utilização </Text>
+          </TouchableOpacity>
 
-      <View />
+          <View />
 
-      <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, nota: nota, createdAt: createdAt, senso: "Question_id_answer_o"})}>
-        <Text style={styles.secondaryButtonText}> Organização </Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, nota: nota, createdAt: createdAt, senso: "Question_id_answer_o"})}>
+            <Text style={styles.secondaryButtonText}> Organização </Text>
+            </TouchableOpacity>
 
-        <View />
+            <View />
 
-        <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, nota: nota, createdAt: createdAt, senso: "Question_id_answer_l"})}>
-        <Text style={styles.secondaryButtonText}> Limpeza </Text>
-        </TouchableOpacity>
+            <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, nota: nota, createdAt: createdAt, senso: "Question_id_answer_l"})}>
+            <Text style={styles.secondaryButtonText}> Limpeza </Text>
+            </TouchableOpacity>
 
-        <View />
+            <View />
 
-        <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, nota: nota, createdAt: createdAt, senso: "Question_id_answer_p"})}>
-        <Text style={styles.secondaryButtonText}> Padronização </Text>
-        </TouchableOpacity>
+            <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, nota: nota, createdAt: createdAt, senso: "Question_id_answer_p"})}>
+            <Text style={styles.secondaryButtonText}> Padronização </Text>
+            </TouchableOpacity>
 
-        <View />
+            <View />
 
-        <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, nota: nota, createdAt: createdAt, senso: "Question_id_answer_d"})}>
-        <Text style={styles.secondaryButtonText}> Disciplina </Text>
-        </TouchableOpacity>
+            <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosDetalhes", {Cost_center_id: Cost_center_id, nota: nota, createdAt: createdAt, senso: "Question_id_answer_d"})}>
+            <Text style={styles.secondaryButtonText}> Disciplina </Text>
+            </TouchableOpacity>
 
-        <View />
-
+            <View />
+      </View>
     </View>
   )}
 //</ScrollView>
