@@ -54,13 +54,13 @@ import {
                 <View>
                     <Text style={styles.bodyText}> Média 3S:</Text>
                     <View style={{borderWidth:1, borderColor: '#000', justifyContent: 'center'}}>
-                        <Text style={{fontSize: 24, fontWeight: 'bold'}}> {data.Answer_average_3s}</Text>
+                        <Text style={{fontSize: 24, fontWeight: 'bold'}}> {data.Answer_average_3s}%</Text>
                     </View>
                 </View>
                 <View>
                     <Text style={styles.bodyText}> Média 5S:</Text>
                     <View style={{borderWidth:1, borderColor: '#000', justifyContent: 'center'}}>
-                        <Text style={{fontSize: 24, fontWeight: 'bold'}}> {data.Answer_average_5s}</Text>
+                        <Text style={{fontSize: 24, fontWeight: 'bold'}}> {data.Answer_average_5s}%</Text>
                     </View>
                 </View>
                 </View>

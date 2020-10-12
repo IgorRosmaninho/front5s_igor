@@ -144,13 +144,21 @@ android {
         }
     }
     signingConfigs {
-        debug {
-            storeFile file('debug.keystore')
-            storePassword 'android'
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
-        }
+    release {
+        storeFile file('app_5s_igor.keystore')
+        storePassword 'igor8910'
+        keyAlias 'app_5s_igor'
+        keyPassword 'igor8910'
     }
+    }
+    // signingConfigs {
+    //     debug {
+    //         storeFile file('debug.keystore')
+    //         storePassword 'android'
+    //         keyAlias 'androiddebugkey'
+    //         keyPassword 'android'
+    //     }
+    // }
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
@@ -159,6 +167,7 @@ android {
             // Caution! In production, you need to generate your own keystore file.
             // see https://facebook.github.io/react-native/docs/signed-apk-android.
             signingConfig signingConfigs.debug
+            //signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }

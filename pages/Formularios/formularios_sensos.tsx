@@ -23,8 +23,8 @@ export default function FormulariosSensos({route, navigation}) {
     <View style={styles.container}>
       <View>
           <Text style={styles.h2}>Centro de custo: {Cost_center_id}</Text>
-          <Text style={styles.bodyText}>Nota 5S: {Answer_average_5s}</Text>
-          <Text style={styles.bodyText}>Data da avaliação: {createdAt}</Text>
+          <Text style={styles.bodyText}>Nota 5S: {(Answer_average_5s*100/5).toFixed(1)}%</Text>
+          <Text style={styles.bodyText}>Data da avaliação: {Date(createdAt).split('GMT-0300 (-03)')}</Text>
           <Text/>
           <View style={styles.divisor}/>
 

@@ -34,7 +34,7 @@ import {
         fetchData();
     },[]);
 
-    const [descricao_txt, setDescricao] = useState({2.1:[0,0,0,0]});
+    const [descricao_txt, setDescricao] = useState({2.1:[0,0,0,0,0]});
     useEffect(() => {
         const fetchData2 = async () => {
             const response = await descricao.get('/2')

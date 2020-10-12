@@ -14,30 +14,30 @@ import {
   //  senha: "1234"
   //   }
   
-  async function postData(url = '', data = {}) { 
-    const response = await fetch(url, {
-      method: 'POST', // or 'PUT'
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(data),
-})
-.then(response => response.json())
-.then(data => {
-  console.log('Success:', data);
-})
-.catch((error) => {
-  console.error('Error:', error);
-})
-  }
+//   async function postData(url = '', data = {}) { 
+//     const response = await fetch(url, {
+//       method: 'POST', // or 'PUT'
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify(data),
+// })
+// .then(response => response.json())
+// .then(data => {
+//   console.log('Success:', data);
+// })
+// .catch((error) => {
+//   console.error('Error:', error);
+// })
+//   }
 
-  var loginData = {   //Teste
-    email: "teste@teste.com",
-    senha: "teste",
-  };
+//   var loginData = {   //Teste
+//     email: "teste@teste.com",
+//     senha: "teste",
+//   };
 
 
-  postData('/login', loginData)
+//   postData('/login', loginData)
 
   export default function Login({navigation}) {
 

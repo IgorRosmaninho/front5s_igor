@@ -50,21 +50,21 @@ import {
                <View style={styles.espaco}/>
                <View style={styles.divisor}/>
                <View style={styles.espaco}/>
-               <Text style={{fontSize: 20, fontWeight: 'bold'}}> Utilização: {data.Answer_average_u}</Text>
+               <Text style={{fontSize: 20, fontWeight: 'bold'}}> Utilização: {data.Answer_average_u}%</Text>
                <View style={styles.espaco}/>
-               <Text style={{fontSize: 20, fontWeight: 'bold'}}> Organização: {data.Answer_average_o}</Text>
+               <Text style={{fontSize: 20, fontWeight: 'bold'}}> Organização: {data.Answer_average_o}%</Text>
                <View style={styles.espaco}/>
-               <Text style={{fontSize: 20, fontWeight: 'bold'}}> Limpeza: {data.Answer_average_l}</Text>
+               <Text style={{fontSize: 20, fontWeight: 'bold'}}> Limpeza: {data.Answer_average_l}%</Text>
                <View style={styles.espaco}/>
-               <Text style={{fontSize: 20, fontWeight: 'bold'}}> Padronização: {data.Answer_average_p}</Text>
+               <Text style={{fontSize: 20, fontWeight: 'bold'}}> Padronização: {data.Answer_average_p}%</Text>
                <View style={styles.espaco}/>
-               <Text style={{fontSize: 20, fontWeight: 'bold'}}> Disciplina: {data.Answer_average_d}</Text>
+               <Text style={{fontSize: 20, fontWeight: 'bold'}}> Disciplina: {data.Answer_average_d}%</Text>
                <View style={styles.espaco}/>
                <View style={styles.divisor}/>
                <View style={styles.espaco}/>
-               <Text style={{fontSize: 20, fontWeight: 'bold'}}> Média 3S: {data.Answer_average_3s}</Text>
+               <Text style={{fontSize: 20, fontWeight: 'bold'}}> Média 3S: {data.Answer_average_3s}%</Text>
                <View style={styles.espaco}/>
-               <Text style={{fontSize: 20, fontWeight: 'bold'}}> Média 5S: {data.Answer_average_5s}</Text>
+               <Text style={{fontSize: 20, fontWeight: 'bold'}}> Média 5S: {data.Answer_average_5s}%</Text>
                <View style={styles.espaco}/>
                </View>
                </View>

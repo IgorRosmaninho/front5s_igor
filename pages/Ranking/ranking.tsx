@@ -21,14 +21,23 @@ import {
 
     const [cc, setCc] = useState([]);
     useEffect(() => {
-        const fetchData = async () => {
-            const response = await rank.get('/5s')
-            setCc(response.data)
-            console.log(cc)
-            };
         fetchData();
     },[]);
 
+    const fetchData = async () => {
+        const response = await rank.get('/5s')
+        setCc(response.data)
+        setRefreshing(false) 
+        console.log(cc)
+        };
+
+
+    const[refreshing, setRefreshing]= useState(false);
+
+    const handleRefresh = () => {
+        setRefreshing(true)
+        fetchData()
+    }
 
     const pressHandler = (id) => {
         console.log(id);
@@ -64,12 +73,14 @@ import {
                     }}
                         
                         keyExtractor={cc => cc.Cost_center_id}
+                        refreshing = {refreshing}
+                        onRefresh = {handleRefresh}
                         data={cc}
                         renderItem={({item, index}) => {
                             return (
                                 <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('RankingDetalhes',{Cost_center_id: item.Cost_center_id, position: index+1})}>
                                     <Text style={{ fontSize: 18, fontWeight: 'bold', textAlign: 'center' }}> {index + 1}º      <Text style={{ fontSize: 18, fontWeight: 'normal' }}>Centro de Custo: {item.Cost_center_id}</Text> </Text>
-                                    <Text style={{ fontSize: 18 }}>Nota:  {item.Cost_center_Avg_5s.toFixed(2)}</Text>
+                                    <Text style={{ fontSize: 18 }}>Nota:  {(item.Cost_center_Avg_5s*100/5).toFixed(1)}%</Text>
                                 </TouchableOpacity>
                             );
                         }}

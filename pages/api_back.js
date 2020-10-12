@@ -3,63 +3,65 @@ import axios from 'react-native-axios';
 //Igor:
 //"Ipv4 2.4": 192.168.0.18
 //"Ipv4 2.4_ext": 192.168.0.13
+//"Ipv4 JU": 192.168.0.128
+//"Ipv4 Sitio_cabo": 192.168.1.122
 
 const avaliacaoid = axios.create({
-    baseURL:  'http://192.168.0.13:4000/avaliacaoid'
+    baseURL:  'http://192.168.1.122:4000/avaliacaoid'
 })
 
 const hist_image = axios.create({
-    baseURL:  'http://192.168.0.13:4000/hist_image'
+    baseURL:  'http://192.168.1.122:4000/hist_image'
 })
 
 const imagem = axios.create({
-    baseURL:  'http://192.168.0.13:4000/image'
+    baseURL:  'http://192.168.1.122:4000/image'
 })
 
 const id = axios.create({
-    baseURL:  'http://192.168.0.13:4000/avaliacao/id'
+    baseURL:  'http://192.168.1.122:4000/avaliacao/id'
  });
  
 const avaliacao = axios.create({
-    baseURL:  'http://192.168.0.13:4000/avaliacao'
+    baseURL:  'http://192.168.1.122:4000/avaliacao'
  });
 
 const resultado = axios.create({
-   baseURL:  'http://192.168.0.13:4000/resultados'
+   baseURL:  'http://192.168.1.122:4000/resultados'
 });
 
 const pergunta = axios.create({
-    baseURL: 'http://192.168.0.13:4000/pergunta'
+    baseURL: "http://192.168.1.122:4000/pergunta"
 });
 
 
 const descricao = axios.create({
-    baseURL: 'http://192.168.0.13:4000/descricao'
+    baseURL: 'http://192.168.1.122:4000/descricao'
 });
 
 
 const hist5sDESC = axios.create({
-    baseURL: 'http://192.168.0.13:4000/historico/5s/createdAt/DESC'
+    baseURL: 'http://192.168.1.122:4000/historico/5s/createdAt/DESC'
 });
 
 const hist5sASC = axios.create({
-    baseURL: 'http://192.168.0.13:4000/historico/5s/createdAt/ASC'
+    baseURL: 'http://192.168.1.122:4000/historico/5s/createdAt/ASC'
 });
 
 const hist3sDESC = axios.create({
-    baseURL: 'http://192.168.0.13:4000/historico/3s/createdAt/ASC'
+    baseURL: 'http://192.168.1.122:4000/historico/3s/createdAt/ASC'
 });
 
 const rank_graf = axios.create({
-    baseURL: 'http://192.168.0.13:4000/ranking/5s/'
+    baseURL: 'http://192.168.1.122:4000/ranking/5s/'
 });
 
 const rank = axios.create({
-    baseURL: 'http://192.168.0.13:4000/ranking/'
+    baseURL: 'http://192.168.1.122:4000/ranking/'
 });
 
 const salvabd = axios.create({
-    baseURL: 'http://192.168.0.13:4000/salvabd/'
+    baseURL: 'http://192.168.1.122:4000/salvabd/'
 });
 
 

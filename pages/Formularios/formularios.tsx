@@ -19,14 +19,22 @@ import {
   export default class Formularios extends Component{
 
     state = {
-      docs: []
+      docs: [],
+      refreshing: false
     };
 
+    
+
     componentDidMount() {
-      hist5sDESC.get('')
+      this.fetchData();
+      }
+      
+      fetchData = () => {
+        hist5sDESC.get('')
         .then(response => {
           this.setState({
-           docs: response.data
+           docs: response.data,
+           refreshing: false
           });
 
           console.log(response.data)
@@ -34,7 +42,18 @@ import {
       })
       .catch(error => console.log(error));
       }
+    
+
       
+      handleRefresh = () => {
+        this.setState(
+          {
+            refreshing: true
+          },
+          () => {
+            this.fetchData();
+          })
+      }
   
 
 render() {
@@ -50,10 +69,12 @@ render() {
           // contentContainerStyle={styles.list}
           data={this.state.docs}
           keyExtractor={(item) => item.id}
+          refreshing = {this.state.refreshing}
+          onRefresh = {this.handleRefresh}
           renderItem={({item}) => (
             <View>
               <Text style={styles.h2}>Centro de custo: {item.Cost_center_id}</Text>
-              <Text style={styles.bodyText}>Nota 5S: {item.Answer_average_5s}</Text>
+              <Text style={styles.bodyText}>Nota 5S: {(item.Answer_average_5s*100/5).toFixed(1)}%</Text>
               <Text style={styles.bodyText}>Data da avaliação: {item.createdAt}</Text>
 
               <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("FormulariosSensos",{id: item.id, Cost_center_id: item.Cost_center_id, Answer_average_5s: item.Answer_average_5s, createdAt: item.createdAt})}>
