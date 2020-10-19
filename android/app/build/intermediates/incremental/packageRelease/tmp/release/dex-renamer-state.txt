@@ -1,4 +1,4 @@
-#Tue Oct 13 14:46:35 BRT 2020
+#Sun Oct 18 23:10:53 BRT 2020
 base.0=C\:\\Users\\Dell\\Desktop\\mercedes_5s\\android\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

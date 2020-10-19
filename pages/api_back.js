@@ -6,8 +6,8 @@ import axios from 'react-native-axios';
 //"Ipv4 JU": 192.168.0.128
 //"Ipv4 Sitio_cabo": 192.168.1.122
 
-var URL = 'http://192.168.1.122:4000'
-//var URL = 'https://bd-5s-heroku.herokuapp.com'
+//var URL = 'http://192.168.1.122:4000'
+var URL = 'https://bd-5s-heroku.herokuapp.com'
 
 const avaliacaoid = axios.create({
     baseURL:  URL + '/avaliacaoid'
