@@ -7,6 +7,7 @@ import {
     TextInput,
     TouchableOpacity,
     StyleSheet,
+    ScrollView
   } from 'react-native';
   import styles from '../style/styles'
 
@@ -14,55 +15,59 @@ import {
 
 
     return (
+    <ScrollView>
         <View style={styles.container}>
             <View style={{margin:12}} >
                 <Text style={styles.h2}>
-                    Utilização:
+                    Utilização (Seiri):
+                </Text>
+              
+                <Text style={styles.bodyText}>
+                    {"- Eliminar a desordem\n- Determinar a frequência de uso dos itens\n- Marcar itens não usados\n- Eliminar itens que não pertencem a uma área\n- Eliminar itens não utilizados"}
+                </Text>
+                
+               
+            </View>
+
+            <View style={{margin:12}}>
+            <Text style={styles.h2}>
+                    Organização (Seiton):
                 </Text>
                 <Text style={styles.bodyText}>
-                    Aqui entram as informações referentes ao senso de utilização!
+                    {"- Organização sistemática do ambiente\n- Todo item tem um lugar \n- Itens com fácil acesso \n- Posição de acordo com a frequência de uso\n- Mapa de posicionamento\n- Demarcar os locais de cada itens \n- Nomear prateleiras"}
                 </Text>
             </View>
 
 
             <View style={{margin:12}}>
             <Text style={styles.h2}>
-                    Organização:
+                    Limpeza (Seiso):
                 </Text>
                 <Text style={styles.bodyText}>
-                    Aqui entram as informações referentes ao senso de organização!
+                    {"- Manter a limpeza do ambiente\n- Não sujar\n- Criar rotina de limpeza (usou-limpou)\n- Inspeção para identificar mal posicionamento"}
                 </Text>
             </View>
 
 
             <View style={{margin:12}}>
             <Text style={styles.h2}>
-                    Limpeza:
+                    Padronização (Seiketsu):
                 </Text>
                 <Text style={styles.bodyText}>
-                    Aqui entram as informações referentes ao senso de limpeza!
+                {"- Estabelecer cronogramas para os 3S's\n- Fácil reconhecimento dos procedimentos\n- Fixar avisos, quadros e instruções\n- Criação de Checklists\n- Padronização de etiquetas"}
                 </Text>
             </View>
 
 
             <View style={{margin:12}}>
             <Text style={styles.h2}>
-                    Padronização:
+                    Disciplina (Shitsuke):
                 </Text>
                 <Text style={styles.bodyText}>
-                    Aqui entram as informações referentes ao senso de padronização!
-                </Text>
-            </View>
-
-
-            <View style={{margin:12}}>
-            <Text style={styles.h2}>
-                    Disciplina:
-                </Text>
-                <Text style={styles.bodyText}>
-                    Aqui entram as informações referentes ao senso de disciplina!
+                {"- Tornar o 5S uma rotina\n- Realizar supervisão de tarefas\n- Promover treinamentos\n- Avaliar Performance\n- Melhoria continua\n- Corrigir problemas"}
                 </Text>
             </View>
         </View>
+    </ScrollView>
     )
   }

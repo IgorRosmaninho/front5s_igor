@@ -9,23 +9,28 @@ import {
     StyleSheet,
     ScrollView,
     FlatList,
-    SectionList
+    SectionList,
+    Alert
   } from 'react-native';
   import styles from '../../style/styles'
 
-  import {salvabd, resultado} from '../../api_back'
+  import {salvabd, resultado, avaliacaoid} from '../../api_back'
 
   export default function Resultado({navigation}) {
 
     const [data, setData] = useState({hits:[]});
+    const [id, setId] = useState({id:0});
     //const [data, setData] = useState();
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await resultado.get('')
-            setData(response.data)
-            
-                console.log(response.data)
+            const response1 = await resultado.get('')
+            setData(response1.data)
+                console.log(response1.data)
+
+            const response2 = await avaliacaoid.get('')
+            setId(response2.data)
+                console.log(response2.data)
             };
         fetchData();
     },[]);
@@ -34,11 +39,13 @@ import {
     // const calcula = async() => { //fazer um post pro back
     //     //Alert.alert('Imagem adicionada', this.state.comment)
     //     calculamedia.post('').then(response => {console.log(response)})}
-    
+
+
+
         //Manda salvar o back salvar no BD
     const salvar = async() => { //fazer um post pro back
-        //Alert.alert('Imagem adicionada', this.state.comment)
-        salvabd.post('').then(response => {console.log(response)})}
+        Alert.alert('Avaliação salva!')
+        salvabd.post('',{id : id.id}).then(response => {console.log(response)})}
 
        return (
            <ScrollView>

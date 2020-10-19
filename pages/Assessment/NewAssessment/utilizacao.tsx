@@ -12,7 +12,7 @@ import {
     FlatList,
   } from 'react-native';
 
-  import {avaliacao, pergunta, descricao} from '../../api_back'
+  import {avaliacaoid, avaliacao, pergunta, descricao} from '../../api_back'
 
   import styles from '../../style/styles';
 
@@ -45,7 +45,7 @@ import {
         fetchData2();
     },[]);
 
- 
+   
     //botão funcionar e trocar
      const iconOne = {One, OneSelected}
      
@@ -376,7 +376,7 @@ import {
                              defaultValue = {text1}
                              >
                              </TextInput>
-                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia")} > 
+                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia",{ titulo: 1.1 })} > 
                                  <Text style={styles.secondaryButtonText}>Adicionar evidência</Text>
                              </TouchableOpacity>
                              <View style={styles.divisor}></View>
@@ -401,7 +401,7 @@ import {
                              defaultValue = {text2}
                              >
                              </TextInput>
-                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia")} > 
+                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia",{ titulo: 1.2 })} > 
                                  <Text style={styles.secondaryButtonText}>Adicionar evidência</Text>
                              </TouchableOpacity>
                              <View style={styles.divisor}></View>
@@ -426,7 +426,7 @@ import {
                              defaultValue = {text3}
                              >
                              </TextInput>
-                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia")} > 
+                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia",{ titulo: 1.3 })} > 
                                  <Text style={styles.secondaryButtonText}>Adicionar evidência</Text>
                              </TouchableOpacity>
                              <View style={styles.divisor}></View>
@@ -451,7 +451,7 @@ import {
                              defaultValue = {text4}
                              >
                              </TextInput>
-                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia")} > 
+                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia",{ titulo: 1.4 })} > 
                                  <Text style={styles.secondaryButtonText}>Adicionar evidência</Text>
                              </TouchableOpacity>
                              <View style={styles.divisor}></View>

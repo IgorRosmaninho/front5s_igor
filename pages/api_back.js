@@ -6,64 +6,69 @@ import axios from 'react-native-axios';
 //"Ipv4 JU": 192.168.0.128
 //"Ipv4 Sitio_cabo": 192.168.1.122
 
+var URL = 'http://192.168.1.122:4000'
+//var URL = 'https://bd-5s-heroku.herokuapp.com'
+
 const avaliacaoid = axios.create({
-    baseURL:  'http://192.168.1.122:4000/avaliacaoid'
+    baseURL:  URL + '/avaliacaoid'
 })
 
 const hist_image = axios.create({
-    baseURL:  'http://192.168.1.122:4000/hist_image'
+    baseURL:  URL + '/hist_image'
 })
 
 const imagem = axios.create({
-    baseURL:  'http://192.168.1.122:4000/image'
+    baseURL:  URL + '/image'
 })
 
 const id = axios.create({
-    baseURL:  'http://192.168.1.122:4000/avaliacao/id'
+    baseURL:  URL + '/avaliacao/id'
  });
  
 const avaliacao = axios.create({
-    baseURL:  'http://192.168.1.122:4000/avaliacao'
+    baseURL:  URL + '/avaliacao'
  });
 
 const resultado = axios.create({
-   baseURL:  'http://192.168.1.122:4000/resultados'
+   baseURL:  URL + '/resultados'
 });
 
 const pergunta = axios.create({
-    baseURL: "http://192.168.1.122:4000/pergunta"
+    baseURL: URL + '/pergunta'
 });
 
 
 const descricao = axios.create({
-    baseURL: 'http://192.168.1.122:4000/descricao'
+    baseURL: URL + '/descricao'
 });
 
 
 const hist5sDESC = axios.create({
-    baseURL: 'http://192.168.1.122:4000/historico/5s/createdAt/DESC'
+    baseURL: URL + '/historico/5s/createdAt/DESC'
 });
 
 const hist5sASC = axios.create({
-    baseURL: 'http://192.168.1.122:4000/historico/5s/createdAt/ASC'
+    baseURL: URL + '/historico/5s/createdAt/ASC'
 });
 
 const hist3sDESC = axios.create({
-    baseURL: 'http://192.168.1.122:4000/historico/3s/createdAt/ASC'
+    baseURL: URL + '/historico/3s/createdAt/ASC'
 });
 
 const rank_graf = axios.create({
-    baseURL: 'http://192.168.1.122:4000/ranking/5s/'
+    baseURL: URL + '/ranking/5s/'
 });
 
 const rank = axios.create({
-    baseURL: 'http://192.168.1.122:4000/ranking/'
+    baseURL: URL + '/ranking/'
 });
 
 const salvabd = axios.create({
-    baseURL: 'http://192.168.1.122:4000/salvabd/'
+    baseURL: URL + '/salvabd/'
 });
 
 
-export  {salvabd, rank,rank_graf,hist_image,id,imagem, descricao, avaliacao, resultado, pergunta, hist5sDESC, hist5sASC, hist3sDESC, avaliacaoid};
+export  { salvabd, rank,rank_graf,hist_image,id,imagem, descricao, avaliacao, resultado, pergunta, hist5sDESC, hist5sASC, hist3sDESC, avaliacaoid};
+
+
 

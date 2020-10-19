@@ -388,7 +388,7 @@ import {
                              defaultValue = {text1}
                              >
                              </TextInput>
-                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia")} > 
+                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia",{ titulo: 3.1 })} > 
                                  <Text style={styles.secondaryButtonText}>Adicionar evidência</Text>
                              </TouchableOpacity>
                              <View style={styles.divisor}></View>
@@ -413,7 +413,7 @@ import {
                              defaultValue = {text2}
                              >
                              </TextInput>
-                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia")} > 
+                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia",{ titulo: 3.2 })} > 
                                  <Text style={styles.secondaryButtonText}>Adicionar evidência</Text>
                              </TouchableOpacity>
                              <View style={styles.divisor}></View>
@@ -438,7 +438,7 @@ import {
                              defaultValue = {text3}
                              >
                              </TextInput>
-                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia")} > 
+                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia",{ titulo: 3.3 })} > 
                                  <Text style={styles.secondaryButtonText}>Adicionar evidência</Text>
                              </TouchableOpacity>
                              <View style={styles.divisor}></View>
@@ -463,7 +463,7 @@ import {
                              defaultValue = {text4}
                              >
                              </TextInput>
-                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia")} > 
+                             <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate ("Evidencia",{ titulo: 3.4 })} > 
                                  <Text style={styles.secondaryButtonText}>Adicionar evidência</Text>
                              </TouchableOpacity>
                              <View style={styles.divisor}></View>

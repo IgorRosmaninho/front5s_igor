@@ -9,18 +9,16 @@ import {
   } from 'react-native';
   import styles from '../../style/styles'
 
-  import {id} from '../../api_back'
+  import { id, avaliacaoid } from '../../api_back'
 
   export default function NewAssessment({navigation}) {
   
-      //Enviar id para o backend
+      //Enviar Centro de custo para o backend e cria avaliação
       const save = async() => { //fazer um post pro back
         //Alert.alert('Imagem adicionada', this.state.comment)
         id.post('', {Cost_center_id: textCc}).then(response => {console.log(response)})}
-          
       
       const [textCc,setTextCc] = useState('');   
-    
 
        return (
            <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
